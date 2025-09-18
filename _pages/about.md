@@ -7,4 +7,5 @@ redirect_from:
   - /about.html
 ---
 
-Work in progress.
+I sucessfully built a website!
+I wanted to add an interactive piece to the website but couldn't figure out how to do it...
