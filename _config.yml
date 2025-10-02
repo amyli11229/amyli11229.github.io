@@ -23,7 +23,7 @@ repository               : "" #"academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "amyProfile.png"
+  avatar           : "amyProfile.jpeg"
   name             : "Amy Yiqin Li"
   pronouns         : "she/her"  
   bio              : "bio."
