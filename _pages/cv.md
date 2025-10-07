@@ -15,7 +15,7 @@ Education
 
 Work experience
 ======
-
+UI/UX designer
   
 Skills
 ======

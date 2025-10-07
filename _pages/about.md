@@ -1,11 +1,13 @@
 ---
 permalink: /
-title: "Work in progress"
+title: "Page"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-I sucessfully built a website!
-I wanted to add an interactive piece to the website but couldn't figure out how to do it...
+About Me
+Hi! I am Amy Yiqin Li. I am a third year Visual Arts Student at the University of British Columboa. I am passionate in Visual Arts and interested in Human Computer
+Interaction
+
