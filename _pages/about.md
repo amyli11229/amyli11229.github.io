@@ -46,7 +46,7 @@ Assisted students and faculty in developing digital and interactive art projects
 
 ## 🛠️ Skills  
 
-- **Languages:** English (near-native), Mandarin (native), Shanghainese (fluent), Spanish (B1)  
+- **Languages:** English, Mandarin, Shanghainese, Spanish (B1)  
 - **Programming:** Python, Java, DrRacket  
 - **Design Tools:** Unreal Engine, Blender, Figma, Adobe Creative Suite, TouchDesigner  
 - **Art Practice:** Painting, drawing, photography, sculpture, 3D modeling, printmaking  
