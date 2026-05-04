@@ -12,23 +12,172 @@
 <body>
     <nav class="nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Amy Yiqin Li</a>
+            <a href="#top" class="nav-logo">Amy Yiqin Li</a>
             <div class="nav-links">
-                <a href="projects.html">Projects</a>
+                <a href="#projects">Projects</a>
+                <a href="#bio">Bio</a>
+                <a href="#info">Info</a>
+                <a href="#cv">CV</a>
+                <a href="#contact">Contact</a>
                 <a href="about.html">About</a>
             </div>
         </div>
     </nav>
 
-    <main class="landing">
-        <div class="landing-content">
-            <h1 class="landing-name">Amy Yiqin Li</h1>
-            <p class="landing-intro">Exploring the intersection of visual arts, human-computer interaction, and new media.</p>
-            <p class="landing-direction">Visual Arts / HCI / New Media</p>
-        </div>
-        <div class="scroll-hint">
-            <span class="scroll-arrow">↓</span>
-        </div>
+    <main class="home-page">
+        <section id="top" class="landing" aria-label="Introduction">
+            <div class="landing-content">
+                <h1 class="landing-name">Amy Yiqin Li</h1>
+                <p class="landing-intro">Exploring the intersection of visual arts, human-computer interaction, and new media.</p>
+                <p class="landing-direction">Visual Arts / HCI / New Media</p>
+            </div>
+            <a href="#bio" class="scroll-hint" aria-label="Scroll to bio">
+                <span class="scroll-arrow">↓</span>
+            </a>
+        </section>
+
+        <section id="bio" class="home-section about-page">
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h1>Bio</h1>
+                        <p class="about-intro">
+                            I am a designer and researcher working at the intersection of visual arts, human-computer interaction, and new media. My practice explores how technology can enhance human expression and create meaningful interactive experiences.
+                        </p>
+                        <p>
+                            Through a combination of creative coding, user-centered design, and experimental media, I investigate the boundaries between digital and physical interactions. My work often questions how we perceive and engage with computational systems in everyday life.
+                        </p>
+                        <p class="home-inline-link">
+                            <a href="about.html">Photo and full About page →</a>
+                        </p>
+                    </div>
+                    <div class="about-image" aria-hidden="true">
+                        <div class="avatar-placeholder">
+                            <span>Avatar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="home-section about-page projects-home" aria-labelledby="projects-heading">
+            <div class="projects-home-inner">
+                <div class="page-header">
+                    <h1 id="projects-heading">Projects</h1>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Project Title</h2>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">A brief description of the project, its concept, and what it explores. This could be an interactive installation, a research project, or a creative coding piece.</p>
+                        <div class="project-meta">
+                            <span class="project-medium">Interactive Installation</span>
+                            <span class="project-tech">p5.js, Arduino, Sensors</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Another Project</h2>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <p class="project-description">Description of another project that demonstrates your work in HCI or new media. Focus on the conceptual framework and technical approach.</p>
+                        <div class="project-meta">
+                            <span class="project-medium">Web-based Interaction</span>
+                            <span class="project-tech">HTML, CSS, JavaScript</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Research Project</h2>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <p class="project-description">A research-oriented project exploring user experience, accessibility, or design methodology. Describe the research question and findings.</p>
+                        <div class="project-meta">
+                            <span class="project-medium">Research / UX Design</span>
+                            <span class="project-tech">Figma, User Testing</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-header">
+                            <h2 class="project-title">Creative Coding</h2>
+                            <span class="project-year">2022</span>
+                        </div>
+                        <p class="project-description">An exploration of generative art, data visualization, or computational design. Describe the aesthetic and technical approach.</p>
+                        <div class="project-meta">
+                            <span class="project-medium">Generative Art</span>
+                            <span class="project-tech">Processing, Python</span>
+                        </div>
+                    </article>
+                </div>
+                <p class="home-inline-link projects-home-footnote">
+                    <a href="projects.html">Open this list on its own page →</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="info" class="home-section about-page">
+            <div class="about-container">
+                <div class="skills-section home-skills">
+                    <h2>Tools &amp; technologies</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Design</h3>
+                            <ul>
+                                <li>Figma</li>
+                                <li>Adobe Creative Suite</li>
+                                <li>Prototyping</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Development</h3>
+                            <ul>
+                                <li>HTML / CSS / JavaScript</li>
+                                <li>p5.js / Processing</li>
+                                <li>Python</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Hardware</h3>
+                            <ul>
+                                <li>Arduino</li>
+                                <li>Raspberry Pi</li>
+                                <li>Sensors &amp; Actuators</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cv" class="home-section about-page">
+            <div class="about-container">
+                <div class="cv-section">
+                    <h2>CV</h2>
+                    <p class="about-intro">
+                        Add your résumé to this project folder (for example <code>cv.pdf</code>) and keep the link below pointed at that filename, or change the <code>href</code> on the button to match your file.
+                    </p>
+                    <a href="cv.pdf" class="cv-download">Download CV (PDF)</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="home-section about-page home-contact">
+            <div class="about-container">
+                <div class="contact-section home-contact-inner">
+                    <h2>Contact</h2>
+                    <div class="contact-links">
+                        <a href="mailto:your.email@example.com" class="contact-link">Email</a>
+                        <a href="https://github.com/yourusername" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="main.js"></script>
