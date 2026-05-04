@@ -1,3 +1,9 @@
+/*
+ * Portfolio styles — global look & layout.
+ * Text content: edit index.html, about.html, projects.html (not here).
+ * Quick tweaks: --color-text, --color-bg, --max-width, --spacing-* in :root below.
+ */
+
 /* Reset & Base Styles */
 * {
     margin: 0;

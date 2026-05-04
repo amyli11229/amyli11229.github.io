@@ -1,5 +1,7 @@
-// Minimal JavaScript for subtle interactions
-
+/**
+ * Portfolio scripts — all editable text lives in the HTML files.
+ * This file only fades in .project-card elements when they scroll into view.
+ */
 document.addEventListener('DOMContentLoaded', function() {
     const projectCards = document.querySelectorAll('.project-card');
 
