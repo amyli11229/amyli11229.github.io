@@ -11,8 +11,8 @@
 </head>
 <body>
     <!--
-      PROJECTS-ONLY PAGE — keep project <article> blocks in sync with index.html (#projects).
-      Add/remove cards by copying one <article class="project-card">…</article> block.
+      PROJECTS-ONLY PAGE — keep cards in sync with index.html (#projects).
+      Each card links to projects/*.html; images in images/projects/
     -->
     <nav class="nav">
         <div class="nav-container">
@@ -34,51 +34,71 @@
 
         <div class="projects-grid">
             <article class="project-card">
-                <div class="project-header">
-                    <h2 class="project-title">Project Title</h2>
-                    <span class="project-year">2024</span>
-                </div>
-                <p class="project-description">A brief description of the project, its concept, and what it explores. This could be an interactive installation, a research project, or a creative coding piece.</p>
-                <div class="project-meta">
-                    <span class="project-medium">Interactive Installation</span>
-                    <span class="project-tech">p5.js, Arduino, Sensors</span>
-                </div>
+                <a href="projects/interactive-installation.html" class="project-card-link">
+                    <figure class="project-card-figure">
+                        <img class="project-card-image" src="images/projects/interactive-installation.svg" alt="Project Title preview" width="1200" height="675" loading="lazy">
+                    </figure>
+                    <div class="project-header">
+                        <h2 class="project-title">Project Title</h2>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <p class="project-description">A brief description of the project, its concept, and what it explores. This could be an interactive installation, a research project, or a creative coding piece.</p>
+                    <div class="project-meta">
+                        <span class="project-medium">Interactive Installation</span>
+                        <span class="project-tech">p5.js, Arduino, Sensors</span>
+                    </div>
+                </a>
             </article>
 
             <article class="project-card">
-                <div class="project-header">
-                    <h2 class="project-title">Another Project</h2>
-                    <span class="project-year">2023</span>
-                </div>
-                <p class="project-description">Description of another project that demonstrates your work in HCI or new media. Focus on the conceptual framework and technical approach.</p>
-                <div class="project-meta">
-                    <span class="project-medium">Web-based Interaction</span>
-                    <span class="project-tech">HTML, CSS, JavaScript</span>
-                </div>
+                <a href="projects/web-interaction.html" class="project-card-link">
+                    <figure class="project-card-figure">
+                        <img class="project-card-image" src="images/projects/web-interaction.svg" alt="Another Project preview" width="1200" height="675" loading="lazy">
+                    </figure>
+                    <div class="project-header">
+                        <h2 class="project-title">Another Project</h2>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <p class="project-description">Description of another project that demonstrates your work in HCI or new media. Focus on the conceptual framework and technical approach.</p>
+                    <div class="project-meta">
+                        <span class="project-medium">Web-based Interaction</span>
+                        <span class="project-tech">HTML, CSS, JavaScript</span>
+                    </div>
+                </a>
             </article>
 
             <article class="project-card">
-                <div class="project-header">
-                    <h2 class="project-title">Research Project</h2>
-                    <span class="project-year">2023</span>
-                </div>
-                <p class="project-description">A research-oriented project exploring user experience, accessibility, or design methodology. Describe the research question and findings.</p>
-                <div class="project-meta">
-                    <span class="project-medium">Research / UX Design</span>
-                    <span class="project-tech">Figma, User Testing</span>
-                </div>
+                <a href="projects/research-study.html" class="project-card-link">
+                    <figure class="project-card-figure">
+                        <img class="project-card-image" src="images/projects/research-study.svg" alt="Research Project preview" width="1200" height="675" loading="lazy">
+                    </figure>
+                    <div class="project-header">
+                        <h2 class="project-title">Research Project</h2>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <p class="project-description">A research-oriented project exploring user experience, accessibility, or design methodology. Describe the research question and findings.</p>
+                    <div class="project-meta">
+                        <span class="project-medium">Research / UX Design</span>
+                        <span class="project-tech">Figma, User Testing</span>
+                    </div>
+                </a>
             </article>
 
             <article class="project-card">
-                <div class="project-header">
-                    <h2 class="project-title">Creative Coding</h2>
-                    <span class="project-year">2022</span>
-                </div>
-                <p class="project-description">An exploration of generative art, data visualization, or computational design. Describe the aesthetic and technical approach.</p>
-                <div class="project-meta">
-                    <span class="project-medium">Generative Art</span>
-                    <span class="project-tech">Processing, Python</span>
-                </div>
+                <a href="projects/creative-coding.html" class="project-card-link">
+                    <figure class="project-card-figure">
+                        <img class="project-card-image" src="images/projects/creative-coding.svg" alt="Creative Coding preview" width="1200" height="675" loading="lazy">
+                    </figure>
+                    <div class="project-header">
+                        <h2 class="project-title">Creative Coding</h2>
+                        <span class="project-year">2022</span>
+                    </div>
+                    <p class="project-description">An exploration of generative art, data visualization, or computational design. Describe the aesthetic and technical approach.</p>
+                    <div class="project-meta">
+                        <span class="project-medium">Generative Art</span>
+                        <span class="project-tech">Processing, Python</span>
+                    </div>
+                </a>
             </article>
         </div>
     </main>
