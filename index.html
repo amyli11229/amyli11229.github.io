@@ -29,30 +29,25 @@
       STYLING: colors, fonts, spacing → style.css  |  motion (project fade-in) → main.js
     -->
 
-    <!-- Homepage nav + first section aligned with Figma “Desktop” frame (see <head> comment for link). -->
-    <div class="gallery-home-wrap">
-        <aside class="gallery-sidebar gallery-sidebar--headline" aria-label="Primary">
-            <div class="gallery-sidebar-inner">
-                <h1 class="gallery-headline js-hero-title">
-                    <a href="#top" class="gallery-headline-link">Amy Yiqin Li</a>
-                </h1>
-                <nav class="gallery-side-nav" aria-label="Sections">
-                    <div class="gallery-side-links">
-                        <a href="#projects">Projects</a>
-                        <a href="#bio">Bio</a>
-                        <a href="#info">Tools</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                    <a href="#cv" class="gallery-side-accent">CV — download</a>
-                </nav>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#top" class="nav-logo">Amy Yiqin Li</a>
+            <div class="nav-links">
+                <a href="#bio">Bio</a>
+                <a href="#cv">CV</a>
+                <a href="#projects">Projects</a>
+                <a href="#info">Tools</a>
+                <a href="#contact">Contact</a>
             </div>
-        </aside>
-        <div class="gallery-main-column">
-            <main class="home-page gallery-home-main">
-        <!-- ===== START / INTRO (#top) — Figma “Intro” ===== -->
+        </div>
+    </nav>
+
+    <main class="home-page">
+        <!-- ===== START / INTRO (#top) ===== -->
         <section id="top" class="figma-intro" aria-label="Introduction">
             <div class="landing-bg" aria-hidden="true"></div>
             <div class="figma-intro-inner">
+                <h1 class="figma-intro-title js-hero-title">Amy Yiqin Li</h1>
                 <p class="figma-intro-lead">Exploring the intersection of visual arts, human-computer interaction, and new media.</p>
             </div>
             <a href="#bio" class="scroll-hint" aria-label="Scroll to bio">
@@ -223,9 +218,7 @@
                 </div>
             </div>
         </section>
-            </main>
-        </div>
-    </div>
+    </main>
     <script src="main.js"></script>
 </body>
 </html>
