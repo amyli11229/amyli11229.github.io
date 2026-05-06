@@ -19,6 +19,8 @@
     --color-hover: #333;
     /* Updated by main.js on scroll (0px → 10px) */
     --hero-blur: 0px;
+    --hero-title-opacity: 1;
+    --hero-title-y: 0px;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -39,6 +41,14 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography: keep body Inter, but use Lora for headings/name */
+h1,
+h2,
+h3 {
+    font-family: 'Lora', serif;
+    font-weight: 300;
 }
 
 /* Navigation */
@@ -254,6 +264,9 @@ body {
     letter-spacing: -0.03em;
     margin-bottom: var(--spacing-md);
     line-height: 1.1;
+    opacity: var(--hero-title-opacity);
+    transform: translateY(var(--hero-title-y));
+    transition: opacity 120ms linear, transform 120ms linear;
 }
 
 .landing-intro {
@@ -318,6 +331,56 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+}
+
+/* Homepage Projects section only: square grid, “Pinterest-ish” (without true masonry) */
+.projects-home .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.projects-home .project-card {
+    border-bottom: none;
+}
+
+.projects-home .project-card-link {
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.projects-home .project-card-link:hover {
+    transform: translateY(-4px);
+    opacity: 1;
+}
+
+.projects-home .project-card-figure {
+    margin: 0;
+    border-radius: 0;
+    aspect-ratio: 1 / 1;
+}
+
+.projects-home .project-header,
+.projects-home .project-description,
+.projects-home .project-meta {
+    padding: 0 var(--spacing-md);
+}
+
+.projects-home .project-header {
+    padding-top: var(--spacing-md);
+}
+
+.projects-home .project-meta {
+    padding-bottom: var(--spacing-md);
+}
+
+.projects-home .project-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .project-card {

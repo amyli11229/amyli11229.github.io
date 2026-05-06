@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const blurPx = (t * 10).toFixed(2) + 'px';
         document.documentElement.style.setProperty('--hero-blur', blurPx);
 
+        // Fade + slight lift for the big name title in the hero section
+        // 1 → 0 over the first ~60% of the viewport scroll
+        const tTitle = clamp(y / (viewport * 0.6), 0, 1);
+        const opacity = (1 - tTitle).toFixed(3);
+        const yPx = (-12 * tTitle).toFixed(2) + 'px';
+        document.documentElement.style.setProperty('--hero-title-opacity', opacity);
+        document.documentElement.style.setProperty('--hero-title-y', yPx);
+
         if (nav) {
             nav.classList.toggle('nav--scrolling-down', direction === 'down' && y > 24);
             nav.classList.toggle('nav--scrolling-up', direction === 'up' || y <= 24);
