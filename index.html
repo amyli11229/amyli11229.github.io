@@ -10,8 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Fonts from Figma Desktop frame (node-id=1:208): https://www.figma.com/design/khbTmwgdCAhD0r3ZzVk8kB/Amy-Portfolio-Design?node-id=1-208 -->
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=Rubik+Maps&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-home">
     <!--
       WHERE TO EDIT YOUR SITE
       ─────────────────────────
@@ -27,28 +29,30 @@
       STYLING: colors, fonts, spacing → style.css  |  motion (project fade-in) → main.js
     -->
 
-    <!-- Nav: logo text + section jumps (href="#…" must match section id below) -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="#top" class="nav-logo">Amy Yiqin Li</a>
-            <div class="nav-links">
-                <a href="#bio">Bio</a>
-                <a href="#cv">CV</a>
-                <a href="#projects">Projects</a>
-                <a href="#info">Tools</a>
-                <a href="#contact">Contact</a>
+    <!-- Homepage nav + first section aligned with Figma “Desktop” frame (see <head> comment for link). -->
+    <div class="gallery-home-wrap">
+        <aside class="gallery-sidebar" aria-label="Primary">
+            <div class="gallery-sidebar-inner">
+                <a href="#top" class="gallery-logo">Amy Yiqin Li</a>
+                <nav class="gallery-side-nav" aria-label="Sections">
+                    <div class="gallery-side-links">
+                        <a href="#projects">Projects</a>
+                        <a href="#bio">Bio</a>
+                        <a href="#info">Tools</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <a href="#cv" class="gallery-side-accent">CV — download</a>
+                </nav>
             </div>
-        </div>
-    </nav>
-    <main class="home-page">
-        <!-- ===== HERO (#top) ===== Edit: name, tagline, role line -->
-        <section id="top" class="landing" aria-label="Introduction">
-            <!-- Background layer: blur increases as you scroll (0px → 10px). Replace with your own background later. -->
+        </aside>
+        <div class="gallery-main-column">
+            <main class="home-page gallery-home-main">
+        <!-- ===== START / INTRO (#top) — Figma “Intro” ===== -->
+        <section id="top" class="figma-intro" aria-label="Introduction">
             <div class="landing-bg" aria-hidden="true"></div>
-            <div class="landing-content">
-                <h1 class="landing-name">Amy Yiqin Li</h1>
-                <p class="landing-intro">Exploring the intersection of visual arts, human-computer interaction, and new media.</p>
-                <p class="landing-direction">Visual Arts / HCI / New Media</p>
+            <div class="figma-intro-inner">
+                <h1 class="figma-intro-headline js-hero-title">Amy Yiqin Li</h1>
+                <p class="figma-intro-lead">Exploring the intersection of visual arts, human-computer interaction, and new media.</p>
             </div>
             <a href="#bio" class="scroll-hint" aria-label="Scroll to bio">
                 <span class="scroll-arrow">↓</span>
@@ -218,7 +222,9 @@
                 </div>
             </div>
         </section>
-    </main>
+            </main>
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
