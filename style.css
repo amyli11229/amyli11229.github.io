@@ -17,6 +17,8 @@
     --color-bg: #ffffff;
     --color-border: #e0e0e0;
     --color-hover: #333;
+    /* Updated by main.js on scroll (0px → 10px) */
+    --hero-blur: 0px;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -50,6 +52,15 @@ body {
     border-bottom: 1px solid var(--color-border);
     z-index: 1000;
     padding: var(--spacing-sm) 0;
+    transition: transform 220ms ease;
+}
+
+.nav--scrolling-down {
+    transform: translateY(-100%);
+}
+
+.nav--scrolling-up {
+    transform: translateY(0);
 }
 
 .nav-container {
@@ -213,11 +224,28 @@ body {
     padding: calc(80px + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
     text-align: center;
     position: relative;
+    overflow: hidden;
+}
+
+.landing-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    filter: blur(var(--hero-blur));
+    transform: scale(1.08);
+    transition: filter 120ms linear;
+    pointer-events: none;
+    /* Placeholder background until you add your own image/video */
+    background:
+        radial-gradient(1200px 600px at 50% 20%, rgba(0, 0, 0, 0.05), transparent 60%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.03), transparent 45%);
 }
 
 .landing-content {
     max-width: 700px;
     margin-bottom: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
 }
 
 .landing-name {
@@ -293,19 +321,45 @@ body {
 }
 
 .project-card {
-    padding: var(--spacing-md) 0;
+    padding: 0;
     border-bottom: 1px solid var(--color-border);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    cursor: pointer;
-}
-
-.project-card:hover {
-    transform: translateX(8px);
-    opacity: 0.8;
 }
 
 .project-card:last-child {
     border-bottom: none;
+}
+
+.project-card-link {
+    display: block;
+    padding: var(--spacing-md) 0;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-card-link:hover {
+    transform: translateX(8px);
+    opacity: 0.88;
+}
+
+.project-card-link:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+}
+
+.project-card-figure {
+    margin: 0 0 var(--spacing-md) 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--color-border);
+    aspect-ratio: 16 / 9;
+}
+
+.project-card-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .project-header {
@@ -347,6 +401,109 @@ body {
 .project-medium,
 .project-tech {
     font-weight: 300;
+}
+
+/* Project detail pages (projects/*.html) */
+.project-detail {
+    padding: calc(80px + var(--spacing-lg)) var(--spacing-md) var(--spacing-xl);
+}
+
+.project-detail-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-detail-back {
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.project-detail-back:hover {
+    color: var(--color-text);
+}
+
+.project-detail-figure {
+    margin: 0 0 var(--spacing-lg) 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--color-border);
+}
+
+.project-detail-hero {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.project-detail-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-detail-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+.project-detail-meta-row {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    font-weight: 300;
+}
+
+.project-detail-year {
+    margin-right: var(--spacing-sm);
+}
+
+.project-detail-body {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.project-detail-body > p {
+    margin-bottom: var(--spacing-md);
+}
+
+.project-detail-body .lead {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 400;
+}
+
+.project-detail-h2 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+    letter-spacing: -0.01em;
+}
+
+.project-detail-links {
+    list-style: none;
+    padding: 0;
+}
+
+.project-detail-links li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.project-detail-links a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.project-detail-links a:hover {
+    color: var(--color-hover);
 }
 
 /* About Page */
