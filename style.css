@@ -376,20 +376,34 @@ body.page-home .home-page.gallery-home-main section[id] {
     gap: 120px;
 }
 
-.gallery-logo {
-    display: flex;
-    min-height: 60px;
-    align-items: flex-start;
-    font-family: 'Rubik Maps', system-ui, sans-serif;
-    font-size: 16px;
-    letter-spacing: -0.03em;
-    line-height: 1;
+/* Headline-style sidebar: your name is the main wordmark (not small nav type) */
+.gallery-sidebar--headline .gallery-sidebar-inner {
+    gap: 36px;
+}
+
+.gallery-headline {
+    margin: 0;
+    padding: 0;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1.06;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 28px;
+}
+
+.gallery-headline-link {
     color: #000;
     text-decoration: none;
 }
 
-.gallery-logo:hover {
-    opacity: 0.75;
+.gallery-headline-link:hover {
+    opacity: 0.72;
+}
+
+.gallery-sidebar--headline .gallery-side-nav {
+    gap: 28px;
 }
 
 .gallery-side-nav {
@@ -465,16 +479,6 @@ body.page-home .home-page.gallery-home-main section[id] {
     display: flex;
     flex-direction: column;
     gap: 16px;
-}
-
-.figma-intro-headline {
-    font-family: 'Rethink Sans', system-ui, sans-serif;
-    font-size: clamp(2rem, 6vw, 37px);
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1.2;
-    color: #000;
-    margin: 0;
 }
 
 .figma-intro-lead {
