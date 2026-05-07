@@ -1,121 +1,55 @@
-# Portfolio Website
+# Amy Yiqin Li — Portfolio Website
 
-A minimal, clean portfolio website designed for showcasing work in visual arts, HCI, and new media.
+Welcome to my portfolio website!  
+This site is a collection of my work across UI/UX, interactive media, visual arts, and creative technology.
 
-## Design Philosophy
+I am a Vancouver-based multimedia designer and artist currently studying at the University of British Columbia, with interests in HCI, immersive experiences, storytelling, and emerging media. My work combines visual design with technology, ranging from websites and digital interfaces to XR experiences, installations, and experimental media projects.
 
-This portfolio follows a restrained, art-school aesthetic with:
-- **Large whitespace** for visual breathing room
-- **Minimal color palette** (black, white, gray)
-- **Clean typography** using Inter font
-- **Subtle interactions** without flashy animations
-- **Semantic HTML** for accessibility and SEO
+---
 
-## File Structure
+## About the Website
 
-```
-/
-├── index.html      # Landing page with name, intro, and scroll hint
-├── projects.html   # Projects showcase with cards/list layout
-├── about.html      # About page with bio, skills, and contact
-├── style.css       # Main stylesheet with responsive design
-├── main.js         # Minimal JavaScript for subtle interactions
-└── README.md       # This file
-```
+This portfolio was designed and developed by me as an evolving creative space to showcase projects, experiments, and artistic practice. I wanted the site to feel both interactive and personal while maintaining a clean and accessible user experience.
 
-## Design Details
+The website includes:
+- UI/UX and product design projects
+- XR and immersive media work
+- Visual art and experimental media
+- Web design and creative coding
+- Research and interdisciplinary collaborations
 
-### Typography
-- **Font**: Inter (Google Fonts) with system font fallbacks
-- **Weights**: 300 (light), 400 (regular), 500 (medium)
-- **Scale**: Responsive using `clamp()` for fluid typography
+---
 
-### Layout
-- **Navigation**: Fixed header with logo and links
-- **Grid System**: CSS Grid for projects and skills sections
-- **Max Width**: 1200px container for content
-- **Spacing**: Consistent spacing scale (0.5rem, 1rem, 2rem, 4rem, 6rem)
+## Technologies & Tools
 
-### Interactions
-- **Hover Effects**: Subtle translate and opacity changes
-- **Scroll Animation**: Fade-in for project cards using Intersection Observer
-- **Parallax**: Minimal parallax effect on landing page (optional)
+Built using a combination of:
+- HTML / CSS / JavaScript
+- React / Next.js
+- Figma
+- Blender
+- Unreal Engine
+- GitHub Pages
 
-### Color Palette
-- Text: `#1a1a1a` (dark gray)
-- Text Light: `#666` (medium gray)
-- Background: `#ffffff` (white)
-- Border: `#e0e0e0` (light gray)
+---
 
-## Customization
+## Design Approach
 
-### Update Personal Information
-1. **Name & Intro**: Edit `index.html` landing section
-2. **Projects**: Update project cards in `projects.html`
-3. **About**: Modify bio and skills in `about.html`
-4. **Contact**: Update email and social links in `about.html`
+I am interested in creating experiences that feel emotionally engaging, visually memorable, and intuitive to interact with. My background in both visual arts and technology influences how I approach interface design, storytelling, and user interaction.
 
-### Add Projects
-In `projects.html`, add new project cards following this structure:
-```html
-<article class="project-card">
-    <div class="project-header">
-        <h2 class="project-title">Project Title</h2>
-        <span class="project-year">2024</span>
-    </div>
-    <p class="project-description">Description...</p>
-    <div class="project-meta">
-        <span class="project-medium">Medium</span>
-        <span class="project-tech">Technologies</span>
-    </div>
-</article>
-```
+Many of the projects featured here explore:
+- Human-Computer Interaction (HCI)
+- Interactive storytelling
+- Accessibility and inclusive design
+- Experimental interfaces
+- Creative technology and immersive media
 
-### Modify Colors
-Edit CSS variables in `style.css`:
-```css
-:root {
-    --color-text: #1a1a1a;
-    --color-text-light: #666;
-    --color-bg: #ffffff;
-    --color-border: #e0e0e0;
-}
-```
+---
 
-### Add Avatar Image
-Replace the `.avatar-placeholder` div in `about.html` with:
-```html
-<img src="path/to/your/avatar.jpg" alt="Your Name" class="avatar-image">
-```
+## Contact
 
-Then add CSS:
-```css
-.avatar-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-```
+Feel free to reach out for collaborations, opportunities, or conversations about design, art, and technology.
 
-## Deployment
+**Portfolio:** amyli11229.github.io  
+**Email:** Amyli_9@hotmail.com
 
-This site is designed for GitHub Pages deployment:
-
-1. Push files to your repository
-2. Enable GitHub Pages in repository settings
-3. Select the main branch as source
-4. Your site will be available at `https://[username].github.io`
-
-## Browser Support
-
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- Responsive design for mobile, tablet, and desktop
-- Graceful degradation for older browsers
-
-## Notes
-
-- All images are placeholders - replace with your actual work
-- Contact links are placeholders - update with your real profiles
-- The design is intentionally minimal to let your work shine
-- Code is well-commented and easy to extend
+Thank you for visiting!
