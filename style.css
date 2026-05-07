@@ -442,21 +442,52 @@ body.page-home .home-page .contact-section h2 {
 
 .projects-home .project-card-link {
     padding: 0;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
+    border: 0;
+    border-radius: 28px;
     overflow: hidden;
     background: #fff;
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.18),
+        0 10px 24px rgba(0, 0, 0, 0.10);
+    transform: translateZ(0);
+    transition: transform 240ms ease, box-shadow 240ms ease;
 }
 
 .projects-home .project-card-link:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow:
+        0 38px 90px rgba(0, 0, 0, 0.20),
+        0 14px 30px rgba(0, 0, 0, 0.12);
     opacity: 1;
 }
 
 .projects-home .project-card-figure {
     margin: 0;
-    border-radius: 0;
+    border-radius: 28px;
     aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    background: #f3f3f3;
+}
+
+.projects-home .project-card-figure::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 42%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.65) 55%,
+        rgba(255, 255, 255, 0.95) 100%
+    );
+    pointer-events: none;
+}
+
+.projects-home .project-card-image {
+    transform: scale(1.02);
 }
 
 .projects-home .project-header,
