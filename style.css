@@ -166,8 +166,7 @@ body.page-home .home-page .contact-section h2 {
 }
 
 /* Tighten spacing between specific homepage sections */
-.home-page #projects + #info.home-section.about-page,
-.home-page #info + #contact.home-section.about-page {
+.home-page #projects + #contact.home-section.about-page {
     padding-top: var(--spacing-lg);
 }
 
