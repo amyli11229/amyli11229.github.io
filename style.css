@@ -170,6 +170,11 @@ body.page-home .home-page .contact-section h2 {
     padding-top: var(--spacing-lg);
 }
 
+/* No divider line above Contact on homepage */
+.home-page #contact.home-section.about-page {
+    border-top: none;
+}
+
 .home-skills {
     margin-top: 0;
     padding-top: 0;
