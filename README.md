@@ -1,7 +1,9 @@
 # Amy Yiqin Li — Portfolio Website
 
 Welcome to my portfolio website!  
+
 amyli11229.github.io
+
 This site is a collection of my work across UI/UX, interactive media, visual arts, and creative technology.
 
 I am a Vancouver-based multimedia designer and artist currently studying at the University of British Columbia, with interests in HCI, immersive experiences, storytelling, and emerging media. My work combines visual design with technology, ranging from websites and digital interfaces to XR experiences, installations, and experimental media projects.
