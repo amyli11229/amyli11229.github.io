@@ -175,6 +175,24 @@ body.page-home .home-page .contact-section h2 {
     border-top: none;
 }
 
+/* Shorter CV band on homepage (after merged hero+bio) */
+.home-page #cv.home-section.about-page {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+}
+
+.home-page #cv .cv-section h2 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.home-page #cv .cv-section .about-intro {
+    margin-bottom: var(--spacing-sm);
+}
+
+.home-page #cv .cv-download {
+    margin-top: var(--spacing-sm);
+}
+
 .home-skills {
     margin-top: 0;
     padding-top: 0;
@@ -405,11 +423,69 @@ body.page-home .home-page .contact-section h2 {
     bottom: var(--spacing-md);
 }
 
+/* Homepage: combined hero + bio — text left / portrait right on wide viewports */
+.home-hero-bio.figma-intro {
+    justify-content: center;
+    min-height: min(100vh, 960px);
+}
+
+.home-hero-bio-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(var(--spacing-lg), 4vw, 3.5rem);
+    align-items: center;
+}
+
+.home-hero-bio-text .figma-intro-lead {
+    margin-bottom: var(--spacing-lg);
+}
+
+.home-hero-bio-portrait {
+    justify-content: flex-end;
+    align-self: center;
+}
+
+
+.home-hero-bio-body.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .home-hero-bio-inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .home-hero-bio-text {
+        max-width: 36rem;
+    }
+
+    .home-hero-bio-text .figma-intro-lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-hero-bio-portrait {
+        justify-content: center;
+        margin-top: var(--spacing-md);
+    }
+
+    .home-hero-bio.figma-intro {
+        min-height: 0;
+    }
+}
+
 @media (max-width: 767px) {
     .figma-intro {
         min-height: 0;
         padding-left: var(--spacing-sm);
         padding-right: var(--spacing-sm);
+    }
+
+    .home-hero-bio .about-image .avatar-photo {
+        width: 240px;
+        height: 240px;
     }
 }
 
@@ -493,6 +569,11 @@ body.page-home .home-page .contact-section h2 {
 }
 
 .projects-home .project-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
     transform: scale(1.02);
 }
 
@@ -760,6 +841,20 @@ body.page-home .home-page .contact-section h2 {
     color: var(--color-text-light);
     font-size: 0.9rem;
     font-weight: 300;
+}
+
+.about-image .avatar-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Homepage merged hero+bio portrait (above rule would otherwise win due to cascade) */
+.home-hero-bio .about-image .avatar-photo {
+    width: 280px;
+    height: 280px;
 }
 
 .skills-section,
