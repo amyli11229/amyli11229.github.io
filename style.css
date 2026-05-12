@@ -175,10 +175,10 @@ body.page-home .home-page .contact-section h2 {
     border-top: none;
 }
 
-/* Shorter CV band on homepage (after merged hero+bio) */
+/* Shorter CV band on homepage (after merged hero+bio) — extra space for action row */
 .home-page #cv.home-section.about-page {
     padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-lg);
 }
 
 .home-page #cv .cv-section h2 {
@@ -186,11 +186,11 @@ body.page-home .home-page .contact-section h2 {
 }
 
 .home-page #cv .cv-section .about-intro {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
-.home-page #cv .cv-download {
-    margin-top: var(--spacing-sm);
+.home-page #cv .cv-actions {
+    margin-top: 0;
 }
 
 .home-skills {
@@ -235,9 +235,17 @@ body.page-home .home-page .contact-section h2 {
     border-radius: 4px;
 }
 
+.cv-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.cv-view,
 .cv-download {
     display: inline-block;
-    margin-top: var(--spacing-md);
+    margin-top: 0;
     padding: 0.65rem 1.25rem;
     font-size: 0.95rem;
     font-weight: 400;
@@ -245,9 +253,11 @@ body.page-home .home-page .contact-section h2 {
     background-color: var(--color-text);
     text-decoration: none;
     border-radius: 4px;
+    border: 1px solid var(--color-text);
     transition: opacity 0.2s ease, background-color 0.2s ease;
 }
 
+.cv-view:hover,
 .cv-download:hover {
     opacity: 0.9;
 }
@@ -719,6 +729,32 @@ body.page-home .home-page .contact-section h2 {
     vertical-align: middle;
 }
 
+/* Dedicated CV page (cv.html) — PDF embed like a project detail */
+.cv-page .cv-page-actions {
+    margin-bottom: var(--spacing-lg);
+}
+
+.cv-page-embed {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: #f9f9f9;
+}
+
+.cv-page-embed iframe {
+    display: block;
+    width: 100%;
+    height: min(85vh, 1100px);
+    border: 0;
+}
+
+@media (max-width: 767px) {
+    .cv-page-embed iframe {
+        height: min(75vh, 900px);
+    }
+}
+
 .project-detail-header {
     margin-bottom: var(--spacing-lg);
 }
@@ -783,6 +819,69 @@ body.page-home .home-page .contact-section h2 {
 
 .project-detail-links a:hover {
     color: var(--color-hover);
+}
+
+/* Project page — prominent Figma / prototype callout */
+.project-prototype-callout {
+    margin: 0 0 var(--spacing-xl) 0;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--gallery-accent);
+    background: linear-gradient(135deg, rgba(25, 58, 246, 0.06) 0%, rgba(25, 58, 246, 0.02) 100%);
+}
+
+.project-prototype-callout-title {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+.project-prototype-callout-text {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-text-light);
+}
+
+.project-prototype-callout-text a {
+    color: var(--gallery-accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.project-prototype-callout-text a:hover {
+    color: #0f24c4;
+}
+
+.project-prototype-btn {
+    display: inline-block;
+    padding: 0.75rem 1.35rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--gallery-accent);
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid var(--gallery-accent);
+    box-shadow: 0 4px 14px rgba(25, 58, 246, 0.35);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.project-prototype-btn:hover {
+    background-color: #142ecf;
+    border-color: #142ecf;
+    box-shadow: 0 6px 18px rgba(25, 58, 246, 0.45);
+    transform: translateY(-1px);
+}
+
+.project-prototype-btn:focus-visible {
+    outline: 2px solid var(--gallery-accent);
+    outline-offset: 3px;
 }
 
 /* About Page */
