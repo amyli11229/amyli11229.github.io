@@ -420,7 +420,7 @@ body.page-home .home-page .contact-section h2 {
 
 .figma-intro-lead {
     font-family: 'Spectral', Georgia, serif;
-    font-size: clamp(1.25rem, 3.8vw, 2.125rem);
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
     font-weight: 400;
     letter-spacing: -0.035em;
     line-height: 1.35;
