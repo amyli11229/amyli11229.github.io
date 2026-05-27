@@ -1,8 +1,39 @@
 /**
- * Portfolio scripts — all editable text lives in the HTML files.
- * This file only fades in .project-card elements when they scroll into view.
+ * Portfolio scripts — theme toggle + scroll effects + project card fade-in.
  */
 document.addEventListener('DOMContentLoaded', function() {
+    const themeBtn = document.querySelector('.theme-toggle');
+    if (themeBtn) {
+        function syncThemeToggleUi() {
+            const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+            themeBtn.setAttribute('title', dark ? 'Light mode' : 'Dark mode');
+        }
+        syncThemeToggleUi();
+        themeBtn.addEventListener('click', function() {
+            const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (dark) {
+                document.documentElement.removeAttribute('data-theme');
+                try {
+                    localStorage.setItem('theme', 'light');
+                } catch (e) { /* ignore */ }
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                try {
+                    localStorage.setItem('theme', 'dark');
+                } catch (e) { /* ignore */ }
+            }
+            syncThemeToggleUi();
+        });
+    }
+
+    if (window.location.search.indexOf('sent=1') !== -1) {
+        const successEl = document.getElementById('contact-form-success');
+        if (successEl) {
+            successEl.hidden = false;
+        }
+    }
+
     // Scroll effects (vanilla version of “scroll direction” + “blur transform”)
     // - Sets CSS variables for blur amount: --hero-blur (0px → 10px)
     // - Toggles nav classes: .nav--scrolling-up / .nav--scrolling-down
@@ -35,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (nav) {
             nav.classList.toggle('nav--scrolling-down', direction === 'down' && y > 24);
             nav.classList.toggle('nav--scrolling-up', direction === 'up' || y <= 24);
+        }
+
+        const scrollHint = document.querySelector('.scroll-hint');
+        if (scrollHint) {
+            scrollHint.classList.toggle('scroll-hint--hidden', y > viewport * 0.4);
         }
 
         lastY = y;

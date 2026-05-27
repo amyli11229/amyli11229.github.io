@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
     <!-- Optional page: sync copy with index.html (#bio, #contact) if you maintain both -->
     <title>About — Amy Yiqin Li</title>
     <link rel="stylesheet" href="style.css">
@@ -16,11 +17,17 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html#bio" class="nav-logo">Amy Yiqin Li</a>
-            <div class="nav-links">
-                <a href="index.html#bio">Bio</a>
-                <a href="cv.html">CV</a>
-                <a href="index.html#projects">Projects</a>
-                <a href="index.html#contact">Contact</a>
+            <div class="nav-end">
+                <div class="nav-links">
+                    <a href="index.html#bio">Bio</a>
+                    <a href="cv.html">CV</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">
+                    <svg class="theme-toggle-icon theme-toggle-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+                    <svg class="theme-toggle-icon theme-toggle-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -29,26 +36,22 @@
             <!-- ===== About copy (mirror index #bio if you want them identical) ===== -->
             <div class="about-content">
                 <div class="about-text">
-                    <h1>About</h1>
+                    <h1 class="figma-intro-title">ABOUT</h1>
+                    <p class="figma-intro-lead">AMY YIQIN IS A PAINTER, DESIGNER, AND MULTIMEDIA ARTIST BASED IN VANCOUVER</p>
                     <p class="about-intro">
-                        I am a designer and researcher working at the intersection of visual arts, human-computer interaction, and new media. My practice explores how technology can enhance human expression and create meaningful interactive experiences.
-                    </p>
-                    <p>
-                        Through a combination of creative coding, user-centered design, and experimental media, I investigate the boundaries between digital and physical interactions. My work often questions how we perceive and engage with computational systems in everyday life.
+                        Her work explores the intersection of visual arts, human-computer interaction, and new media.
+                        She is interested in how technology can enhance human expression and create meaningful interactive experiences.
                     </p>
                 </div>
-
-                <div class="about-image">
-                    <img src="images/amy-profile.png" alt="Portrait illustration of Amy Yiqin Li with a cat" class="avatar-photo" width="200" height="200">
-                </div>
-            </div>
-            <!-- ===== Contact (mirror index #contact) ===== -->
-            <div class="contact-section">
-                <h2>Contact</h2>
-                <div class="contact-links">
-                    <a href="mailto:amyli_9@hotmail.com" class="contact-link">Email</a>
-                    <a href="https://github.com/amyli11229" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://www.linkedin.com/in/amy-yiqin-li-3aa948262/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <div class="home-hero-bio-sidebar about-sidebar" id="contact">
+                    <div class="about-image about-hero-portrait">
+                        <img src="images/amy-profile.png" alt="Portrait illustration of Amy Yiqin Li with a cat" class="avatar-photo" width="350" height="350">
+                    </div>
+                    <nav class="contact-sidebar" aria-label="Contact">
+                        <a href="mailto:amyli_9@hotmail.com" class="contact-link">Email</a>
+                        <a href="https://www.linkedin.com/in/amy-yiqin-li-3aa948262/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="cv.html" class="cv-view contact-sidebar-cv">View CV</a>
+                    </nav>
                 </div>
             </div>
         </div>

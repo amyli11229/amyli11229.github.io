@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
     <title>CV — Amy Yiqin Li</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,11 +16,17 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html#bio" class="nav-logo">Amy Yiqin Li</a>
-            <div class="nav-links">
-                <a href="index.html#bio">Bio</a>
-                <a href="cv.html" class="active">CV</a>
-                <a href="projects.html">Projects</a>
-                <a href="index.html#contact">Contact</a>
+            <div class="nav-end">
+                <div class="nav-links">
+                    <a href="index.html#bio">Bio</a>
+                    <a href="cv.html" class="active">CV</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">
+                    <svg class="theme-toggle-icon theme-toggle-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+                    <svg class="theme-toggle-icon theme-toggle-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                </button>
             </div>
         </div>
     </nav>
