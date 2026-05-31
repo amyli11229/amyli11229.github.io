@@ -27,13 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (window.location.search.indexOf('sent=1') !== -1) {
-        const successEl = document.getElementById('contact-form-success');
-        if (successEl) {
-            successEl.hidden = false;
-        }
-    }
-
     // Scroll effects (vanilla version of “scroll direction” + “blur transform”)
     // - Sets CSS variables for blur amount: --hero-blur (0px → 10px)
     // - Toggles nav classes: .nav--scrolling-up / .nav--scrolling-down
@@ -54,14 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const t = clamp(y / viewport, 0, 1);
         const blurPx = (t * 10).toFixed(2) + 'px';
         document.documentElement.style.setProperty('--hero-blur', blurPx);
-
-        // Fade + slight lift for the big name title in the hero section
-        // 1 → 0 over the first ~60% of the viewport scroll
-        const tTitle = clamp(y / (viewport * 0.6), 0, 1);
-        const opacity = (1 - tTitle).toFixed(3);
-        const yPx = (-12 * tTitle).toFixed(2) + 'px';
-        document.documentElement.style.setProperty('--hero-title-opacity', opacity);
-        document.documentElement.style.setProperty('--hero-title-y', yPx);
 
         if (nav) {
             nav.classList.toggle('nav--scrolling-down', direction === 'down' && y > 24);
@@ -86,6 +71,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize once on load
     onScroll();
+
+    const bioReveals = document.querySelectorAll('.bio-reveal');
+    if (bioReveals.length > 0) {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion) {
+            bioReveals.forEach(function(el) {
+                el.classList.add('is-visible');
+            });
+        } else {
+            bioReveals.forEach(function(el, index) {
+                window.setTimeout(function() {
+                    el.classList.add('is-visible');
+                }, 180 + index * 170);
+            });
+        }
+    }
 
     const projectCards = document.querySelectorAll('.project-card');
 

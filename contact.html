@@ -15,10 +15,10 @@
 <body>
     <nav class="nav">
         <div class="nav-container">
-            <a href="index.html#bio" class="nav-logo">Amy Yiqin Li</a>
+            <a href="index.html" class="nav-logo">Amy Yiqin Li</a>
             <div class="nav-end">
                 <div class="nav-links">
-                    <a href="index.html#bio">Bio</a>
+                    <a href="about.html">Bio</a>
                     <a href="cv.html">CV</a>
                     <a href="projects.html">Projects</a>
                     <a href="contact.html" class="active">Contact</a>
@@ -46,39 +46,18 @@
                 <a href="https://github.com/amyli11229" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
 
-            <p class="contact-form-success" id="contact-form-success" hidden role="status">
-                Thank you — your message was sent. I’ll get back to you soon.
-            </p>
-
             <div class="contact-options">
                 <section class="contact-option" aria-labelledby="contact-board-heading">
                     <h2 id="contact-board-heading">Leave a message here</h2>
-                    <p class="contact-option-desc">Send a note from this site — it goes straight to my inbox.</p>
+                    <p class="contact-option-desc">Send a note from this site — responses go straight to my inbox.</p>
 
-                    <!-- FormSubmit.co — first submission sends an activation link to amyli_9@hotmail.com -->
-                    <form class="contact-form" action="https://formsubmit.co/amyli_9@hotmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New message from portfolio contact page">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="contact.html?sent=1">
-                        <input type="text" name="_honey" class="contact-form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="contact-form-embed">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekk9WNU00vamjPjSkUsBfTWd0kpdOA3OKsHbH0FDfFgOPGyw/viewform?embedded=true" title="Contact form" width="" height="" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    </div>
 
-                        <label class="contact-form-field">
-                            <span class="contact-form-label">Your name</span>
-                            <input type="text" name="name" required autocomplete="name">
-                        </label>
-
-                        <label class="contact-form-field">
-                            <span class="contact-form-label">Your email</span>
-                            <input type="email" name="email" required autocomplete="email">
-                        </label>
-
-                        <label class="contact-form-field">
-                            <span class="contact-form-label">Message</span>
-                            <textarea name="message" rows="6" required placeholder="Write your message…"></textarea>
-                        </label>
-
-                        <button type="submit" class="cv-view contact-form-submit">Send message</button>
-                    </form>
+                    <p class="contact-form-fallback">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSekk9WNU00vamjPjSkUsBfTWd0kpdOA3OKsHbH0FDfFgOPGyw/viewform" class="contact-link" target="_blank" rel="noopener noreferrer">Open form in a new tab</a>
+                    </p>
                 </section>
             </div>
         </div>

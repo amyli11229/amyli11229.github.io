@@ -111,12 +111,14 @@ body.page-home .home-page .contact-section h2 {
     font-weight: 500;
 }
 
-/* Navigation */
+/* Navigation — locked typography so logo matches on every page */
 .nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
     background-color: var(--nav-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
@@ -193,6 +195,7 @@ html[data-theme="dark"] .theme-toggle-sun {
 }
 
 .nav-logo {
+    font-family: inherit;
     font-size: 1rem;
     font-weight: 500;
     color: var(--color-text);
@@ -211,6 +214,7 @@ html[data-theme="dark"] .theme-toggle-sun {
 }
 
 .nav-links a {
+    font-family: inherit;
     font-size: 0.9rem;
     color: var(--color-text-light);
     text-decoration: none;
@@ -389,6 +393,37 @@ html[data-theme="dark"] .theme-toggle-sun {
     line-height: 1.1;
 }
 
+/* About section — staggered reveal on load (main.js adds .is-visible) */
+.bio-reveal {
+    opacity: 0;
+    transform: translateY(1.75rem);
+    transition:
+        opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.bio-reveal--portrait {
+    transform: translateY(1.75rem) scale(0.96);
+}
+
+.bio-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bio-reveal--portrait.is-visible {
+    transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bio-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 /* Hero title motion (main.js sets --hero-title-*) */
 .js-hero-title {
     opacity: var(--hero-title-opacity);
@@ -428,6 +463,14 @@ html[data-theme="dark"] .theme-toggle-sun {
     position: fixed;
     bottom: var(--spacing-md);
     z-index: 50;
+}
+
+.home-hero-bio.figma-intro > .scroll-hint.bio-reveal {
+    transform: translateX(-50%) translateY(1.75rem);
+}
+
+.home-hero-bio.figma-intro > .scroll-hint.bio-reveal.is-visible {
+    transform: translateX(-50%) translateY(0);
 }
 
 .scroll-hint.scroll-hint--hidden {
@@ -994,19 +1037,34 @@ html[data-theme="dark"] .theme-toggle-sun {
 }
 
 .about-container {
-    max-width: 800px;
+    max-width: var(--max-width);
+    width: 100%;
 }
 
+.about-page .about-content {
+    gap: clamp(var(--spacing-lg), 4vw, 3.5rem);
+    margin-bottom: 0;
+}
+
+.about-page .about-text .figma-intro-lead {
+    margin-bottom: var(--spacing-lg);
+    max-width: 38rem;
+}
+
+.about-page .about-intro {
+    max-width: 42rem;
+    margin-bottom: 0;
+}
 .about-content {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: clamp(var(--spacing-md), 4vw, var(--spacing-lg));
-    margin-bottom: var(--spacing-xl);
+    gap: clamp(var(--spacing-lg), 4vw, 3.5rem);
     align-items: start;
 }
 
 .about-text .figma-intro-lead {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    max-width: 38rem;
 }
 
 .about-text h1 {
@@ -1183,16 +1241,6 @@ html[data-theme="dark"] .theme-toggle-sun {
     border-bottom: 1px solid var(--color-border);
 }
 
-.contact-form-success {
-    padding: var(--spacing-sm) var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-    border: 1px solid var(--gallery-accent);
-    border-radius: 6px;
-    background: var(--prototype-callout-bg);
-    color: var(--color-text);
-    font-size: 0.95rem;
-}
-
 .contact-options {
     display: block;
     width: 100%;
@@ -1221,67 +1269,44 @@ html[data-theme="dark"] .theme-toggle-sun {
     margin-bottom: var(--spacing-md);
 }
 
-.contact-option .cv-view {
-    margin-top: var(--spacing-sm);
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.contact-form-honey {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-}
-
-.contact-form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-}
-
-.contact-form-label {
-    font-size: 0.85rem;
-    font-weight: 400;
-    color: var(--color-text);
-}
-
-.contact-form input,
-.contact-form textarea {
+.contact-form-embed {
     width: 100%;
-    padding: 0.65rem 0.75rem;
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--color-text);
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
+    overflow: hidden;
     border-radius: 6px;
-    transition: border-color 0.2s ease;
-    box-sizing: border-box;
+    background: #fff;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--gallery-accent);
+.contact-form-embed iframe {
+    display: block;
+    width: 100%;
+    min-height: 720px;
+    border: 0;
 }
 
-.contact-form textarea {
-    resize: vertical;
-    min-height: 12rem;
+.contact-form-fallback {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
 }
 
-.contact-form-submit {
-    align-self: flex-start;
-    margin-top: var(--spacing-xs);
-    cursor: pointer;
-    border: none;
+/* About page — responsive layout (match homepage bio) */
+@media (max-width: 900px) {
+    .about-page .about-content {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .about-page .about-text .figma-intro-lead,
+    .about-page .about-intro {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-page .home-hero-bio-sidebar {
+        width: 100%;
+        max-width: 22rem;
+        margin-top: var(--spacing-md);
+    }
 }
 
 /* Responsive Design */
