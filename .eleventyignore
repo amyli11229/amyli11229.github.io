@@ -1,0 +1,16 @@
+README.md
+CMS-MIGRATION.md
+node_modules
+_site
+.git
+.github
+package.json
+package-lock.json
+
+# Legacy HTML — still served by GitHub Pages until you verify and cut over
+index.html
+projects.html
+about.html
+cv.html
+contact.html
+projects/*.html

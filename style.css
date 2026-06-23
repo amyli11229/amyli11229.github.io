@@ -1,6 +1,7 @@
 /*
  * Portfolio styles — global look & layout.
- * Text content: edit index.html, about.html, projects.html (not here).
+ * Text content: project pages → content/projects/*.md (Decap CMS at /admin).
+ * Other pages: edit *.njk templates (not here).
  * Quick tweaks: --color-text, --color-bg, --max-width, --spacing-* in :root below.
  */
 
@@ -964,6 +965,17 @@ html[data-theme="dark"] .theme-toggle-sun {
 
 .project-detail-links a:hover {
     color: var(--color-hover);
+}
+
+.project-detail-figure--inline {
+    margin-top: var(--spacing-lg);
+}
+
+.project-detail-caption {
+    margin-top: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: var(--color-text-muted, var(--color-text));
+    text-align: center;
 }
 
 /* Project page — prominent Figma / prototype callout */

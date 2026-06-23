@@ -1,0 +1,60 @@
+---
+layout: layouts/base.njk
+permalink: index.html
+pageTitle: Amy Yiqin Li
+assetRoot: ""
+bodyClass: page-home
+---
+<!--
+  Project cards are generated from content/projects/*.md via Decap CMS.
+  Edit projects at /admin (Netlify Identity) or in content/projects/*.md
+-->
+<main class="home-page">
+    <section id="bio" class="home-hero-bio figma-intro" aria-label="Amy Yiqin Li — Bio">
+        <div class="landing-bg" aria-hidden="true"></div>
+        <div class="home-hero-bio-inner figma-intro-inner">
+            <div class="home-hero-bio-text">
+                <h1 class="figma-intro-title bio-reveal">ABOUT</h1>
+                <p class="figma-intro-lead bio-reveal">AMY YIQIN IS A PAINTER, DESIGNER, AND MULTIMEDIA ARTIST BASED IN VANCOUVER</p>
+                <div class="about-text home-hero-bio-body">
+                    <p class="about-intro bio-reveal">
+                        Her work explores the intersection of visual arts, human-computer interaction, and new media.
+                        She is interested in how technology can enhance human expression and create meaningful interactive experiences.
+                    </p>
+                    <p class="home-inline-link bio-reveal">
+                        <a href="about.html">Full About page →</a>
+                    </p>
+                </div>
+            </div>
+            <div class="home-hero-bio-sidebar" id="contact">
+                <div class="about-image home-hero-bio-portrait bio-reveal bio-reveal--portrait">
+                    <img src="images/amy-profile.png" alt="Portrait illustration of Amy Yiqin Li with a cat" class="avatar-photo" width="350" height="350">
+                </div>
+                <nav class="contact-sidebar bio-reveal" aria-label="Contact">
+                    <a href="mailto:amyli_9@hotmail.com" class="contact-link">Email</a>
+                    <a href="https://www.linkedin.com/in/amy-yiqin-li-3aa948262/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="cv.html" class="cv-view contact-sidebar-cv">View CV</a>
+                </nav>
+            </div>
+        </div>
+        <a href="#projects" class="scroll-hint bio-reveal" aria-label="Scroll to projects">
+            <span class="scroll-arrow">↓</span>
+        </a>
+    </section>
+    <section id="projects" class="home-section about-page projects-home" aria-labelledby="projects-heading">
+        <div class="projects-home-inner">
+            <div class="page-header">
+                <h1 id="projects-heading">Projects</h1>
+            </div>
+            <div class="projects-grid">
+                {% from "project-card.njk" import render %}
+                {% for project in collections.projects %}
+                {{ render(project, 'home', assetRoot) }}
+                {% endfor %}
+            </div>
+            <p class="home-inline-link projects-home-footnote">
+                <a href="projects.html">Open this list on its own page →</a>
+            </p>
+        </div>
+    </section>
+</main>

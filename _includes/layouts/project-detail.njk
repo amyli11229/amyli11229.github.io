@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+assetRoot: "../"
+activePage: projects
+permalink: projects/{{ slug }}.html
+---
+<main class="project-detail">
+    <div class="project-detail-inner">
+        <a href="../projects.html" class="project-detail-back">← All projects</a>
+
+        <figure class="project-detail-figure" aria-hidden="true">
+            <img class="project-detail-hero" src="../{{ hero_image }}" alt="">
+        </figure>
+
+        <header class="project-detail-header">
+            <h1 class="project-detail-title">{{ title }}</h1>
+            <div class="project-detail-meta-row">
+                <span class="project-detail-year">{{ organization }}</span>
+                <span class="project-detail-tags">{{ tags }}</span>
+            </div>
+        </header>
+
+        {% if prototype_callout and prototype_callout.title %}
+        <div class="project-prototype-callout" role="region" aria-labelledby="prototype-callout-heading">
+            <p id="prototype-callout-heading" class="project-prototype-callout-title">{{ prototype_callout.title }}</p>
+            {% if prototype_callout.text %}
+            <p class="project-prototype-callout-text">
+                {{ prototype_callout.text }}
+                {% if prototype_callout.link_label and prototype_callout.link_url %}
+                <a href="{{ prototype_callout.link_url }}" target="_blank" rel="noopener noreferrer">{{ prototype_callout.link_label }}</a>.
+                {% endif %}
+            </p>
+            {% endif %}
+            {% if prototype_callout.button_label and prototype_callout.button_url %}
+            <a href="{{ prototype_callout.button_url }}" class="project-prototype-btn" target="_blank" rel="noopener noreferrer">{{ prototype_callout.button_label }}</a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="project-detail-body">
+            {% if lead %}
+            <p class="lead">{{ lead }}</p>
+            {% endif %}
+            {{ content | safe }}
+
+            {% if additional_images and additional_images.length %}
+            {% for item in additional_images %}
+            <figure class="project-detail-figure project-detail-figure--inline">
+                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
+                {% if item.caption %}
+                <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
+                {% endif %}
+            </figure>
+            {% endfor %}
+            {% endif %}
+
+            {% if contributions and contributions.length %}
+            <h2 class="project-detail-h2">Key contributions</h2>
+            <ul class="project-detail-links">
+                {% for item in contributions %}
+                <li>{% if item.item %}{{ item.item }}{% else %}{{ item }}{% endif %}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if external_links and external_links.length %}
+            <h2 class="project-detail-h2">Links</h2>
+            <ul class="project-detail-links">
+                {% for link in external_links %}
+                <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</main>

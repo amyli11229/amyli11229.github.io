@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "head.njk" %}
+</head>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+{% include "nav.njk" %}
+{{ content | safe }}
+<script src="{{ assetRoot }}main.js"></script>
+</body>
+</html>
