@@ -1,4 +1,14 @@
 ---
+# ─── EDIT GUIDE ─────────────────────────────────────────────
+# title ............... Project name (page heading)
+# lead .............. First paragraph on the project page
+# organization ...... Course/org line under the title
+# tags .............. Tools on the project page
+# card_* ............ Preview box on homepage / Projects list (before click)
+# card_title_home ... Optional shorter title on homepage only
+# slug .............. URL name → projects/THIS-NAME.html (rarely change)
+# layout ............ Do not edit
+# See content/projects/README.md for full guide
 title: Soil Science Viewer — Gaussian Splat Visualization
 slug: soil-science-viewer
 sort_order: 2

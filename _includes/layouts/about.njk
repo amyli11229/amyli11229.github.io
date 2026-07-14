@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+<main class="about-page">
+    <div class="about-container">
+        <div class="about-content">
+            <div class="about-text">
+                {% include "bio-content.njk" %}
+            </div>
+            {% set sidebarClass = "about-sidebar" %}
+            {% set portraitClass = "about-hero-portrait" %}
+            {% include "contact-sidebar.njk" %}
+        </div>
+    </div>
+</main>

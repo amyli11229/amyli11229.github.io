@@ -4,9 +4,13 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "cms": "decap-server",
+    "dev": "concurrently -k \"npm run serve\" \"npm run cms\""
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "concurrently": "^9.2.1",
+    "decap-server": "^3.3.0"
   }
 }

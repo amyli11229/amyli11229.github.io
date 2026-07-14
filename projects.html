@@ -1,94 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
-    <title>Projects — Amy Yiqin Li</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=Rubik+Maps&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+<title>Projects — Amy Yiqin Li</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Rubik+Maps&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <!--
-      PROJECTS-ONLY PAGE — keep cards in sync with index.html (#projects).
-      Each card links to projects/*.html; images in images/projects/
-    -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Amy Yiqin Li</a>
-            <div class="nav-end">
-                <div class="nav-links">
-                    <a href="about.html">Bio</a>
-                    <a href="cv.html">CV</a>
-                    <a href="projects.html" class="active">Projects</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">
-                    <svg class="theme-toggle-icon theme-toggle-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-                    <svg class="theme-toggle-icon theme-toggle-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-                </button>
+<nav class="nav">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">Amy Yiqin Li</a>
+        <div class="nav-end">
+            <div class="nav-links">
+                <a href="about.html">Bio</a>
+                <a href="cv.html">CV</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="contact.html">Contact</a>
             </div>
+            <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">
+                <svg class="theme-toggle-icon theme-toggle-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+                <svg class="theme-toggle-icon theme-toggle-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </button>
         </div>
-    </nav>
-    <main class="projects-page">
-        <div class="page-header">
-            <h1>Projects</h1>
+    </div>
+</nav>
+
+<main class="projects-page">
+    <div class="page-header">
+        <h1>Projects</h1>
+    </div>
+    <div class="projects-grid">
+        
+        
+        
+
+
+
+
+
+
+<article class="project-card project-card--text">
+    <a href="projects/procedural-poetry-funhouse.html" class="project-card-link">
+        
+        <div class="project-header">
+            <h2 class="project-title">Procedural Poetry Funhouse</h2>
+            <span class="project-year">EML</span>
         </div>
-        <div class="projects-grid">
-            <article class="project-card">
-                <a href="projects/procedural-poetry-funhouse.html" class="project-card-link">
-                    <figure class="project-card-figure" aria-hidden="true">
-                        <img class="project-card-image" src="images/projects/procedural-poetry.png" alt="">
-                    </figure>
-                    <div class="project-header">
-                        <h2 class="project-title">Procedural Poetry Funhouse</h2>
-                        <span class="project-year">EML</span>
-                    </div>
-                    <p class="project-description">An experimental VR experience combining procedural environments, visual poetry, and immersive storytelling—exploring how spatial interaction and motion-based navigation shape emotion and narrative.</p>
-                    <div class="project-meta">
-                        <span class="project-medium">EML Experimental VR Project</span>
-                        <span class="project-tech">Unreal Engine 5, Meta Quest, Blender, Figma</span>
-                    </div>
-                </a>
-            </article>
-            <article class="project-card">
-                <a href="projects/soil-science-viewer.html" class="project-card-link">
-                    <figure class="project-card-figure" aria-hidden="true">
-                        <img class="project-card-image" src="images/projects/soil-science-viewer.png" alt="">
-                    </figure>
-                    <div class="project-header">
-                        <h2 class="project-title">Soil Science Viewer — Gaussian Splat Visualization</h2>
-                        <span class="project-year">EML</span>
-                    </div>
-                    <p class="project-description">A scientific visualization viewer for Gaussian Splat-based soil scans—designed to make complex spatial data approachable for educational and research use cases.</p>
-                    <div class="project-meta">
-                        <span class="project-medium">EML Research &amp; Visualization</span>
-                        <span class="project-tech">Figma, Gaussian Splatting, GitHub</span>
-                    </div>
-                </a>
-            </article>
-            <article class="project-card">
-                <a href="projects/autogreater.html" class="project-card-link">
-                    <figure class="project-card-figure" aria-hidden="true">
-                        <img class="project-card-image" src="images/projects/autogreater.png" alt="">
-                    </figure>
-                    <div class="project-header">
-                        <h2 class="project-title">AutoGreater</h2>
-                        <span class="project-year">CPSC 344</span>
-                    </div>
-                    <p class="project-description">A Human-Computer Interaction project built through a full UX process—from research and ideation to prototyping and usability testing—focused on accessibility and iteration.</p>
-                    <div class="project-meta">
-                        <span class="project-medium">Introduction to Human Computer Interaction</span>
-                        <span class="project-tech">Figma, Figma Make, User Research &amp; Testing</span>
-                    </div>
-                </a>
-            </article>
+        <p class="project-description">An experimental VR experience combining procedural environments, visual poetry, and immersive storytelling—exploring how spatial interaction and motion-based navigation shape emotion and narrative.</p>
+        <div class="project-meta">
+            <span class="project-medium">EML Experimental VR Project</span>
+            <span class="project-tech">Unreal Engine 5, Meta Quest, Blender, Figma</span>
         </div>
-    </main>
-    <script src="main.js"></script>
+    </a>
+</article>
+
+        
+        
+
+
+
+
+
+
+<article class="project-card project-card--text">
+    <a href="projects/soil-science-viewer.html" class="project-card-link">
+        
+        <div class="project-header">
+            <h2 class="project-title">Soil Science Viewer — Gaussian Splat Visualization</h2>
+            <span class="project-year">EML</span>
+        </div>
+        <p class="project-description">A scientific visualization viewer for Gaussian Splat-based soil scans—designed to make complex spatial data approachable for educational and research use cases.</p>
+        <div class="project-meta">
+            <span class="project-medium">EML Research &amp; Visualization</span>
+            <span class="project-tech">Figma, Gaussian Splatting, GitHub</span>
+        </div>
+    </a>
+</article>
+
+        
+        
+
+
+
+
+
+
+<article class="project-card project-card--text">
+    <a href="projects/autogreater.html" class="project-card-link">
+        
+        <div class="project-header">
+            <h2 class="project-title">AutoGreater</h2>
+            <span class="project-year">CPSC 344</span>
+        </div>
+        <p class="project-description">A Human-Computer Interaction project built through a full UX process—from research and ideation to prototyping and usability testing—focused on accessibility and iteration.</p>
+        <div class="project-meta">
+            <span class="project-medium">Introduction to Human Computer Interaction</span>
+            <span class="project-tech">Figma, Figma Make, User Research &amp; Testing</span>
+        </div>
+    </a>
+</article>
+
+        
+        
+
+
+
+
+
+
+<article class="project-card project-card--text">
+    <a href="projects/the-clinic.html" class="project-card-link">
+        
+        <div class="project-header">
+            <h2 class="project-title">The Clinic</h2>
+            <span class="project-year">TouchDesigner</span>
+        </div>
+        <p class="project-description">An interactive 3D room experience built in TouchDesigner—exploring spatial interaction and immersive environments.</p>
+        <div class="project-meta">
+            <span class="project-medium">Interactive Installation / TouchDesigner</span>
+            <span class="project-tech">TouchDesigner</span>
+        </div>
+    </a>
+</article>
+
+        
+        
+
+
+
+
+
+
+<article class="project-card project-card--text">
+    <a href="projects/compressed-garbage.html" class="project-card-link">
+        
+        <div class="project-header">
+            <h2 class="project-title">Compressed Garbage</h2>
+            <span class="project-year">Video</span>
+        </div>
+        <p class="project-description">A video project exploring form, material, and compression through moving image.</p>
+        <div class="project-meta">
+            <span class="project-medium">Video</span>
+            <span class="project-tech">Video</span>
+        </div>
+    </a>
+</article>
+
+        
+        
+
+
+
+
+
+
+<article class="project-card project-card--text">
+    <a href="projects/3d-models.html" class="project-card-link">
+        
+        <div class="project-header">
+            <h2 class="project-title">3D Models</h2>
+            <span class="project-year">3D</span>
+        </div>
+        <p class="project-description">A collection of 3D models exploring form, material, and digital sculpture.</p>
+        <div class="project-meta">
+            <span class="project-medium">3D Modeling</span>
+            <span class="project-tech">Blender</span>
+        </div>
+    </a>
+</article>
+
+        
+    </div>
+</main>
+
+<script src="main.js"></script>
 </body>
 </html>

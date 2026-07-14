@@ -1,4 +1,13 @@
 ---
+# ─── EDIT GUIDE ─────────────────────────────────────────────
+# title ............... Project name (page heading)
+# lead .............. First paragraph on the project page
+# organization ...... Course/org line under the title
+# tags .............. Tools on the project page
+# card_* ............ Preview box on homepage / Projects list (before click)
+# slug .............. URL name → projects/THIS-NAME.html (rarely change)
+# layout ............ Do not edit
+# See content/projects/README.md for full guide
 title: Procedural Poetry Funhouse
 slug: procedural-poetry-funhouse
 sort_order: 1
@@ -7,7 +16,6 @@ layout: layouts/project-detail.njk
 hero_image: images/projects/procedural-poetry.png
 card_year: EML
 card_description: An experimental VR experience combining procedural environments, visual poetry, and immersive storytelling—exploring how spatial interaction and motion-based navigation shape emotion and narrative.
-card_description_home: An experimental VR experience combining procedural environments, visual poetry, and immersive storytelling—exploring how spatial interaction and motion-based navigation shape emotion and narrative.
 card_medium: EML Experimental VR Project
 card_medium_home: Experimental VR / UIUX
 card_tags: Unreal Engine 5, Meta Quest, Blender, Figma

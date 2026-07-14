@@ -1,0 +1,99 @@
+backend:
+  name: git-gateway
+
+local_backend: true
+
+media_folder: images/projects
+public_folder: /images/projects
+
+site_url: https://amyli11229.github.io
+display_url: https://amyli11229.github.io
+
+collections:
+  - name: site
+    label: Site-wide
+    files:
+      - label: Contact links & email
+        name: site
+        file: _data/site.json
+        fields:
+          - { label: Your name (nav logo), name: name, widget: string }
+          - { label: Email address, name: email, widget: string }
+          - { label: LinkedIn URL, name: linkedin, widget: string }
+          - { label: GitHub URL, name: github, widget: string }
+          - { label: Contact form link, name: contact_form_url, widget: string, hint: "Full Google Form URL (opens in new tab)" }
+          - { label: Contact form embed URL, name: contact_form_embed, widget: string, hint: "Google Form embed URL (used in iframe)" }
+
+      - label: Bio (Homepage & About page)
+        name: bio
+        file: content/pages/bio.md
+        fields:
+          - label: Intro line
+            name: lead
+            widget: text
+            hint: "Large text at the top. Use **bold** for emphasis, e.g. **AMY LI**"
+          - label: Bio paragraph
+            name: intro
+            widget: text
+            hint: "Second paragraph. Use **bold**, **UI/UX**, and [link text](https://example.com)"
+
+      - label: Contact page text
+        name: contact
+        file: content/pages/contact.md
+        fields:
+          - { label: Page title, name: title, widget: hidden, default: Contact }
+          - { label: Layout, name: layout, widget: hidden, default: layouts/contact.njk }
+          - { label: Permalink, name: permalink, widget: hidden, default: contact.html }
+          - { label: Active nav, name: activePage, widget: hidden, default: contact }
+          - { label: Asset root, name: assetRoot, widget: hidden, default: "" }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: lead, widget: string }
+          - { label: Form section title, name: form_heading, widget: string }
+          - { label: Form section description, name: form_desc, widget: text }
+
+  - name: projects
+    label: Projects
+    folder: content/projects
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    summary: title
+    sortable_fields: [sort_order, title]
+    filter: { field: layout, value: layouts/project-detail.njk }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: URL slug, name: slug, widget: string, hint: "Lowercase with hyphens → projects/your-slug.html" }
+      - { label: Sort order, name: sort_order, widget: number, value_type: int, hint: "Lower numbers appear first" }
+      - { label: Published, name: published, widget: boolean, default: true }
+      - { label: Layout, name: layout, widget: hidden, default: layouts/project-detail.njk }
+      - { label: Organization / course line, name: organization, widget: string }
+      - { label: Tools (project page), name: tags, widget: string }
+      - { label: Opening paragraph, name: lead, widget: text }
+      - { label: Badge on card (e.g. EML), name: card_year, widget: string }
+      - { label: Card description, name: card_description, widget: text }
+      - { label: Homepage card description (optional), name: card_description_home, widget: text, required: false }
+      - { label: Card subtitle, name: card_medium, widget: string }
+      - { label: Homepage card subtitle (optional), name: card_medium_home, widget: string, required: false }
+      - { label: Homepage card title (optional), name: card_title_home, widget: string, required: false }
+      - { label: Card tools (optional), name: card_tags, widget: string, required: false }
+      - { label: Hero / card image, name: hero_image, widget: image, choose_url: true }
+      - label: Key contributions
+        name: contributions
+        widget: list
+        required: false
+        field: { label: Contribution, name: contribution, widget: string }
+      - label: Prototype callout (optional)
+        name: prototype_callout
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Text, name: text, widget: text }
+          - { label: Inline link label, name: link_label, widget: string, required: false }
+          - { label: Inline link URL, name: link_url, widget: string, required: false }
+          - { label: Button label, name: button_label, widget: string, required: false }
+          - { label: Button URL, name: button_url, widget: string, required: false }
+      - { label: Main story (extra paragraphs), name: body, widget: markdown }

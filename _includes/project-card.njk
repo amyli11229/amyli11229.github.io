@@ -5,11 +5,13 @@
 {% set cardTags = project.data.card_tags if project.data.card_tags else project.data.tags %}
 {% set heroImage = project.data.hero_image %}
 {% set projectUrl = assetRoot ~ 'projects/' ~ project.data.slug ~ '.html' %}
-<article class="project-card">
+<article class="project-card{% if variant == 'projects' %} project-card--text{% endif %}">
     <a href="{{ projectUrl }}" class="project-card-link">
+        {% if variant != 'projects' %}
         <figure class="project-card-figure" aria-hidden="true">
-            <img class="project-card-image" src="{{ assetRoot }}{{ heroImage }}" alt="">
+            <img class="project-card-image" src="{{ assetRoot }}{{ heroImage }}" alt="" onerror="this.classList.add('is-missing'); this.removeAttribute('src');">
         </figure>
+        {% endif %}
         <div class="project-header">
             <h2 class="project-title">{{ cardTitle }}</h2>
             <span class="project-year">{{ project.data.card_year }}</span>

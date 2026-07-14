@@ -58,7 +58,7 @@ permalink: projects/{{ slug }}.html
             <h2 class="project-detail-h2">Key contributions</h2>
             <ul class="project-detail-links">
                 {% for item in contributions %}
-                <li>{% if item.item %}{{ item.item }}{% else %}{{ item }}{% endif %}</li>
+                <li>{% if item.contribution %}{{ item.contribution }}{% elif item.item %}{{ item.item }}{% else %}{{ item }}{% endif %}</li>
                 {% endfor %}
             </ul>
             {% endif %}

@@ -20,6 +20,8 @@ GitHub Pages still serves the **original HTML files** from the repo root, exactl
 | Path | Purpose |
 |------|---------|
 | `content/projects/*.md` | Single source of truth for project copy |
+| `content/pages/bio.md` | Homepage + About bio copy (lead & intro) |
+| `content/pages/home.md`, `about.md` | Page settings (rarely edited) |
 | `_includes/` | Shared layouts and project card template |
 | `*.njk` | Eleventy page templates |
 | `.eleventy.js` | Build config |
@@ -163,6 +165,7 @@ Each `content/projects/*.md` file supports:
 
 ```
 content/projects/     ← edit project text (Phase 1+)
+content/pages/        ← edit homepage & About bio (bio.md)
 _includes/            ← templates (rarely edited)
 *.njk                 ← page shells
 index.html etc.       ← legacy live site (remove in Phase 2)

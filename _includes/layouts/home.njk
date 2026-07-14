@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+---
+<main class="home-page">
+    <section id="bio" class="home-hero-bio figma-intro" aria-label="Amy Yiqin Li — Bio">
+        <div class="landing-bg" aria-hidden="true"></div>
+        <div class="home-hero-bio-inner figma-intro-inner">
+            <div class="home-hero-bio-text">
+                <h1 class="figma-intro-title home-hero-name bio-reveal">{{ hero_name }}</h1>
+                <p class="home-hero-subtitle bio-reveal">{{ hero_subtitle }}</p>
+                <nav class="home-hero-links bio-reveal" id="contact" aria-label="Contact">
+                    <a href="mailto:{{ site.email }}" class="contact-link">Email</a>
+                    <a href="{{ site.linkedin }}" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="{{ assetRoot }}cv.html" class="cv-view contact-sidebar-cv">View CV</a>
+                    <p class="home-hero-location">Location: {{ site.location }}</p>
+                </nav>
+            </div>
+            <div class="home-hero-portrait bio-reveal bio-reveal--portrait">
+                <img src="{{ assetRoot }}images/amy-profile.png" alt="Portrait illustration of Amy Yiqin Li with a cat" class="avatar-photo" width="280" height="280">
+            </div>
+        </div>
+        <a href="#projects" class="scroll-hint bio-reveal" aria-label="Scroll to projects">
+            <span class="scroll-arrow">↓</span>
+        </a>
+    </section>
+    <section id="projects" class="home-section about-page projects-home" aria-labelledby="projects-heading">
+        <div class="projects-home-inner">
+            <div class="page-header scroll-reveal">
+                <h1 id="projects-heading">Projects</h1>
+            </div>
+            <div class="projects-grid">
+                {% from "project-card.njk" import render %}
+                {% for project in collections.projects %}
+                {{ render(project, 'home', assetRoot) }}
+                {% endfor %}
+            </div>
+            <p class="home-inline-link projects-home-footnote scroll-reveal">
+                <a href="projects.html">Open this list on its own page →</a>
+            </p>
+        </div>
+    </section>
+</main>

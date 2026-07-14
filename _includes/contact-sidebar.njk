@@ -1,0 +1,10 @@
+<div class="home-hero-bio-sidebar{% if sidebarClass %} {{ sidebarClass }}{% endif %}" id="contact">
+    <div class="about-image {{ portraitClass }} bio-reveal bio-reveal--portrait">
+        <img src="{{ assetRoot }}images/amy-profile.png" alt="Portrait illustration of Amy Yiqin Li with a cat" class="avatar-photo" width="350" height="350">
+    </div>
+    <nav class="contact-sidebar bio-reveal" aria-label="Contact">
+        <a href="mailto:{{ site.email }}" class="contact-link">Email</a>
+        <a href="{{ site.linkedin }}" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="{{ assetRoot }}cv.html" class="cv-view contact-sidebar-cv">View CV</a>
+    </nav>
+</div>

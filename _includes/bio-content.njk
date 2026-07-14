@@ -1,0 +1,11 @@
+{% set bio = collections.bioContent[0] %}
+{% if show_bio_title %}
+<h1 class="figma-intro-title bio-reveal">ABOUT</h1>
+{% endif %}
+<p class="figma-intro-lead bio-reveal">{{ bio.data.lead | inlineMarkdown | safe }}</p>
+<p class="about-intro bio-reveal">{{ bio.data.intro | inlineMarkdown | safe }}</p>
+{% if show_about_link %}
+<p class="home-inline-link bio-reveal">
+    <a href="about.html">Full About page →</a>
+</p>
+{% endif %}
