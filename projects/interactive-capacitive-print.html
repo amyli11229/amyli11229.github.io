@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+<title>Interactive Capacitive Print — Amy Yiqin Li</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Rubik+Maps&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo">Amy Yiqin Li</a>
+        <div class="nav-end">
+            <div class="nav-links">
+                <a href="../about.html">Bio</a>
+                <a href="../cv.html">CV</a>
+                <a href="../projects.html" class="active">Projects</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">
+                <svg class="theme-toggle-icon theme-toggle-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+                <svg class="theme-toggle-icon theme-toggle-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<main class="project-detail">
+    <div class="project-detail-inner">
+        <a href="../projects.html" class="project-detail-back">← All projects</a>
+
+        <figure class="project-detail-figure" aria-hidden="true">
+            <img class="project-detail-hero" src="../images/projects/interactive-capacitive-print.png" alt="">
+        </figure>
+
+        <header class="project-detail-header">
+            <h1 class="project-detail-title">Interactive Capacitive Print</h1>
+            <div class="project-detail-meta-row">
+                <span class="project-detail-year">Final Project — “Touching the Window”</span>
+                <span class="project-detail-tags">Arduino, TouchDesigner, Capacitive Sensing, Screen Printing, DIY Conductive Ink</span>
+            </div>
+        </header>
+
+        
+
+        <div class="project-detail-body">
+            
+            <p class="lead">In this project, I explore the combination of printmaking and creative electronics, transforming printed surfaces into interactive interfaces. Using conductive ink prints as capacitive touch sensors, the work investigates how physical touch can activate digital responses—triggering sound and allowing static images to become responsive systems.</p>
+            
+            <h2>Artist statement</h2>
+<p>“Touching the Window” considers the printed surface as both image and interface. The work is inspired by the window in my home between 2019 and 2024, a period during which I spent an extended amount of time indoors during the COVID-19 pandemic. At first, staying at home with my family felt comforting, even enjoyable. Over time, however, that feeling shifted, and the experience became more difficult and limiting. I often found myself wishing I had done more during that period, though I have come to accept it as it was.</p>
+<p>Using a coded system in TouchDesigner with Arduino that triggers output through touch, the project reflects on hidden layers embedded within visual forms. The window, once something to look through, becomes something to touch—transforming passive observation into active interaction. In this way, the work connects memory, material, and interface, allowing touch to reveal what is otherwise unseen.</p>
+<h2>Materials &amp; process</h2>
+<p>The project involved the development of a DIY conductive ink composed of graphite powder as the conductive material, combined with white glue and screen printing ink as binders, with water added to adjust viscosity.</p>
+<p>Printmaking techniques were used to apply this ink onto paper surfaces. These printed elements were then integrated with an Arduino-based capacitive sensing system. In this setup, the print itself functions as the interface, eliminating the need for visible buttons.</p>
+<p>The work emphasizes the relationship between touch, materiality, and hidden digital responses, particularly through sound.</p>
+<h2>Key experimentation</h2>
+<ul>
+<li>Tested different ink ratios (graphite vs binder)</li>
+<li>Explored conductivity, printability, and surface texture</li>
+<li>Created multiple samples and iterations</li>
+</ul>
+<h2>Major challenge</h2>
+<p>An initial challenge was that the ink did not conduct electricity as expected. Further investigation revealed that the issue was not solely related to the material composition, but also to the thickness of the printed layer.</p>
+<p>Thin applications of ink failed to create a continuous conductive path, while thicker or layered prints significantly improved conductivity. This finding became a key turning point in the development of the project.</p>
+<h2>Technical system</h2>
+<p>The project uses capacitive sensing through an Arduino system. The conductive print acts as the sensor surface, and touch alters its capacitance. This change is detected by the Arduino, which then triggers an audio output. The interaction follows a simple pipeline:</p>
+<p><strong>Touch → Signal → Arduino Processing → Sound Output</strong></p>
+<h2>Future improvements</h2>
+<ul>
+<li>Improve setup efficiency (faster, more reliable)</li>
+<li>Expand and refine the audio system</li>
+<li>Clearer interaction signifiers for audience</li>
+<li>Improve durability of the printed surface</li>
+<li>Explore protective layers / alternative materials</li>
+<li>Better documentation (process + results)</li>
+</ul>
+<h2>References</h2>
+<ul>
+<li>CapacitiveSensor — Arduino Library</li>
+<li>Soft Inkjet Circuits: Rapid Multi-Material Fabrication of Soft Circuits</li>
+<li>An introduction to printed electronics</li>
+<li>Screen-printed electrodes</li>
+<li>Conductive inks for printed electronics</li>
+<li>PaperID: A Technique for Drawing Functional Battery-Free Wireless Interfaces on Paper</li>
+<li>Building a Capacitive Sensor with Arduino</li>
+</ul>
+
+
+            
+
+            
+            <h2 class="project-detail-h2">Key contributions</h2>
+            <ul class="project-detail-links">
+                
+                <li>Developed a DIY conductive ink (graphite, white glue, screen printing ink, water)</li>
+                
+                <li>Screen-printed conductive surfaces that function as capacitive sensors</li>
+                
+                <li>Built an Arduino capacitive sensing pipeline connected to TouchDesigner</li>
+                
+                <li>Iterated ink ratios, layer thickness, conductivity, and printability</li>
+                
+                <li>Designed interaction around touch, memory, and hidden digital response</li>
+                
+            </ul>
+            
+
+            
+        </div>
+    </div>
+</main>
+
+<script src="../main.js"></script>
+</body>
+</html>

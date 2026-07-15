@@ -1211,12 +1211,22 @@ body.page-home .home-page .projects-home .page-header h1 {
     font-weight: 400;
 }
 
-.project-detail-h2 {
+.project-detail-h2,
+.project-detail-body > h2 {
     font-size: 1.15rem;
     font-weight: 500;
     color: var(--color-text);
     margin: var(--spacing-lg) 0 var(--spacing-sm);
     letter-spacing: -0.01em;
+}
+
+.project-detail-body > ul {
+    margin: 0 0 var(--spacing-md);
+    padding-left: 1.25rem;
+}
+
+.project-detail-body > ul li {
+    margin-bottom: 0.35rem;
 }
 
 .project-detail-links {
