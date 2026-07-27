@@ -11,7 +11,7 @@
 title: The Clinic
 slug: the-clinic
 sort_order: 4
-published: true
+published: false
 layout: layouts/project-detail.njk
 hero_image: images/projects/the-clinic.png
 card_year: TouchDesigner

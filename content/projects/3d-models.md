@@ -11,7 +11,7 @@
 title: 3D Models
 slug: 3d-models
 sort_order: 6
-published: true
+published: false
 layout: layouts/project-detail.njk
 hero_image: images/projects/3d-models.png
 card_year: 3D
