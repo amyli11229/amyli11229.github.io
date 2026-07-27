@@ -638,6 +638,14 @@ html[data-theme="dark"] .theme-toggle-sun {
     margin-top: 0;
     will-change: transform;
     transform: translate3d(0, calc(var(--hero-portrait-shift) * 1px), 0);
+    text-decoration: none;
+    color: inherit;
+    border-radius: 50%;
+}
+
+.home-hero-portrait:focus-visible {
+    outline: 2px solid var(--gallery-accent);
+    outline-offset: 4px;
 }
 
 .home-hero-portrait .avatar-photo {
@@ -646,6 +654,12 @@ html[data-theme="dark"] .theme-toggle-sun {
     border-radius: 50%;
     object-fit: cover;
     display: block;
+    transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.home-hero-portrait:hover .avatar-photo {
+    transform: scale(1.03);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .home-hero-bio-sidebar {
@@ -1114,7 +1128,7 @@ body.page-home .home-page .projects-home .page-header h1 {
 }
 
 .project-detail-inner {
-    max-width: 800px;
+    max-width: 860px;
     margin: 0 auto;
 }
 
@@ -1199,6 +1213,9 @@ body.page-home .home-page .projects-home .page-header h1 {
     color: var(--color-text-light);
     line-height: 1.8;
     font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .project-detail-body > p {
@@ -1227,6 +1244,127 @@ body.page-home .home-page .projects-home .page-header h1 {
 
 .project-detail-body > ul li {
     margin-bottom: 0.35rem;
+}
+
+/* Fluid colored story sections on project detail pages */
+.project-detail-body > .lead {
+    margin-bottom: 0.5rem;
+}
+
+.project-section {
+    position: relative;
+    padding: clamp(1.35rem, 3vw, 2rem) clamp(1.15rem, 2.5vw, 1.75rem);
+    border-radius: 1.75rem;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms ease;
+}
+
+.project-section::before {
+    content: '';
+    position: absolute;
+    inset: -35% -20% auto auto;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+html[data-theme="dark"] .project-section::before {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 70%);
+}
+
+.project-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+.project-section > h2:first-child {
+    margin-top: 0;
+}
+
+.project-section > :last-child {
+    margin-bottom: 0;
+}
+
+.project-section h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 1.1rem 0 0.4rem;
+    letter-spacing: 0.01em;
+}
+
+.project-section h3:first-of-type {
+    margin-top: 0.85rem;
+}
+
+.project-section p {
+    margin-bottom: 0.85rem;
+}
+
+.project-section--1 {
+    background:
+        linear-gradient(145deg, rgba(214, 232, 242, 0.95) 0%, rgba(236, 244, 248, 0.88) 55%, rgba(245, 249, 251, 0.92) 100%);
+}
+
+.project-section--2 {
+    background:
+        linear-gradient(155deg, rgba(236, 228, 214, 0.95) 0%, rgba(245, 239, 228, 0.9) 50%, rgba(250, 246, 238, 0.94) 100%);
+}
+
+.project-section--3 {
+    background:
+        linear-gradient(150deg, rgba(220, 234, 224, 0.95) 0%, rgba(234, 244, 236, 0.9) 52%, rgba(244, 249, 245, 0.94) 100%);
+}
+
+.project-section--4 {
+    background:
+        linear-gradient(148deg, rgba(232, 226, 236, 0.95) 0%, rgba(241, 236, 244, 0.9) 50%, rgba(248, 245, 250, 0.94) 100%);
+}
+
+.project-section--5 {
+    background:
+        linear-gradient(152deg, rgba(242, 228, 220, 0.95) 0%, rgba(248, 238, 230, 0.9) 50%, rgba(252, 246, 241, 0.94) 100%);
+}
+
+html[data-theme="dark"] .project-section--1 {
+    background: linear-gradient(145deg, rgba(42, 58, 70, 0.92), rgba(28, 36, 44, 0.95));
+}
+
+html[data-theme="dark"] .project-section--2 {
+    background: linear-gradient(155deg, rgba(62, 52, 40, 0.92), rgba(36, 32, 28, 0.95));
+}
+
+html[data-theme="dark"] .project-section--3 {
+    background: linear-gradient(150deg, rgba(40, 58, 48, 0.92), rgba(28, 36, 32, 0.95));
+}
+
+html[data-theme="dark"] .project-section--4 {
+    background: linear-gradient(148deg, rgba(52, 44, 62, 0.92), rgba(32, 28, 40, 0.95));
+}
+
+html[data-theme="dark"] .project-section--5 {
+    background: linear-gradient(152deg, rgba(62, 44, 38, 0.92), rgba(38, 30, 28, 0.95));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .project-section.is-visible {
+        animation: projectSectionRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+}
+
+@keyframes projectSectionRise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .project-detail-links {
@@ -1347,6 +1485,81 @@ body.page-home .home-page .projects-home .page-header h1 {
 .about-page .about-intro {
     max-width: 42rem;
     margin-bottom: 0;
+}
+
+.about-experience {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+    max-width: 42rem;
+}
+
+.about-experience-title {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: var(--hero-text);
+    margin: 0 0 var(--spacing-md);
+}
+
+.about-experience-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.about-experience-item {
+    margin: 0;
+}
+
+.about-experience-header {
+    margin-bottom: 0.65rem;
+}
+
+.about-experience-role {
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin: 0 0 0.25rem;
+}
+
+.about-experience-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.35rem 1rem;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text-light);
+}
+
+.about-experience-org {
+    font-weight: 400;
+}
+
+.about-experience-dates {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.about-experience-highlights {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--color-text-light);
+    font-size: 0.98rem;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.about-experience-highlights li + li {
+    margin-top: 0.35rem;
 }
 
 .figma-intro-lead strong {
@@ -1606,9 +1819,18 @@ body.page-home .home-page .projects-home .page-header h1 {
     }
 
     .about-page .about-text .figma-intro-lead,
-    .about-page .about-intro {
+    .about-page .about-intro,
+    .about-page .about-experience {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .about-page .about-experience-meta {
+        justify-content: center;
+    }
+
+    .about-page .about-experience-highlights {
+        text-align: left;
     }
 
     .about-page .home-hero-bio-sidebar {

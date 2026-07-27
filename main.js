@@ -131,6 +131,36 @@ document.addEventListener('DOMContentLoaded', function() {
     observeReveals('.scroll-reveal', 80);
     observeReveals('.projects-home .project-card', 90);
 
+    // Wrap project-detail story headings into fluid colored sections
+    const projectBody = document.querySelector('.project-detail-body');
+    if (projectBody) {
+        const nodes = Array.prototype.slice.call(projectBody.childNodes);
+        let currentSection = null;
+        let sectionIndex = 0;
+
+        nodes.forEach(function(node) {
+            const isHeading =
+                node.nodeType === 1 &&
+                (node.matches('h2') || node.classList.contains('project-detail-h2'));
+
+            if (isHeading) {
+                sectionIndex += 1;
+                currentSection = document.createElement('section');
+                currentSection.className =
+                    'project-section project-section--' + (((sectionIndex - 1) % 5) + 1);
+                projectBody.insertBefore(currentSection, node);
+                currentSection.appendChild(node);
+                return;
+            }
+
+            if (!currentSection) return;
+            if (node.nodeType === 3 && !node.textContent.trim()) return;
+            currentSection.appendChild(node);
+        });
+
+        observeReveals('.project-section', 70);
+    }
+
     // Projects page / other lists: gentle rise without fighting homepage styles
     const otherCards = document.querySelectorAll('.projects-page .project-card');
     if (otherCards.length > 0) {

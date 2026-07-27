@@ -36,6 +36,21 @@ collections:
             name: intro
             widget: text
             hint: "Second paragraph. Use **bold**, **UI/UX**, and [link text](https://example.com)"
+          - label: Work experience (About page)
+            name: experience
+            widget: list
+            required: false
+            summary: "{{role}} — {{org}}"
+            fields:
+              - { label: Role, name: role, widget: string }
+              - { label: Organization, name: org, widget: string }
+              - { label: Location, name: location, widget: string, required: false }
+              - { label: Dates, name: dates, widget: string }
+              - label: Highlights
+                name: highlights
+                widget: list
+                required: false
+                field: { label: Highlight, name: highlight, widget: string }
 
       - label: Contact page text
         name: contact

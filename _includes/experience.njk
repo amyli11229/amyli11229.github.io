@@ -1,0 +1,26 @@
+{% set bio = collections.bioContent[0] %}
+{% if bio.data.experience and bio.data.experience.length %}
+<section class="about-experience bio-reveal" aria-labelledby="experience-heading">
+    <h2 id="experience-heading" class="about-experience-title">Work Experience</h2>
+    <ol class="about-experience-list">
+        {% for job in bio.data.experience %}
+        <li class="about-experience-item">
+            <div class="about-experience-header">
+                <h3 class="about-experience-role">{{ job.role }}</h3>
+                <p class="about-experience-meta">
+                    <span class="about-experience-org">{{ job.org }}{% if job.location %} · {{ job.location }}{% endif %}</span>
+                    <span class="about-experience-dates">{{ job.dates }}</span>
+                </p>
+            </div>
+            {% if job.highlights and job.highlights.length %}
+            <ul class="about-experience-highlights">
+                {% for item in job.highlights %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+</section>
+{% endif %}
