@@ -10,7 +10,7 @@
 # See content/projects/README.md for full guide
 title: AutoGreater
 slug: autogreater
-sort_order: 3
+sort_order: 4
 published: true
 layout: layouts/project-detail.njk
 hero_image: images/projects/autogreater.png

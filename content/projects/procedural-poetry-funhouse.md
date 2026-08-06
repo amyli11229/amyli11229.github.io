@@ -22,6 +22,9 @@ card_tags: Unreal Engine 5, Meta Quest, Blender, Figma
 organization: EML Experimental VR Project
 tags: Unreal Engine 5, Figma, Blender, Procreate, Meta Quest VR
 lead: An immersive VR experience inspired by the visual poetry of Judith Copithorne. As UX/UI designer at UBC’s Emerging Media Lab, I shaped the interaction system, interface language, and comfort-focused navigation for one of the lab’s flagship research projects.
+project_video:
+  title: Procedural Poetry Project Reel
+  youtube_id: VLhg9H0uRrk
 contributions:
   - Defined overall UX direction, interaction design, and interface system
   - Redesigned interaction flow and reusable UI components after a full platform migration

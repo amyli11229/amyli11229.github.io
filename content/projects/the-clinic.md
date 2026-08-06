@@ -10,8 +10,8 @@
 # See content/projects/README.md for full guide
 title: The Clinic
 slug: the-clinic
-sort_order: 4
-published: false
+sort_order: 5
+published: true
 layout: layouts/project-detail.njk
 hero_image: images/projects/the-clinic.png
 card_year: TouchDesigner

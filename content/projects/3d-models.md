@@ -10,8 +10,8 @@
 # See content/projects/README.md for full guide
 title: 3D Models
 slug: 3d-models
-sort_order: 6
-published: false
+sort_order: 7
+published: true
 layout: layouts/project-detail.njk
 hero_image: images/projects/3d-models.png
 card_year: 3D

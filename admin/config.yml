@@ -94,6 +94,14 @@ collections:
       - { label: Homepage card title (optional), name: card_title_home, widget: string, required: false }
       - { label: Card tools (optional), name: card_tags, widget: string, required: false }
       - { label: Hero / card image, name: hero_image, widget: image, choose_url: true }
+      - label: Project video (optional)
+        name: project_video
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Video title, name: title, widget: string, required: false }
+          - { label: YouTube video ID, name: youtube_id, widget: string, hint: "From youtube.com/watch?v=VIDEO_ID" }
       - label: Key contributions
         name: contributions
         widget: list

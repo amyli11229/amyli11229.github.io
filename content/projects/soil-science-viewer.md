@@ -25,6 +25,16 @@ card_tags: Figma, Gaussian Splatting, GitHub
 organization: EML Research & Visualization Project
 tags: Figma, Gaussian Splatting, GitHub
 lead: A scientific visualization project focused on creating an accessible viewer for Gaussian Splat-based soil scans. The project aimed to simplify the interaction experience for complex spatial data and support educational and research-based use cases.
+prototype_callout:
+  title: Live project
+  text: "Explore the Virtual Soils viewer online:"
+  link_label: virtualsoils.ca
+  link_url: https://virtualsoils.ca/
+  button_label: Visit Virtual Soils
+  button_url: https://virtualsoils.ca/
+external_links:
+  - label: Virtual Soils website
+    url: https://virtualsoils.ca/
 contributions:
   - Designed interface layouts and interaction systems
   - Optimized user flow and navigation experience

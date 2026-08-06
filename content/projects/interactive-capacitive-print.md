@@ -10,7 +10,7 @@
 # See content/projects/README.md for full guide
 title: Interactive Capacitive Print
 slug: interactive-capacitive-print
-sort_order: 5
+sort_order: 6
 published: true
 layout: layouts/project-detail.njk
 hero_image: images/projects/interactive-capacitive-print.png

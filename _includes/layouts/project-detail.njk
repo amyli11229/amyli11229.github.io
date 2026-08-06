@@ -37,6 +37,23 @@ permalink: projects/{{ slug }}.html
         </div>
         {% endif %}
 
+        {% if project_video and project_video.youtube_id %}
+        <figure class="project-detail-video">
+            {% if project_video.title %}
+            <figcaption class="project-detail-video-title">{{ project_video.title }}</figcaption>
+            {% endif %}
+            <div class="project-detail-video-frame">
+                <iframe
+                    src="https://www.youtube.com/embed/{{ project_video.youtube_id }}"
+                    title="{{ project_video.title or title }}"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </figure>
+        {% endif %}
+
         <div class="project-detail-body">
             {% if lead %}
             <p class="lead">{{ lead }}</p>
