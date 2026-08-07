@@ -547,7 +547,7 @@ html[data-theme="dark"] .theme-toggle-sun {
 }
 
 .figma-intro-lead {
-    font-family: 'Spectral', Georgia, serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: clamp(1.5rem, 4.5vw, 2.75rem);
     font-weight: 400;
     letter-spacing: -0.035em;
@@ -1408,6 +1408,59 @@ body.page-home .home-page .projects-home .page-header h1 {
     font-size: 0.9rem;
     color: var(--color-text-muted, var(--color-text));
     text-align: center;
+}
+
+/* Pixel / game asset gallery on project pages */
+.project-asset-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin: 0 0 1.15rem;
+}
+
+.project-asset-gallery--pixel {
+    grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.project-asset-gallery--pixel .project-detail-figure--wide {
+    grid-column: 1 / -1;
+}
+
+.project-asset-gallery .project-detail-figure--inline {
+    margin-top: 0;
+}
+
+.project-detail-figure--pixel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: var(--spacing-md);
+    background: #0b0f10;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.project-detail-figure--pixel .project-detail-hero {
+    width: auto;
+    max-width: 100%;
+    max-height: 11rem;
+    height: auto;
+    margin: 0 auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.project-detail-figure--pixel.project-detail-figure--wide .project-detail-hero {
+    width: 100%;
+    max-height: none;
+}
+
+.project-detail-figure--pixel .project-detail-caption {
+    color: rgba(255, 255, 255, 0.72);
 }
 
 /* Project page — download / live-link callout (matches portfolio CV buttons) */

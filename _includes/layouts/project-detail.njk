@@ -63,14 +63,22 @@ permalink: projects/{{ slug }}.html
             {{ content | safe }}
 
             {% if additional_images and additional_images.length %}
+            {% if additional_images_heading %}
+            <h2 class="project-detail-h2">{{ additional_images_heading }}</h2>
+            {% endif %}
+            {% if additional_images_intro %}
+            <p>{{ additional_images_intro }}</p>
+            {% endif %}
+            <div class="project-asset-gallery{% if additional_images_pixel %} project-asset-gallery--pixel{% endif %}">
             {% for item in additional_images %}
-            <figure class="project-detail-figure project-detail-figure--inline">
+            <figure class="project-detail-figure project-detail-figure--inline{% if item.pixel or additional_images_pixel %} project-detail-figure--pixel{% endif %}{% if item.wide %} project-detail-figure--wide{% endif %}">
                 <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
                 {% if item.caption %}
                 <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
                 {% endif %}
             </figure>
             {% endfor %}
+            </div>
             {% endif %}
 
             {% if contributions and contributions.length %}

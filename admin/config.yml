@@ -124,6 +124,20 @@ collections:
         hint: "Work Projects show as Role & Contributions; all others as My Approach"
         field: { label: Item, name: contribution, widget: string }
 
+      - label: Extra images gallery (optional)
+        name: additional_images
+        widget: list
+        required: false
+        summary: "{{caption}}"
+        fields:
+          - { label: Image, name: image, widget: image, choose_url: true }
+          - { label: Caption, name: caption, widget: string, required: false }
+          - { label: Full-width row, name: wide, widget: boolean, required: false, default: false }
+
+      - { label: Gallery heading, name: additional_images_heading, widget: string, required: false }
+      - { label: Gallery intro, name: additional_images_intro, widget: text, required: false }
+      - { label: Pixel-art gallery styling, name: additional_images_pixel, widget: boolean, required: false, default: false }
+
       - label: Extra links (optional)
         name: external_links
         widget: list

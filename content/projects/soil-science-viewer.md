@@ -42,6 +42,8 @@ contributions:
 external_links:
   - label: Virtual Soils website
     url: https://virtualsoils.ca/
+  - label: Learn more about Virtual Soil
+    url: https://eml.ubc.ca/projects/virtual-soils/
 
 # --- Usually leave alone ---
 slug: soil-science-viewer

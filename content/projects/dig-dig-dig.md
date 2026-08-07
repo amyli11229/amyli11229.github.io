@@ -32,6 +32,38 @@ prototype_callout:
   button_label: Download on itch.io
   button_url: https://squiffy121.itch.io/dig-dig-dig
 
+# --- Pixel art gallery ---
+additional_images_heading: Pixel art
+additional_images_intro: Environment layers, drill variants, loot, and UI assets from the game’s visual direction.
+additional_images_pixel: true
+additional_images:
+  - image: images/projects/dig-dig-dig/parallax-cave-1.png
+    caption: Parallax cave — mid layer
+    wide: true
+  - image: images/projects/dig-dig-dig/parallax-cave-2.png
+    caption: Parallax cave — silhouette layer
+    wide: true
+  - image: images/projects/dig-dig-dig/parallax-cave-3.png
+    caption: Parallax cave — rock openings
+    wide: true
+  - image: images/projects/dig-dig-dig/parallax-cave-4.png
+    caption: Parallax cave — deep background
+    wide: true
+  - image: images/projects/dig-dig-dig/drill-pink.png
+    caption: Pink drill — thrust frames
+  - image: images/projects/dig-dig-dig/drill-pink-alt.png
+    caption: Pink drill — animation sheet
+  - image: images/projects/dig-dig-dig/drill-purple.png
+    caption: Purple drill — animation sheet
+  - image: images/projects/dig-dig-dig/drill-gold.png
+    caption: Gold drill — animation sheet
+  - image: images/projects/dig-dig-dig/ore-crystal.png
+    caption: Crystal ore collectible
+  - image: images/projects/dig-dig-dig/loot-gold.png
+    caption: Gold loot pile
+  - image: images/projects/dig-dig-dig/ui-hearts.png
+    caption: Health UI — full / empty
+
 # --- My Approach ---
 contributions:
   - Led design for a 4-person game jam team

@@ -39,6 +39,7 @@ Or use the visual editor: `npm run dev` → http://localhost:8080/admin/
 |-------|------------|
 | **project_video** | YouTube embed (`youtube_id` from `watch?v=XXXX`) |
 | **prototype_callout** | Download / Visit button block |
+| **additional_images** | Extra image gallery (optional captions; set **additional_images_pixel** for pixel art) |
 | **external_links** | Extra links at the bottom |
 | **card_*_home** | Different card text on the homepage only |
 
