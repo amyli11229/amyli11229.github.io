@@ -117,11 +117,12 @@ collections:
           - { label: Button label, name: button_label, widget: string, required: false }
           - { label: Button URL, name: button_url, widget: string, required: false }
 
-      - label: Key contributions
+      - label: Role & Contributions / My Approach
         name: contributions
         widget: list
         required: false
-        field: { label: Contribution, name: contribution, widget: string }
+        hint: "Work Projects show as Role & Contributions; all others as My Approach"
+        field: { label: Item, name: contribution, widget: string }
 
       - label: Extra links (optional)
         name: external_links

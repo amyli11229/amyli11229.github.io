@@ -12,18 +12,16 @@ sort_order: 7
 title: Interactive Capacitive Print
 organization: Final Project — “Touching the Window”
 tags: Arduino, TouchDesigner, Capacitive Sensing, Screen Printing, DIY Conductive Ink
-lead: In this project, I explore the combination of printmaking and creative electronics, transforming printed surfaces into interactive interfaces. Using conductive ink prints as capacitive touch sensors, the work investigates how physical touch can activate digital responses—triggering sound and allowing static images to become responsive systems.
+lead: Printmaking meets electronics—conductive-ink surfaces as capacitive sensors that trigger sound on touch.
 hero_image: images/projects/interactive-capacitive-print.png
 
 # --- Preview card (homepage + Projects list) ---
 card_year: Course Project
-card_description: Conductive ink prints as capacitive touch sensors—turning printed surfaces into interactive interfaces that trigger sound through touch.
-card_description_home: Conductive ink prints as capacitive sensors—transforming printed surfaces into interactive interfaces that respond to touch with sound.
-card_medium: Final Project — Touching the Window
-card_medium_home: Printmaking / Creative Electronics
+card_description: Conductive-ink prints as capacitive sensors that trigger sound on touch.
+card_medium: Printmaking / Creative Electronics
 card_tags: Arduino, TouchDesigner, Conductive Ink, Printmaking
 
-# --- Key contributions ---
+# --- My Approach ---
 contributions:
   - Developed a DIY conductive ink (graphite, white glue, screen printing ink, water)
   - Screen-printed conductive surfaces that function as capacitive sensors

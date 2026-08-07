@@ -74,7 +74,8 @@ permalink: projects/{{ slug }}.html
             {% endif %}
 
             {% if contributions and contributions.length %}
-            <h2 class="project-detail-h2">Key contributions</h2>
+            {% set contributionsHeading = contributions_heading if contributions_heading else ("Role & Contributions" if card_year == "Work Project" else "My Approach") %}
+            <h2 class="project-detail-h2">{{ contributionsHeading }}</h2>
             <ul class="project-detail-links">
                 {% for item in contributions %}
                 <li>{% if item.contribution %}{{ item.contribution }}{% elif item.item %}{{ item.item }}{% else %}{{ item }}{% endif %}</li>

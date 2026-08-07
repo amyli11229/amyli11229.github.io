@@ -12,18 +12,16 @@ sort_order: 4
 title: Portfolio Management System
 organization: Java Desktop Application
 tags: Java, Swing, OOP, JSON, MVC
-lead: A Java desktop application for managing creative portfolios—add works and research, view profile state, and persist data with JSON through a Swing GUI and CLI built on a shared object model.
+lead: Java desktop app for managing creative portfolios—Swing GUI and CLI over a shared model with JSON save/load.
 hero_image: images/projects/portfolio-management-system.png
 
 # --- Preview card (homepage + Projects list) ---
 card_year: Course Project
-card_description: A Java desktop app for managing creative portfolios—add works and research, view profile data, and persist everything with JSON save/load through a Swing GUI.
-card_description_home: A Java desktop app for managing creative portfolios—works, research, and JSON persistence through a Swing interface.
-card_medium: Desktop Application / Software Engineering
-card_medium_home: Java / Desktop App
+card_description: Java desktop portfolio tool with Swing UI, CLI, and JSON persistence.
+card_medium: Java / Desktop App
 card_tags: Java, Swing, OOP, JSON
 
-# --- Key contributions ---
+# --- My Approach ---
 contributions:
   - Architected an MVC-inspired Java app with model, persistence, and UI layers
   - Built Swing GUI and CLI on the same core portfolio system

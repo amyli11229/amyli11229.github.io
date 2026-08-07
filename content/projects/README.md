@@ -30,7 +30,7 @@ Or use the visual editor: `npm run dev` → http://localhost:8080/admin/
 | **card_description** | Short blurb on the preview card |
 | **card_medium** | Subtitle on the preview card |
 | **hero_image** | Cover image path |
-| **contributions** | Bullet list (“Key contributions”) |
+| **contributions** | Bullet list — heading is **Role & Contributions** for Work Projects, **My Approach** for others |
 | **Body** (below `---`) | The rest of the story — write normally |
 
 ### Optional (only if you need them)

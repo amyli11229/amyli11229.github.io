@@ -12,16 +12,15 @@ sort_order: 6
 title: The Clinic
 organization: Interactive TouchDesigner Project
 tags: TouchDesigner
-lead: An interactive 3D room experience built in TouchDesigner. More details coming soon.
+lead: Interactive 3D room environment built in TouchDesigner, focused on spatial interaction.
 hero_image: images/projects/the-clinic.png
 
 # --- Preview card (homepage + Projects list) ---
 card_year: Course Project
-card_description: An interactive 3D room experience built in TouchDesigner—exploring spatial interaction and immersive environments.
-card_medium: Interactive Installation / TouchDesigner
-card_medium_home: Interactive 3D / TouchDesigner
+card_description: Interactive 3D room in TouchDesigner—spatial interaction and immersive environments.
+card_medium: Interactive 3D / TouchDesigner
 
-# --- Key contributions ---
+# --- My Approach ---
 contributions:
   - Designed and built an interactive 3D room environment
   - Developed interaction systems in TouchDesigner
