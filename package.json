@@ -5,6 +5,7 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
+    "sync": "node scripts/sync-live.js",
     "cms": "decap-server",
     "dev": "concurrently -k \"npm run serve\" \"npm run cms\""
   },

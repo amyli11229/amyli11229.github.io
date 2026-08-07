@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
+<title>Portfolio Management System — Amy Yiqin Li</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Rubik+Maps&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo">Amy Yiqin Li</a>
+        <div class="nav-end">
+            <div class="nav-links">
+                <a href="../about.html">Bio</a>
+                <a href="../cv.html">CV</a>
+                <a href="../projects.html" class="active">Projects</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Dark mode">
+                <svg class="theme-toggle-icon theme-toggle-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+                <svg class="theme-toggle-icon theme-toggle-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<main class="project-detail">
+    <div class="project-detail-inner">
+        <a href="../projects.html" class="project-detail-back">← All projects</a>
+
+        <figure class="project-detail-figure" aria-hidden="true">
+            <img class="project-detail-hero" src="../images/projects/portfolio-management-system.png" alt="">
+        </figure>
+
+        
+        
+        <header class="project-detail-header">
+            <h1 class="project-detail-title">Portfolio Management System</h1>
+            <div class="project-detail-meta-row">
+                <span class="project-detail-year">Java Desktop Application</span>
+                <span class="project-detail-tags">Java, Swing, OOP, JSON, MVC</span>
+            </div>
+        </header>
+
+        
+
+        
+
+        <div class="project-detail-body">
+            
+            <p class="lead">A Java desktop application for managing creative portfolios—add works and research, view profile state, and persist data with JSON through a Swing GUI and CLI built on a shared object model.</p>
+            
+            <h2>Overview</h2>
+<p>Portfolio Management System helps artists keep creative works and research inspirations in one local app. Users add entries, inspect profile state, and save or reload everything through JSON—via a Swing GUI or a command-line interface over the same core logic.</p>
+<h2>Architecture</h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model/</code></td>
+<td><code>Profile</code>, <code>Work</code>, <code>Research</code></td>
+</tr>
+<tr>
+<td><code>persistence/</code></td>
+<td><code>JsonReader</code>, <code>JsonWriter</code></td>
+</tr>
+<tr>
+<td><code>ui/</code></td>
+<td><code>PortfolioGUI</code>, <code>PortfolioSystem</code></td>
+</tr>
+</tbody>
+</table>
+<p>UI never owns storage rules. The model holds state; persistence encodes it; both interfaces call into that shared core.</p>
+<h2>Features</h2>
+<ul>
+<li>Add creative works and research inspirations</li>
+<li>View portfolio profile state</li>
+<li>Save and load portfolio data as JSON</li>
+<li>Desktop Swing GUI + CLI over one system</li>
+</ul>
+<h2>Critical code</h2>
+<p>Wiring the shared store and portfolio model:</p>
+<pre><code class="language-java">private static final String JSON_STORE = &quot;./data/profile.json&quot;;
+private Profile profile;
+private JsonWriter jsonWriter;
+private JsonReader jsonReader;
+
+public PortfolioSystem() throws FileNotFoundException {
+    profile = new Profile(&quot;My Profile&quot;);
+    jsonWriter = new JsonWriter(JSON_STORE);
+    jsonReader = new JsonReader(JSON_STORE);
+    runPortfolio();
+}
+</code></pre>
+<p>Persisting and restoring state with explicit failure handling:</p>
+<pre><code class="language-java">public void saveFile() {
+    try {
+        jsonWriter.open();
+        jsonWriter.write(profile);
+        jsonWriter.close();
+        System.out.println(&quot;Saved &quot; + profile.getUserName() + &quot; to &quot; + JSON_STORE);
+    } catch (FileNotFoundException e) {
+        System.out.println(&quot;Unable to write to file: &quot; + JSON_STORE);
+    }
+}
+
+public void loadFile() {
+    try {
+        profile = jsonReader.read();
+        System.out.println(&quot;Loaded &quot; + profile.getUserName() + &quot; from &quot; + JSON_STORE);
+    } catch (IOException e) {
+        System.out.println(&quot;Unable to read from file: &quot; + JSON_STORE);
+    }
+}
+</code></pre>
+<p>Creating domain objects and updating the profile:</p>
+<pre><code class="language-java">Work addedWork = new Work(workName, imageURL, workDescription);
+profile.addWork(addedWork);
+</code></pre>
+<h2>Design notes</h2>
+<ul>
+<li>Separated model, persistence, and UI so GUI and CLI stay thin</li>
+<li>Used JSON for readable local persistence without a database</li>
+<li>Treated works and research as distinct types to match the artist workflow</li>
+</ul>
+<h2>Future improvements</h2>
+<ul>
+<li>Richer work metadata and search</li>
+<li>Image attachments</li>
+<li>Automated tests for model and persistence</li>
+<li>Visual polish for the Swing UI</li>
+</ul>
+
+
+            
+
+            
+            <h2 class="project-detail-h2">Key contributions</h2>
+            <ul class="project-detail-links">
+                
+                <li>Architected an MVC-inspired Java app with model, persistence, and UI layers</li>
+                
+                <li>Built Swing GUI and CLI on the same core portfolio system</li>
+                
+                <li>Implemented JSON save/load with file I/O and exception handling</li>
+                
+                <li>Modeled Profile, Work, and Research as first-class domain objects</li>
+                
+            </ul>
+            
+
+            
+        </div>
+    </div>
+</main>
+
+<script src="../main.js"></script>
+</body>
+</html>

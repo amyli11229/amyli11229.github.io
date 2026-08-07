@@ -1,8 +1,12 @@
 {% macro render(project, variant, assetRoot) %}
 {% set cardTitle = project.data.card_title_home if variant == 'home' and project.data.card_title_home else project.data.title %}
 {% set cardDescription = project.data.card_description_home if variant == 'home' and project.data.card_description_home else project.data.card_description %}
-{% set cardMedium = project.data.card_medium_home if variant == 'home' and project.data.card_medium_home else project.data.card_medium %}
-{% set cardTags = project.data.card_tags if project.data.card_tags else project.data.tags %}
+{% if variant == 'home' and project.data.card_medium_home %}
+{% set cardMedium = project.data.card_medium_home %}
+{% else %}
+{% set cardMedium = project.data.card_medium or project.data.organization %}
+{% endif %}
+{% set cardTags = project.data.card_tags or project.data.tags %}
 {% set heroImage = project.data.hero_image %}
 {% set projectUrl = assetRoot ~ 'projects/' ~ project.data.slug ~ '.html' %}
 <article class="project-card{% if variant == 'projects' %} project-card--text{% endif %}">

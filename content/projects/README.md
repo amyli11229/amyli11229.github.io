@@ -1,94 +1,60 @@
-# How to edit project files
+# How to edit projects
 
-Each project is one `.md` file. You mostly edit **plain text** — no HTML tags.
+Each project is one file in this folder (example: `dig-dig-dig.md`).
 
----
+## Quick start
 
-## Two parts of every file
+1. Open a project `.md` file
+2. Change the text next to the labels you care about
+3. Run:
 
-```
----                          ← settings (top section)
-title: My Project
-lead: Opening paragraph...
----
-
-Your extra paragraphs here.  ← main writing (bottom section)
-Write like a normal document.
+```bash
+npm run sync
 ```
 
----
+4. Preview with `npm run serve`, then push when ready
 
-## Field guide (top section)
-
-### Always edit these
-
-| Label | Plain English | Example |
-|-------|---------------|---------|
-| **title** | Project name (big heading on the project page) | `Procedural Poetry Funhouse` |
-| **lead** | First paragraph on the project page | Your opening summary |
-| **contributions** | “Key contributions” bullet list | Lines starting with `- ` |
-| **Body** (below `---`) | More paragraphs on the project page | Normal writing |
-
-### Project page details
-
-| Label | Plain English |
-|-------|---------------|
-| **organization** | Course or org line under the title (e.g. “EML Experimental VR Project”) |
-| **tags** | Tools/tech shown on the **project page** (comma-separated) |
-
-### Preview on homepage & Projects list (“card” = the small preview box)
-
-When someone sees your project in the grid **before** they click in:
-
-| Label | Plain English |
-|-------|---------------|
-| **card_year** | Small badge in the corner (e.g. `EML`, `CPSC 344`) |
-| **card_description** | Short summary on the **Projects page** card |
-| **card_description_home** | Optional: different summary on the **homepage** only. Delete this line if same as `card_description`. |
-| **card_medium** | Subtitle on the Projects page card (e.g. “EML Experimental VR Project”) |
-| **card_medium_home** | Optional: different subtitle on homepage only |
-| **card_tags** | Tools shown on the card (can differ from `tags`) |
-| **hero_image** | Main photo path — usually leave as-is unless you uploaded a new image |
-
-### Usually leave alone
-
-| Label | Plain English |
-|-------|---------------|
-| **slug** | **Web address name.** Creates `projects/YOUR-SLUG.html`. Example: slug `procedural-poetry-funhouse` → `…/projects/procedural-poetry-funhouse.html`. **Don’t change** unless you want a new URL. |
-| **sort_order** | Order in the list (`1` = first, `2` = second) |
-| **published** | `true` = show project, `false` = hide |
-| **layout** | Internal template name — **never edit** |
+Or use the visual editor: `npm run dev` → http://localhost:8080/admin/
 
 ---
 
-## What “slug” means
+## What to edit (plain English)
 
-**Slug** = the filename part of the link.
+| Label in the file | What it is |
+|-------------------|------------|
+| **title** | Big project name |
+| **lead** | First paragraph on the project page |
+| **organization** | Small line under the title (course / lab / jam) |
+| **tags** | Tools listed under the title |
+| **card_year** | Small badge on the preview card (`EML`, `Game Jam`) |
+| **card_description** | Short blurb on the preview card |
+| **card_medium** | Subtitle on the preview card |
+| **hero_image** | Cover image path |
+| **contributions** | Bullet list (“Key contributions”) |
+| **Body** (below `---`) | The rest of the story — write normally |
 
-- slug: `autogreater` → website: `amyli11229.github.io/projects/autogreater.html`
-- Use lowercase words with hyphens, no spaces.
+### Optional (only if you need them)
 
-Think of it as the **URL nickname**, not something you rewrite often.
+| Label | What it is |
+|-------|------------|
+| **project_video** | YouTube embed (`youtube_id` from `watch?v=XXXX`) |
+| **prototype_callout** | Download / Visit button block |
+| **external_links** | Extra links at the bottom |
+| **card_*_home** | Different card text on the homepage only |
+
+### Leave alone unless you know why
+
+| Label | Why |
+|-------|-----|
+| **slug** | Creates the URL (`projects/this-name.html`) |
+| **sort_order** | List order (`1` = first) |
+| **published** | `false` hides the project |
+| **layout** | Template name — do not change |
 
 ---
 
-## What “card” means
+## Tips
 
-**Card** = the **preview tile** on your homepage and Projects page (image + title + short blurb).
-
-- **Detail page** = full project write-up after someone clicks.
-- **Card fields** = what people see **before** they click.
-
-That’s why there are two descriptions sometimes (`card_description` vs `lead`):
-
-- **card_description** → short, for the grid preview  
-- **lead** → longer opening on the full page  
-
----
-
-## Quick checklist when adding content
-
-1. Update **lead** and/or paragraphs **below `---`** for the full story  
-2. Shorten **card_description** if the preview text feels too long  
-3. Update **contributions** bullets if your role changed  
-4. Ignore **slug** and **layout** unless you know you need them  
+- You only need **one** description for most projects. Add `card_description_home` only if the homepage blurb should be different.
+- If `tags` and `card_tags` would be the same, just set **tags** (or **card_tags**) — the site fills in the rest.
+- After editing Markdown, always run **`npm run sync`** before pushing so the live GitHub Pages HTML updates.

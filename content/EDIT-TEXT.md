@@ -31,7 +31,7 @@ Click **Publish** (top right) to save changes to the files in this repo.
 
 ---
 
-## Option B — Edit files on GitHub
+## Option B — Edit Markdown files
 
 | File | Content |
 |------|---------|
@@ -40,7 +40,13 @@ Click **Publish** (top right) to save changes to the files in this repo.
 | `_data/site.json` | Email, social links, form URLs |
 | `content/projects/*.md` | Each project |
 
-See also `content/projects/README.md` for project field details.
+After editing a project file, run:
+
+```bash
+npm run sync
+```
+
+That updates the live HTML GitHub Pages serves. See `content/projects/README.md` for the field guide.
 
 ---
 

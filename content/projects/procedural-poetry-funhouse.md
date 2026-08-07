@@ -1,36 +1,43 @@
 ---
-# ─── EDIT GUIDE ─────────────────────────────────────────────
-# title ............... Project name (page heading)
-# lead .............. First paragraph on the project page
-# organization ...... Course/org line under the title
-# tags .............. Tools on the project page
-# card_* ............ Preview box on homepage / Projects list (before click)
-# slug .............. URL name → projects/THIS-NAME.html (rarely change)
-# layout ............ Do not edit
-# See content/projects/README.md for full guide
-title: Procedural Poetry Funhouse
-slug: procedural-poetry-funhouse
-sort_order: 1
+# ============================================================
+# EDIT THIS PROJECT — then run:  npm run sync
+# Full guide: content/projects/README.md
+# ============================================================
+
+# --- Show / hide / order ---
 published: true
-layout: layouts/project-detail.njk
+sort_order: 1
+
+# --- Project page ---
+title: Procedural Poetry Funhouse
+organization: EML Experimental VR Project
+tags: Unreal Engine 5, Figma, Blender, Procreate, Meta Quest VR
+lead: An immersive VR experience inspired by the visual poetry of Judith Copithorne. As UX/UI designer at UBC’s Emerging Media Lab, I shaped the interaction system, interface language, and comfort-focused navigation for one of the lab’s flagship research projects.
 hero_image: images/projects/procedural-poetry.png
-card_year: EML
+
+# --- Preview card (homepage + Projects list) ---
+card_year: Work Project
 card_description: An experimental VR experience combining procedural environments, visual poetry, and immersive storytelling—exploring how spatial interaction and motion-based navigation shape emotion and narrative.
 card_medium: EML Experimental VR Project
 card_medium_home: Experimental VR / UIUX
 card_tags: Unreal Engine 5, Meta Quest, Blender, Figma
-organization: EML Experimental VR Project
-tags: Unreal Engine 5, Figma, Blender, Procreate, Meta Quest VR
-lead: An immersive VR experience inspired by the visual poetry of Judith Copithorne. As UX/UI designer at UBC’s Emerging Media Lab, I shaped the interaction system, interface language, and comfort-focused navigation for one of the lab’s flagship research projects.
+
+# --- Optional: video ---
 project_video:
   title: Procedural Poetry Project Reel
   youtube_id: VLhg9H0uRrk
+
+# --- Key contributions ---
 contributions:
   - Defined overall UX direction, interaction design, and interface system
   - Redesigned interaction flow and reusable UI components after a full platform migration
   - Researched and iterated locomotion to reduce VR motion sickness
   - Collaborated closely with artists, researchers, and developers across ~12 months
   - Established a scalable design foundation for a multi-year funded research project
+
+# --- Usually leave alone ---
+slug: procedural-poetry-funhouse
+layout: layouts/project-detail.njk
 ---
 
 ## Background

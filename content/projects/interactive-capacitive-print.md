@@ -1,35 +1,39 @@
 ---
-# ─── EDIT GUIDE ─────────────────────────────────────────────
-# title ............... Project name (page heading)
-# lead .............. First paragraph on the project page
-# organization ...... Course/org line under the title
-# tags .............. Tools on the project page
-# card_* ............ Preview box on homepage / Projects list (before click)
-# slug .............. URL name → projects/THIS-NAME.html (rarely change)
-# layout ............ Do not edit
-# See content/projects/README.md for full guide
-title: Interactive Capacitive Print
-slug: interactive-capacitive-print
-sort_order: 6
+# ============================================================
+# EDIT THIS PROJECT — then run:  npm run sync
+# Full guide: content/projects/README.md
+# ============================================================
+
+# --- Show / hide / order ---
 published: true
-layout: layouts/project-detail.njk
+sort_order: 7
+
+# --- Project page ---
+title: Interactive Capacitive Print
+organization: Final Project — “Touching the Window”
+tags: Arduino, TouchDesigner, Capacitive Sensing, Screen Printing, DIY Conductive Ink
+lead: In this project, I explore the combination of printmaking and creative electronics, transforming printed surfaces into interactive interfaces. Using conductive ink prints as capacitive touch sensors, the work investigates how physical touch can activate digital responses—triggering sound and allowing static images to become responsive systems.
 hero_image: images/projects/interactive-capacitive-print.png
-card_year: Lab
-card_title_home: Interactive Capacitive Print
+
+# --- Preview card (homepage + Projects list) ---
+card_year: Course Project
 card_description: Conductive ink prints as capacitive touch sensors—turning printed surfaces into interactive interfaces that trigger sound through touch.
 card_description_home: Conductive ink prints as capacitive sensors—transforming printed surfaces into interactive interfaces that respond to touch with sound.
 card_medium: Final Project — Touching the Window
 card_medium_home: Printmaking / Creative Electronics
 card_tags: Arduino, TouchDesigner, Conductive Ink, Printmaking
-organization: Final Project — “Touching the Window”
-tags: Arduino, TouchDesigner, Capacitive Sensing, Screen Printing, DIY Conductive Ink
-lead: In this project, I explore the combination of printmaking and creative electronics, transforming printed surfaces into interactive interfaces. Using conductive ink prints as capacitive touch sensors, the work investigates how physical touch can activate digital responses—triggering sound and allowing static images to become responsive systems.
+
+# --- Key contributions ---
 contributions:
   - Developed a DIY conductive ink (graphite, white glue, screen printing ink, water)
   - Screen-printed conductive surfaces that function as capacitive sensors
   - Built an Arduino capacitive sensing pipeline connected to TouchDesigner
   - Iterated ink ratios, layer thickness, conductivity, and printability
   - Designed interaction around touch, memory, and hidden digital response
+
+# --- Usually leave alone ---
+slug: interactive-capacitive-print
+layout: layouts/project-detail.njk
 ---
 
 ## Artist statement

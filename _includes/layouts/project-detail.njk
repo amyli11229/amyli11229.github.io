@@ -12,11 +12,13 @@ permalink: projects/{{ slug }}.html
             <img class="project-detail-hero" src="../{{ hero_image }}" alt="">
         </figure>
 
+        {% set pageOrg = organization or card_medium %}
+        {% set pageTags = tags or card_tags %}
         <header class="project-detail-header">
             <h1 class="project-detail-title">{{ title }}</h1>
             <div class="project-detail-meta-row">
-                <span class="project-detail-year">{{ organization }}</span>
-                <span class="project-detail-tags">{{ tags }}</span>
+                {% if pageOrg %}<span class="project-detail-year">{{ pageOrg }}</span>{% endif %}
+                {% if pageTags %}<span class="project-detail-tags">{{ pageTags }}</span>{% endif %}
             </div>
         </header>
 
