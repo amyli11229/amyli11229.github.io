@@ -11,16 +11,15 @@ sort_order: 1
 # --- Project page ---
 title: Procedural Poetry Funhouse
 organization: EML Experimental VR Project
-tags: UE5, Figma, Perforce, Blender, Procreate, Meta Quest VR
-lead: UX/UI design for an immersive VR poetry experience—interaction systems, interface language, and comfort-focused navigation in Unreal Engine 5. Modeling and animation for interactive guidance Cat.
+tags: UE5, Figma, Perforce, Meta Quest, Blender, Substance Painter, PS
+lead: Design for immersive VR poetry experience—interaction systems, interface language, and comfort-focused navigation in Unreal Engine 5. Modeling, rigging, and animation for interactive guidance Cat.
 hero_image: images/projects/procedural-poetry.png
 
 # --- Preview card (homepage + Projects list) ---
 card_year: Work Project
 card_description: Immersive VR poetry experience—interaction design and comfort-focused navigation for a research-driven Unreal project.
 card_medium: Experimental VR / UIUX
-card_tags: Unreal Engine 5, Meta Quest, Blender, Figma
-
+card_tags: Unreal Engine 5, Meta Quest, Blender, Figma, Perforce
 # --- Optional: video ---
 project_video:
   title: Procedural Poetry Project Reel

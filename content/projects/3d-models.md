@@ -10,7 +10,7 @@ sort_order: 8
 
 # --- Project page ---
 title: 3D Models
-organization: 3D Modeling
+organization: 3D Modeling, PBR
 tags: Blender
 lead: Personal 3D studies in form, material, and light—modeled and rendered in Blender.
 hero_image: images/projects/3d-models.png
