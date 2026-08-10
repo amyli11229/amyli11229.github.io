@@ -6,7 +6,7 @@ permalink: projects/{{ slug }}.html
 ---
 <main class="project-detail">
     <div class="project-detail-inner">
-        <a href="../projects.html" class="project-detail-back">← All projects</a>
+        <a href="../projects.html" class="project-detail-back" data-smart-back data-asset-root="../">← All projects</a>
 
         <figure class="project-detail-figure" aria-hidden="true">
             <img class="project-detail-hero" src="../{{ hero_image }}" alt="">
@@ -44,9 +44,21 @@ permalink: projects/{{ slug }}.html
             {% if project_video.title %}
             <figcaption class="project-detail-video-title">{{ project_video.title }}</figcaption>
             {% endif %}
+            {% if project_video.description or project_video.description_note or project_video.instagram %}
+            <div class="project-detail-video-desc">
+                {% if project_video.description %}
+                <p class="project-detail-video-desc-main">{{ project_video.description }}{% if project_video.instagram %} <a href="https://www.instagram.com/{{ project_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ project_video.instagram }}</a>{% endif %}</p>
+                {% elif project_video.instagram %}
+                <p class="project-detail-video-desc-main"><a href="https://www.instagram.com/{{ project_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ project_video.instagram }}</a></p>
+                {% endif %}
+                {% if project_video.description_note %}
+                <p class="project-detail-video-desc-note">{{ project_video.description_note }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
             <div class="project-detail-video-frame">
                 <iframe
-                    src="https://www.youtube.com/embed/{{ project_video.youtube_id }}"
+                    src="https://www.youtube.com/embed/{{ project_video.youtube_id }}{% if project_video.start_seconds %}?start={{ project_video.start_seconds }}{% endif %}"
                     title="{{ project_video.title or title }}"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
@@ -54,6 +66,18 @@ permalink: projects/{{ slug }}.html
                     referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </figure>
+        {% endif %}
+
+        {% if project_pdf and project_pdf.file %}
+        <section class="project-detail-pdf" aria-labelledby="project-pdf-heading">
+            <h2 id="project-pdf-heading" class="project-detail-video-title">{{ project_pdf.title or "PDF" }}</h2>
+            <div class="project-detail-pdf-actions">
+                <a href="{{ project_pdf.file }}" target="_blank" rel="noopener noreferrer" class="cv-view">Open PDF in new tab</a>
+            </div>
+            <div class="project-detail-pdf-embed">
+                <iframe src="{{ project_pdf.file }}" title="{{ project_pdf.title or title }}"></iframe>
+            </div>
+        </section>
         {% endif %}
 
         <div class="project-detail-body">
@@ -69,9 +93,27 @@ permalink: projects/{{ slug }}.html
             {% if additional_images_intro %}
             <p>{{ additional_images_intro }}</p>
             {% endif %}
-            <div class="project-asset-gallery{% if additional_images_pixel %} project-asset-gallery--pixel{% endif %}">
-            {% for item in additional_images %}
-            <figure class="project-detail-figure project-detail-figure--inline{% if item.pixel or additional_images_pixel %} project-detail-figure--pixel{% endif %}{% if item.wide %} project-detail-figure--wide{% endif %}">
+            {% if additional_images_pixel %}
+            {% set wideImages = additional_images | whereWide(true) %}
+            {% set gridImages = additional_images | whereWide(false) %}
+            {% if wideImages.length %}
+            <div class="project-asset-scroll" role="region" aria-label="{{ additional_images_heading or 'Wide assets' }} — scroll horizontally">
+                <div class="project-asset-scroll-track">
+                {% for item in wideImages %}
+                <figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel project-detail-figure--wide project-detail-figure--scroll">
+                    <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
+                    {% if item.caption %}
+                    <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
+                    {% endif %}
+                </figure>
+                {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if gridImages.length %}
+            <div class="project-asset-gallery project-asset-gallery--pixel">
+            {% for item in gridImages %}
+            <figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel{% if item.large %} project-detail-figure--large{% endif %}">
                 <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
                 {% if item.caption %}
                 <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
@@ -79,6 +121,19 @@ permalink: projects/{{ slug }}.html
             </figure>
             {% endfor %}
             </div>
+            {% endif %}
+            {% else %}
+            <div class="project-asset-gallery">
+            {% for item in additional_images %}
+            <figure class="project-detail-figure project-detail-figure--inline{% if item.wide %} project-detail-figure--wide{% endif %}{% if item.large %} project-detail-figure--large{% endif %}">
+                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
+                {% if item.caption %}
+                <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
+                {% endif %}
+            </figure>
+            {% endfor %}
+            </div>
+            {% endif %}
             {% endif %}
 
             {% if contributions and contributions.length %}
@@ -89,6 +144,35 @@ permalink: projects/{{ slug }}.html
                 <li>{% if item.contribution %}{{ item.contribution }}{% elif item.item %}{{ item.item }}{% else %}{{ item }}{% endif %}</li>
                 {% endfor %}
             </ul>
+            {% endif %}
+
+            {% if contributions_video and contributions_video.youtube_id %}
+            <figure class="project-detail-video project-detail-video--after-contributions">
+                {% if contributions_video.title %}
+                <figcaption class="project-detail-video-title">{{ contributions_video.title }}</figcaption>
+                {% endif %}
+                {% if contributions_video.description or contributions_video.description_note or contributions_video.instagram %}
+                <div class="project-detail-video-desc">
+                    {% if contributions_video.description %}
+                    <p class="project-detail-video-desc-main">{{ contributions_video.description }}{% if contributions_video.instagram %} <a href="https://www.instagram.com/{{ contributions_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ contributions_video.instagram }}</a>{% endif %}</p>
+                    {% elif contributions_video.instagram %}
+                    <p class="project-detail-video-desc-main"><a href="https://www.instagram.com/{{ contributions_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ contributions_video.instagram }}</a></p>
+                    {% endif %}
+                    {% if contributions_video.description_note %}
+                    <p class="project-detail-video-desc-note">{{ contributions_video.description_note }}</p>
+                    {% endif %}
+                </div>
+                {% endif %}
+                <div class="project-detail-video-frame">
+                    <iframe
+                        src="https://www.youtube.com/embed/{{ contributions_video.youtube_id }}{% if contributions_video.start_seconds %}?start={{ contributions_video.start_seconds }}{% endif %}"
+                        title="{{ contributions_video.title or title }}"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </figure>
             {% endif %}
 
             {% if external_links and external_links.length %}

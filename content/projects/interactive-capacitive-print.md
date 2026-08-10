@@ -21,6 +21,20 @@ card_description: Conductive-ink prints as capacitive sensors that trigger sound
 card_medium: Printmaking / Creative Electronics
 card_tags: Arduino, TouchDesigner, Conductive Ink, Printmaking
 
+# --- Optional: video ---
+project_video:
+  title: TD YVR presentation — Touching the Window
+  youtube_id: EYBdnrJTZEA
+  start_seconds: 270
+  description: A diverse group of artists, designers, developers & hobbyists sharing knowledge and exploring TD in Vancouver 🇨🇦.
+  instagram: touchdesigner.yvr
+  description_note: TouchDesigner is a node-based visual programming environment developed by Derivative. It allows artists, designers, and programmers to build real-time interactive multimedia content, 3D projections, live music visuals, and complex sensor-driven installations by connecting functional blocks called operators without traditional text-based coding.
+
+# --- Optional: PDF embed ---
+project_pdf:
+  title: Presentation slides
+  file: ../files/touching-the-window-presentation.pdf
+
 # --- My Approach ---
 contributions:
   - Developed a DIY conductive ink (graphite, white glue, screen printing ink, water)

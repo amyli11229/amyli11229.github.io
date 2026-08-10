@@ -33,6 +33,12 @@ contributions:
   - Collaborated closely with artists, researchers, and developers across ~12 months
   - Established a scalable design foundation for a multi-year funded research project
 
+# --- Optional: video under Role & Contributions ---
+contributions_video:
+  title: Project presentation
+  youtube_id: l0HjXq6po1A
+  start_seconds: 3737
+
 # --- Usually leave alone ---
 slug: procedural-poetry-funhouse
 layout: layouts/project-detail.njk

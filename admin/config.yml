@@ -103,6 +103,19 @@ collections:
         fields:
           - { label: Video title, name: title, widget: string, required: false }
           - { label: YouTube video ID, name: youtube_id, widget: string, hint: "From youtube.com/watch?v=VIDEO_ID" }
+          - { label: Start at (seconds), name: start_seconds, widget: number, required: false, hint: "Optional — e.g. 270 for 4:30" }
+          - { label: Description, name: description, widget: text, required: false }
+          - { label: Instagram handle, name: instagram, widget: string, required: false, hint: "Without @ — e.g. touchdesigner.yvr" }
+          - { label: Description note (smaller), name: description_note, widget: text, required: false }
+
+      - label: PDF embed (optional)
+        name: project_pdf
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: PDF title, name: title, widget: string, required: false }
+          - { label: PDF path, name: file, widget: string, hint: "e.g. ../files/my-slides.pdf" }
 
       - label: Download / Visit button (optional)
         name: prototype_callout
@@ -124,6 +137,19 @@ collections:
         hint: "Work Projects show as Role & Contributions; all others as My Approach"
         field: { label: Item, name: contribution, widget: string }
 
+      - label: Video under Role & Contributions (optional)
+        name: contributions_video
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Video title, name: title, widget: string, required: false }
+          - { label: YouTube video ID, name: youtube_id, widget: string, hint: "From youtube.com/watch?v=VIDEO_ID" }
+          - { label: Start at (seconds), name: start_seconds, widget: number, required: false, hint: "Optional — e.g. 3737 for 1:02:17" }
+          - { label: Description, name: description, widget: text, required: false }
+          - { label: Instagram handle, name: instagram, widget: string, required: false, hint: "Without @ — e.g. touchdesigner.yvr" }
+          - { label: Description note (smaller), name: description_note, widget: text, required: false }
+
       - label: Extra images gallery (optional)
         name: additional_images
         widget: list
@@ -132,7 +158,8 @@ collections:
         fields:
           - { label: Image, name: image, widget: image, choose_url: true }
           - { label: Caption, name: caption, widget: string, required: false }
-          - { label: Full-width row, name: wide, widget: boolean, required: false, default: false }
+          - { label: Full-width / horizontal scroll, name: wide, widget: boolean, required: false, default: false }
+          - { label: Larger pixel sprite, name: large, widget: boolean, required: false, default: false }
 
       - { label: Gallery heading, name: additional_images_heading, widget: string, required: false }
       - { label: Gallery intro, name: additional_images_intro, widget: text, required: false }

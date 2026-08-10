@@ -10,7 +10,7 @@
 {% set heroImage = project.data.hero_image %}
 {% set projectUrl = assetRoot ~ 'projects/' ~ project.data.slug ~ '.html' %}
 <article class="project-card{% if variant == 'projects' %} project-card--text{% endif %}">
-    <a href="{{ projectUrl }}" class="project-card-link">
+    <a href="{{ projectUrl }}" class="project-card-link" data-project-origin="{{ variant }}">
         {% if variant != 'projects' %}
         <figure class="project-card-figure" aria-hidden="true">
             <img class="project-card-image" src="{{ assetRoot }}{{ heroImage }}" alt="" onerror="this.classList.add('is-missing'); this.removeAttribute('src');">

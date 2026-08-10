@@ -34,7 +34,7 @@
 
 <main class="project-detail">
     <div class="project-detail-inner">
-        <a href="../projects.html" class="project-detail-back">← All projects</a>
+        <a href="../projects.html" class="project-detail-back" data-smart-back data-asset-root="../">← All projects</a>
 
         <figure class="project-detail-figure" aria-hidden="true">
             <img class="project-detail-hero" src="../images/projects/portfolio-management-system.png" alt="">
@@ -45,7 +45,7 @@
         <header class="project-detail-header">
             <h1 class="project-detail-title">Portfolio Management System</h1>
             <div class="project-detail-meta-row">
-                <span class="project-detail-year">Java Desktop Application</span>
+                <span class="project-detail-year">Java Tool Application</span>
                 <span class="project-detail-tags">Java, Swing, OOP, JSON, MVC</span>
             </div>
         </header>
@@ -54,12 +54,14 @@
 
         
 
+        
+
         <div class="project-detail-body">
             
-            <p class="lead">Java desktop app for managing creative portfolios—Swing GUI and CLI over a shared model with JSON save/load.</p>
+            <p class="lead">Personal Java desktop app for managing creative portfolios for artist research—Swing GUI and CLI over a shared model with JSON save/load.</p>
             
             <h2>Overview</h2>
-<p>Portfolio Management System helps artists keep creative works and research inspirations in one local app. Users add entries, inspect profile state, and save or reload everything through JSON—via a Swing GUI or a command-line interface over the same core logic.</p>
+<p>Portfolio Management System is a tool that I made to helps artists keep creative works and research inspirations in one local file. Users add entries, inspect profile state, and save or reload everything through JSON—via a Swing GUI or a command-line interface over the same core logic. This system was inspired by my process in artist research, having to archive different pieces of research that I've done for my artworks.</p>
 <h2>Architecture</h2>
 <table>
 <thead>
@@ -161,6 +163,8 @@ profile.addWork(addedWork);
                 <li>Modeled Profile, Work, and Research as first-class domain objects</li>
                 
             </ul>
+            
+
             
 
             

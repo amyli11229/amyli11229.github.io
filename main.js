@@ -132,6 +132,49 @@ document.addEventListener('DOMContentLoaded', function() {
     observeReveals('.projects-home .project-card', 90);
     observeReveals('.project-detail-body > h2, .project-detail-body > .project-detail-h2, .project-detail-body > .lead', 60);
 
+    const PROJECT_RETURN_KEY = 'projectReturnTo';
+
+    document.querySelectorAll('.project-card-link[data-project-origin]').forEach(function(link) {
+        link.addEventListener('click', function() {
+            try {
+                sessionStorage.setItem(
+                    PROJECT_RETURN_KEY,
+                    link.getAttribute('data-project-origin') || 'projects'
+                );
+            } catch (e) { /* ignore */ }
+        });
+    });
+
+    const smartBack = document.querySelector('.project-detail-back[data-smart-back]');
+    if (smartBack) {
+        var origin = null;
+        try {
+            origin = sessionStorage.getItem(PROJECT_RETURN_KEY);
+        } catch (e) { /* ignore */ }
+
+        if (!origin && document.referrer) {
+            try {
+                var ref = new URL(document.referrer);
+                if (ref.origin === window.location.origin) {
+                    if (/projects\.html$/i.test(ref.pathname)) {
+                        origin = 'projects';
+                    } else if (/\/(index\.html)?$/i.test(ref.pathname)) {
+                        origin = 'home';
+                    }
+                }
+            } catch (e) { /* ignore */ }
+        }
+
+        var assetRoot = smartBack.getAttribute('data-asset-root') || '../';
+        if (origin === 'home') {
+            smartBack.setAttribute('href', assetRoot + 'index.html');
+            smartBack.textContent = '← Home';
+        } else {
+            smartBack.setAttribute('href', assetRoot + 'projects.html');
+            smartBack.textContent = '← All projects';
+        }
+    }
+
     // Projects page / other lists: gentle rise without fighting homepage styles
     const otherCards = document.querySelectorAll('.projects-page .project-card');
     if (otherCards.length > 0) {

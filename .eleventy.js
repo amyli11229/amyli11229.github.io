@@ -5,12 +5,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("style.css");
   eleventyConfig.addPassthroughCopy("main.js");
   eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("files");
   eleventyConfig.addPassthroughCopy("cv.pdf");
   eleventyConfig.addPassthroughCopy("admin");
 
   eleventyConfig.addFilter("inlineMarkdown", (value) => {
     if (!value) return "";
     return mdInline.renderInline(String(value));
+  });
+
+  eleventyConfig.addFilter("whereWide", (items, wide = true) => {
+    if (!Array.isArray(items)) return [];
+    return items.filter((item) => Boolean(item && item.wide) === Boolean(wide));
   });
 
   eleventyConfig.addCollection("bioContent", (collectionApi) => {
