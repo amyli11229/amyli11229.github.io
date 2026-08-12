@@ -20,6 +20,13 @@ card_year: Course Project
 card_description: Interactive waiting-room installation exploring liminality, medical anxiety, and women's healthcare through TouchDesigner, projection, and motion tracking.
 card_medium: Interactive Installation / TouchDesigner
 
+# --- Optional: installation photo ---
+project_poster:
+  title: Installation
+  text: The work installed and played for an audience.
+  image: images/projects/the-clinic-installation.png
+  image_alt: Audience watching The Clinic projected in a gallery installation space
+
 # --- Usually leave alone ---
 slug: the-clinic
 layout: layouts/project-detail.njk
