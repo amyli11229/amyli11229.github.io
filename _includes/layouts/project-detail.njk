@@ -71,34 +71,8 @@ permalink: projects/{{ slug }}.html
         </div>
         {% endif %}
 
-        {% if project_video and project_video.youtube_id %}
-        <figure class="project-detail-video">
-            {% if project_video.title %}
-            <figcaption class="project-detail-video-title">{{ project_video.title }}</figcaption>
-            {% endif %}
-            {% if project_video.description or project_video.description_note or project_video.instagram %}
-            <div class="project-detail-video-desc">
-                {% if project_video.description %}
-                <p class="project-detail-video-desc-main">{{ project_video.description }}{% if project_video.instagram %} <a href="https://www.instagram.com/{{ project_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ project_video.instagram }}</a>{% endif %}</p>
-                {% elif project_video.instagram %}
-                <p class="project-detail-video-desc-main"><a href="https://www.instagram.com/{{ project_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ project_video.instagram }}</a></p>
-                {% endif %}
-                {% if project_video.description_note %}
-                <p class="project-detail-video-desc-note">{{ project_video.description_note }}</p>
-                {% endif %}
-            </div>
-            {% endif %}
-            <div class="project-detail-video-frame">
-                <iframe
-                    src="https://www.youtube.com/embed/{{ project_video.youtube_id }}{% if project_video.start_seconds %}?start={{ project_video.start_seconds }}{% endif %}"
-                    title="{{ project_video.title or title }}"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-        </figure>
-        {% endif %}
+        {% from "project-video.njk" import render as renderVideo %}
+        {{ renderVideo(project_video, title) }}
 
         {% if project_pdf and project_pdf.file %}
         <section class="project-detail-pdf" aria-labelledby="project-pdf-heading">
@@ -116,7 +90,16 @@ permalink: projects/{{ slug }}.html
             {% if lead %}
             <p class="lead">{{ lead }}</p>
             {% endif %}
+            {% from "project-video.njk" import render as renderVideo %}
+            {% if mid_video and mid_video.youtube_id and (content.indexOf("<p>MID_VIDEO_HERE</p>") != -1 or content.indexOf("MID_VIDEO_HERE") != -1) %}
+            {% set midMarker = "<p>MID_VIDEO_HERE</p>" if content.indexOf("<p>MID_VIDEO_HERE</p>") != -1 else "MID_VIDEO_HERE" %}
+            {% set contentParts = content.split(midMarker) %}
+            {{ contentParts[0] | safe }}
+            {{ renderVideo(mid_video, title) }}
+            {{ contentParts[1] | safe }}
+            {% else %}
             {{ content | safe }}
+            {% endif %}
 
             {% if additional_images and additional_images.length %}
             {% if additional_images_heading %}
@@ -178,34 +161,8 @@ permalink: projects/{{ slug }}.html
             </ul>
             {% endif %}
 
-            {% if contributions_video and contributions_video.youtube_id %}
-            <figure class="project-detail-video project-detail-video--after-contributions">
-                {% if contributions_video.title %}
-                <figcaption class="project-detail-video-title">{{ contributions_video.title }}</figcaption>
-                {% endif %}
-                {% if contributions_video.description or contributions_video.description_note or contributions_video.instagram %}
-                <div class="project-detail-video-desc">
-                    {% if contributions_video.description %}
-                    <p class="project-detail-video-desc-main">{{ contributions_video.description }}{% if contributions_video.instagram %} <a href="https://www.instagram.com/{{ contributions_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ contributions_video.instagram }}</a>{% endif %}</p>
-                    {% elif contributions_video.instagram %}
-                    <p class="project-detail-video-desc-main"><a href="https://www.instagram.com/{{ contributions_video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ contributions_video.instagram }}</a></p>
-                    {% endif %}
-                    {% if contributions_video.description_note %}
-                    <p class="project-detail-video-desc-note">{{ contributions_video.description_note }}</p>
-                    {% endif %}
-                </div>
-                {% endif %}
-                <div class="project-detail-video-frame">
-                    <iframe
-                        src="https://www.youtube.com/embed/{{ contributions_video.youtube_id }}{% if contributions_video.start_seconds %}?start={{ contributions_video.start_seconds }}{% endif %}"
-                        title="{{ contributions_video.title or title }}"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        loading="lazy"
-                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-            </figure>
-            {% endif %}
+            {% from "project-video.njk" import render as renderVideo %}
+            {{ renderVideo(contributions_video, title, "project-detail-video--after-contributions") }}
 
             {% if external_links and external_links.length %}
             <h2 class="project-detail-h2">Links</h2>

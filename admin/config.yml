@@ -108,6 +108,19 @@ collections:
           - { label: Instagram handle, name: instagram, widget: string, required: false, hint: "Without @ — e.g. touchdesigner.yvr" }
           - { label: Description note (smaller), name: description_note, widget: text, required: false }
 
+      - label: Mid-page YouTube video (optional)
+        name: mid_video
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Video title, name: title, widget: string, required: false }
+          - { label: YouTube video ID, name: youtube_id, widget: string, hint: "From youtube.com/watch?v=VIDEO_ID" }
+          - { label: Start at (seconds), name: start_seconds, widget: number, required: false }
+          - { label: Description, name: description, widget: text, required: false }
+          - { label: Instagram handle, name: instagram, widget: string, required: false }
+          - { label: Description note (smaller), name: description_note, widget: text, required: false }
+
       - label: PDF embed (optional)
         name: project_pdf
         widget: object

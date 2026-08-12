@@ -20,8 +20,14 @@ card_year: Work Project
 card_description: Immersive VR poetry experience—interaction design and comfort-focused navigation for a research-driven Unreal project.
 card_medium: Experimental VR / UIUX
 card_tags: Unreal Engine 5, Meta Quest, Blender, Figma, Perforce
-# --- Optional: video ---
+
+# --- Optional: video (top) ---
 project_video:
+  title: Project demo
+  youtube_id: 5CNrKXSSNFU
+
+# --- Optional: video mid-page ---
+mid_video:
   title: Procedural Poetry Project Reel
   youtube_id: VLhg9H0uRrk
 
@@ -39,6 +45,14 @@ contributions_video:
   youtube_id: l0HjXq6po1A
   start_seconds: 3737
 
+# --- Emotion Design ---
+additional_images_heading: Emotion Design
+additional_images_intro: Color and light studies for each level atmosphere in the Poetry VR experience.
+additional_images:
+  - image: images/projects/procedural-poetry-emotion-design.png
+    caption: Level emotion design — palettes and concept sketches
+    wide: true
+
 # --- Usually leave alone ---
 slug: procedural-poetry-funhouse
 layout: layouts/project-detail.njk
@@ -51,6 +65,8 @@ Immersive VR experience inspired by Judith Copithorne’s visual poetry. As UX/U
 ## Platform rebuild
 
 The team migrated to a new development platform mid-project, so existing interactions could not carry over. I redesigned the interaction flow, information architecture, and reusable UI components to support long-term expansion—not just recreate the old prototype.
+
+MID_VIDEO_HERE
 
 ## Comfort in VR
 

@@ -1500,6 +1500,7 @@ body.page-home .home-page .projects-home .page-header h1 {
 
 .project-detail-figure--inline {
     margin-top: var(--spacing-lg);
+    aspect-ratio: auto;
 }
 
 .project-detail-caption {

@@ -1,0 +1,30 @@
+{% macro render(video, titleFallback, extraClass) %}
+{% if video and video.youtube_id %}
+<figure class="project-detail-video{% if extraClass %} {{ extraClass }}{% endif %}">
+    {% if video.title %}
+    <figcaption class="project-detail-video-title">{{ video.title }}</figcaption>
+    {% endif %}
+    {% if video.description or video.description_note or video.instagram %}
+    <div class="project-detail-video-desc">
+        {% if video.description %}
+        <p class="project-detail-video-desc-main">{{ video.description }}{% if video.instagram %} <a href="https://www.instagram.com/{{ video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ video.instagram }}</a>{% endif %}</p>
+        {% elif video.instagram %}
+        <p class="project-detail-video-desc-main"><a href="https://www.instagram.com/{{ video.instagram }}/" target="_blank" rel="noopener noreferrer">@{{ video.instagram }}</a></p>
+        {% endif %}
+        {% if video.description_note %}
+        <p class="project-detail-video-desc-note">{{ video.description_note }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+    <div class="project-detail-video-frame">
+        <iframe
+            src="https://www.youtube.com/embed/{{ video.youtube_id }}{% if video.start_seconds %}?start={{ video.start_seconds }}{% endif %}"
+            title="{{ video.title or titleFallback }}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+</figure>
+{% endif %}
+{% endmacro %}
