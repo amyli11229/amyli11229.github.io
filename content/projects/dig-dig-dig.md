@@ -6,7 +6,7 @@
 
 # --- Show / hide / order ---
 published: true
-sort_order: 3
+sort_order: 6
 
 # --- Project page ---
 title: Dig! Dig! Dig!

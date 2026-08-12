@@ -6,7 +6,7 @@
 
 # --- Show / hide / order ---
 published: true
-sort_order: 6
+sort_order: 3
 
 # --- Project page ---
 title: The Clinic
