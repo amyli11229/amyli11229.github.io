@@ -30,6 +30,13 @@ prototype_callout:
   button_label: Visit Virtual Soils
   button_url: https://virtualsoils.ca/
 
+# --- Optional: poster ---
+project_poster:
+  title: Project poster — Winter 2025–2026
+  text: "Poster summarizing Virtual Soils: purpose, development stack, design approach, architecture, and the EML student team."
+  image: images/projects/virtual-soils-poster.png
+  image_alt: Virtual Soils project poster for Winter 2025–2026 from UBC Emerging Media Lab
+
 # --- Role & Contributions ---
 contributions:
   - Designed interface layouts and interaction systems

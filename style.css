@@ -1150,6 +1150,34 @@ body.page-home .home-page .projects-home .page-header h1 {
     color: var(--color-text);
 }
 
+.project-detail-award {
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.project-detail-award-text {
+    margin: 0 0 var(--spacing-sm);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    max-width: 65ch;
+}
+
+.project-detail-award-figure {
+    margin: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--project-thumb-bg);
+    aspect-ratio: auto;
+}
+
+.project-detail-award-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
 .project-detail-video {
     margin: 0 0 var(--spacing-lg) 0;
 }

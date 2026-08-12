@@ -17,8 +17,15 @@ hero_image: images/projects/autogreater.png
 
 # --- Preview card (homepage + Projects list) ---
 card_year: Course Project
-card_description: HCI design for an exam-management tool—research through usability testing in Figma.
+card_description: HCI design for an exam-management tool—research through usability testing in Figma. People’s Choice Award, CPSC 344.
 card_medium: HCI / UX Process
+
+# --- Optional: award ---
+project_award:
+  title: People’s Choice Award
+  text: "Awarded the People’s Choice Award for Auto Greater, an HCI project developed in UBC’s CPSC 344: Introduction to Human-Computer Interaction course. The award recognized the project as a standout among student projects based on audience choice."
+  image: images/projects/autogreater-peoples-choice.png
+  image_alt: "Certificate of Achievement — People’s Choice Award for Auto Greater, presented to Ben Beckford, Jiayang Dong, Maxine Gray & Amy Y Li"
 
 # --- Optional: download / visit button ---
 prototype_callout:

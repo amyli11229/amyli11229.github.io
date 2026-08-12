@@ -22,6 +22,38 @@ permalink: projects/{{ slug }}.html
             </div>
         </header>
 
+        {% if project_award and project_award.title %}
+        <section class="project-detail-award" aria-labelledby="project-award-heading">
+            <h2 id="project-award-heading" class="project-detail-video-title">{{ project_award.title }}</h2>
+            {% if project_award.text %}
+            <p class="project-detail-award-text">{{ project_award.text }}</p>
+            {% endif %}
+            {% if project_award.image %}
+            <figure class="project-detail-award-figure">
+                <img
+                    class="project-detail-award-image"
+                    src="../{{ project_award.image }}"
+                    alt="{{ project_award.image_alt or project_award.title }}">
+            </figure>
+            {% endif %}
+        </section>
+        {% endif %}
+
+        {% if project_poster and project_poster.image %}
+        <section class="project-detail-award" aria-labelledby="project-poster-heading">
+            <h2 id="project-poster-heading" class="project-detail-video-title">{{ project_poster.title or "Project poster" }}</h2>
+            {% if project_poster.text %}
+            <p class="project-detail-award-text">{{ project_poster.text }}</p>
+            {% endif %}
+            <figure class="project-detail-award-figure">
+                <img
+                    class="project-detail-award-image"
+                    src="../{{ project_poster.image }}"
+                    alt="{{ project_poster.image_alt or project_poster.title or title }}">
+            </figure>
+        </section>
+        {% endif %}
+
         {% if prototype_callout and prototype_callout.title %}
         <div class="project-prototype-callout" role="region" aria-labelledby="prototype-callout-heading">
             <p id="prototype-callout-heading" class="project-prototype-callout-title">{{ prototype_callout.title }}</p>

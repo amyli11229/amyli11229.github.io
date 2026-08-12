@@ -117,6 +117,28 @@ collections:
           - { label: PDF title, name: title, widget: string, required: false }
           - { label: PDF path, name: file, widget: string, hint: "e.g. ../files/my-slides.pdf" }
 
+      - label: Award (optional)
+        name: project_award
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Award title, name: title, widget: string }
+          - { label: Award description, name: text, widget: text, required: false }
+          - { label: Certificate image, name: image, widget: image, required: false, choose_url: true }
+          - { label: Image alt text, name: image_alt, widget: string, required: false }
+
+      - label: Project poster (optional)
+        name: project_poster
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: Poster title, name: title, widget: string, required: false }
+          - { label: Poster description, name: text, widget: text, required: false }
+          - { label: Poster image, name: image, widget: image, choose_url: true }
+          - { label: Image alt text, name: image_alt, widget: string, required: false }
+
       - label: Download / Visit button (optional)
         name: prototype_callout
         widget: object
