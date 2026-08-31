@@ -7,6 +7,8 @@
 # --- Show / hide / order ---
 published: true
 sort_order: 2
+featured: true
+featured_order: 2
 
 # --- Project page ---
 title: Soil Science Viewer — Gaussian Splat Visualization
@@ -14,6 +16,16 @@ organization: EML Research & Visualization Project
 tags: Figma, Gaussian Splatting, GitHub
 lead: UI/UX design for a web viewer that makes Gaussian Splat soil scans easier to navigate for research and education.
 hero_image: images/projects/soil-science-viewer.png
+hero_alt: Soil Science Viewer interface showing a 3D Gaussian Splat soil scan
+role: Sole UI/UX Designer
+project_type: Research / visualization
+year: 2025–2026
+team: Emerging Media Lab
+
+# --- Homepage featured ---
+home_title: Soil Science Viewer
+home_description: A 3D viewer for Gaussian Splat soil scans, designed so research and teaching can move through complex spatial data more clearly.
+home_categories: 3D Visualization · Gaussian Splatting · Interface Design
 
 # --- Preview card (homepage + Projects list) ---
 card_year: Work Project
@@ -56,5 +68,7 @@ external_links:
 slug: soil-science-viewer
 layout: layouts/project-detail.njk
 ---
+
+## Overview
 
 Sole UI/UX designer for the viewer. Defined layouts, navigation, and interaction patterns for complex 3D soil data, then iterated with developers to improve clarity and accessibility for non-technical users.

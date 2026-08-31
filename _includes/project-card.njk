@@ -9,21 +9,22 @@
 {% set cardTags = project.data.card_tags or project.data.tags %}
 {% set heroImage = project.data.hero_image %}
 {% set projectUrl = assetRoot ~ 'projects/' ~ project.data.slug ~ '.html' %}
+{% set displayTitle = project.data.home_title or cardTitle %}
 <article class="project-card{% if variant == 'projects' %} project-card--text{% endif %}">
     <a href="{{ projectUrl }}" class="project-card-link" data-project-origin="{{ variant }}">
         {% if variant != 'projects' %}
-        <figure class="project-card-figure" aria-hidden="true">
-            <img class="project-card-image" src="{{ assetRoot }}{{ heroImage }}" alt="" onerror="this.classList.add('is-missing'); this.removeAttribute('src');">
+        <figure class="project-card-figure">
+            <img class="project-card-image" src="{{ assetRoot }}{{ heroImage }}" alt="{{ displayTitle }}" loading="lazy" decoding="async" onerror="this.classList.add('is-missing'); this.removeAttribute('src');">
         </figure>
         {% endif %}
         <div class="project-header">
-            <h2 class="project-title">{{ cardTitle }}</h2>
+            <h2 class="project-title">{{ displayTitle }}</h2>
             <span class="project-year">{{ project.data.card_year }}</span>
         </div>
         <p class="project-description">{{ cardDescription }}</p>
         <div class="project-meta">
-            <span class="project-medium">{{ cardMedium }}</span>
-            <span class="project-tech">{{ cardTags }}</span>
+            {% if cardMedium %}<span class="project-medium">{{ cardMedium }}</span>{% endif %}
+            {% if cardTags %}<span class="project-tech">{{ cardTags }}</span>{% endif %}
         </div>
     </a>
 </article>

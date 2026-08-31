@@ -80,20 +80,27 @@ collections:
     fields:
       - { label: Published (show on site), name: published, widget: boolean, default: true }
       - { label: Sort order (1 = first), name: sort_order, widget: number, value_type: int }
+      - { label: Featured on homepage, name: featured, widget: boolean, default: false }
+      - { label: Featured order (1–4), name: featured_order, widget: number, value_type: int, required: false }
 
       - { label: Project title, name: title, widget: string }
+      - { label: Homepage title (optional), name: home_title, widget: string, required: false, hint: "e.g. Touching the Window" }
+      - { label: Homepage description, name: home_description, widget: text, required: false }
+      - { label: Homepage categories, name: home_categories, widget: string, required: false, hint: "XR · Interaction Design · Unreal Engine 5" }
       - { label: Organization / course line, name: organization, widget: string, hint: "Small line under the title on the project page" }
       - { label: Tools (project page), name: tags, widget: string, hint: "Comma-separated, e.g. Figma, Unreal Engine 5" }
       - { label: Opening paragraph, name: lead, widget: text, hint: "First paragraph on the full project page" }
       - { label: Cover image, name: hero_image, widget: image, choose_url: true }
+      - { label: Cover image alt text, name: hero_alt, widget: string, required: false }
+      - { label: Role, name: role, widget: string, required: false }
+      - { label: Type, name: project_type, widget: string, required: false }
+      - { label: Year, name: year, widget: string, required: false }
+      - { label: Team, name: team, widget: string, required: false }
 
       - { label: Card badge (e.g. EML, Game Jam), name: card_year, widget: string }
-      - { label: Card description, name: card_description, widget: text, hint: "Short blurb on the Projects list / homepage card" }
+      - { label: Card description, name: card_description, widget: text, hint: "Short blurb on the Projects list" }
       - { label: Card subtitle, name: card_medium, widget: string, required: false }
       - { label: Card tools (optional), name: card_tags, widget: string, required: false, hint: "Leave blank to reuse Tools above" }
-      - { label: Homepage title (optional), name: card_title_home, widget: string, required: false, hint: "Only if homepage card title should differ" }
-      - { label: Homepage description (optional), name: card_description_home, widget: text, required: false, hint: "Only if homepage blurb should differ" }
-      - { label: Homepage subtitle (optional), name: card_medium_home, widget: string, required: false, hint: "Only if homepage subtitle should differ" }
 
       - label: YouTube video (optional)
         name: project_video

@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("files");
   eleventyConfig.addPassthroughCopy("cv.pdf");
   eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("favicon.svg");
 
   eleventyConfig.addFilter("inlineMarkdown", (value) => {
     if (!value) return "";
@@ -17,6 +18,23 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("whereWide", (items, wide = true) => {
     if (!Array.isArray(items)) return [];
     return items.filter((item) => Boolean(item && item.wide) === Boolean(wide));
+  });
+
+  eleventyConfig.addFilter("featured", (items, isFeatured = true) => {
+    if (!Array.isArray(items)) return [];
+    return items
+      .filter((item) => Boolean(item.data && item.data.featured) === Boolean(isFeatured))
+      .sort((a, b) => {
+        const orderA = a.data.featured_order ?? a.data.sort_order ?? 999;
+        const orderB = b.data.featured_order ?? b.data.sort_order ?? 999;
+        return orderA - orderB;
+      });
+  });
+
+  eleventyConfig.addFilter("pad2", (value) => {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return String(value ?? "");
+    return String(Math.trunc(n)).padStart(2, "0");
   });
 
   eleventyConfig.addCollection("bioContent", (collectionApi) => {

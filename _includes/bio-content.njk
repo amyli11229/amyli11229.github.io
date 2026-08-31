@@ -1,8 +1,8 @@
 {% set bio = collections.bioContent[0] %}
 {% if show_bio_title %}
-<h1 class="figma-intro-title bio-reveal">ABOUT</h1>
+<p class="section-kicker bio-reveal">About</p>
 {% endif %}
-<p class="figma-intro-lead bio-reveal">{{ bio.data.lead | inlineMarkdown | safe }}</p>
+<h1 class="about-greeting bio-reveal">{{ bio.data.lead | inlineMarkdown | safe }}</h1>
 <p class="about-intro bio-reveal">{{ bio.data.intro | inlineMarkdown | safe }}</p>
 {% if show_about_link %}
 <p class="home-inline-link bio-reveal">

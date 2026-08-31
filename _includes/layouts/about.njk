@@ -1,11 +1,15 @@
 ---
 layout: layouts/base.njk
 ---
-<main class="about-page">
+<main id="main" class="about-page">
     <div class="about-container">
         <div class="about-content">
             <div class="about-text">
                 {% include "bio-content.njk" %}
+                <p class="about-interests bio-reveal">
+                    <span class="about-interests-label">Currently curious about</span>
+                    UX/UI · XR · Interactive media · Creative technology · 3D · Physical computing
+                </p>
             </div>
             {% set sidebarClass = "about-sidebar" %}
             {% set portraitClass = "about-hero-portrait" %}

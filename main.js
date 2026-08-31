@@ -1,5 +1,5 @@
 /**
- * Portfolio scripts — theme toggle + scroll effects + reveals.
+ * Portfolio scripts — theme, nav, reveals, project back-link.
  */
 document.addEventListener('DOMContentLoaded', function() {
     const themeBtn = document.querySelector('.theme-toggle');
@@ -29,46 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const nav = document.querySelector('.nav');
-    const root = document.documentElement;
-    let lastY = window.scrollY || 0;
     let ticking = false;
-
-    function clamp(n, min, max) {
-        return Math.min(max, Math.max(min, n));
-    }
 
     function onScroll() {
         const y = window.scrollY || 0;
-        const direction = y > lastY ? 'down' : 'up';
-        const viewport = Math.max(1, window.innerHeight || 1);
-
-        // Soft hero parallax / fade over the first ~55% of the viewport
-        const t = clamp(y / (viewport * 0.55), 0, 1);
-        const ease = t * t * (3 - 2 * t); // smoothstep
-
-        if (!reducedMotion) {
-            root.style.setProperty('--hero-blur', (ease * 12).toFixed(2) + 'px');
-            root.style.setProperty('--hero-shift', (ease * -36).toFixed(1));
-            root.style.setProperty('--hero-fade', ease.toFixed(3));
-            root.style.setProperty('--hero-portrait-shift', (ease * -14).toFixed(1));
-        } else {
-            root.style.setProperty('--hero-blur', '0px');
-            root.style.setProperty('--hero-shift', '0');
-            root.style.setProperty('--hero-fade', '0');
-            root.style.setProperty('--hero-portrait-shift', '0');
-        }
-
         if (nav) {
-            nav.classList.toggle('nav--scrolling-down', direction === 'down' && y > 24);
-            nav.classList.toggle('nav--scrolling-up', direction === 'up' || y <= 24);
+            nav.classList.toggle('is-scrolled', y > 8);
         }
 
         const scrollHint = document.querySelector('.scroll-hint');
         if (scrollHint) {
-            scrollHint.classList.toggle('scroll-hint--hidden', y > viewport * 0.2);
+            const viewport = Math.max(1, window.innerHeight || 1);
+            scrollHint.classList.toggle('scroll-hint--hidden', y > viewport * 0.18);
         }
 
-        lastY = y;
         ticking = false;
     }
 
@@ -91,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             bioReveals.forEach(function(el, index) {
                 window.setTimeout(function() {
                     el.classList.add('is-visible');
-                }, 140 + index * 120);
+                }, 120 + index * 110);
             });
         }
     }
@@ -118,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(el);
             });
         }, {
-            threshold: 0.05,
-            rootMargin: '0px 0px 15% 0px'
+            threshold: 0.12,
+            rootMargin: '0px 0px -8% 0px'
         });
 
         elements.forEach(function(el, index) {
@@ -128,18 +102,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    observeReveals('.scroll-reveal', 80);
-    observeReveals('.projects-home .project-card', 90);
-    observeReveals('.project-detail-body > h2, .project-detail-body > .project-detail-h2, .project-detail-body > .lead', 60);
+    observeReveals('.scroll-reveal', 60);
+    observeReveals('[data-featured]', 0);
+    observeReveals('.project-detail-body > h2, .project-detail-body > .project-detail-h2, .project-detail-body > .lead', 40);
 
     const PROJECT_RETURN_KEY = 'projectReturnTo';
 
-    document.querySelectorAll('.project-card-link[data-project-origin]').forEach(function(link) {
+    document.querySelectorAll('[data-project-origin]').forEach(function(link) {
         link.addEventListener('click', function() {
             try {
                 sessionStorage.setItem(
                     PROJECT_RETURN_KEY,
-                    link.getAttribute('data-project-origin') || 'projects'
+                    link.getAttribute('data-project-origin') || 'home'
                 );
             } catch (e) { /* ignore */ }
         });
@@ -158,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (ref.origin === window.location.origin) {
                     if (/projects\.html$/i.test(ref.pathname)) {
                         origin = 'projects';
-                    } else if (/\/(index\.html)?$/i.test(ref.pathname)) {
+                    } else {
                         origin = 'home';
                     }
                 }
@@ -166,42 +140,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         var assetRoot = smartBack.getAttribute('data-asset-root') || '../';
-        if (origin === 'home') {
-            smartBack.setAttribute('href', assetRoot + 'index.html');
-            smartBack.textContent = '← Home';
-        } else {
+        if (origin === 'projects') {
             smartBack.setAttribute('href', assetRoot + 'projects.html');
-            smartBack.textContent = '← All projects';
-        }
-    }
-
-    // Projects page / other lists: gentle rise without fighting homepage styles
-    const otherCards = document.querySelectorAll('.projects-page .project-card');
-    if (otherCards.length > 0) {
-        if (reducedMotion) {
-            otherCards.forEach(function(card) {
-                card.classList.add('is-visible');
-            });
+            smartBack.textContent = '← All work';
         } else {
-            otherCards.forEach(function(card, index) {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(16px)';
-                card.style.transition = 'opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
-                card.style.transitionDelay = (index * 0.06) + 's';
-            });
-
-            const listObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (!entry.isIntersecting) return;
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    listObserver.unobserve(entry.target);
-                });
-            }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
-
-            otherCards.forEach(function(card) {
-                listObserver.observe(card);
-            });
+            smartBack.setAttribute('href', assetRoot + 'index.html#work');
+            smartBack.textContent = '← Work';
         }
     }
 });

@@ -32,6 +32,9 @@ execSync("npx eleventy", { cwd: root, stdio: "inherit" });
   "about.html",
   "contact.html",
   "cv.html",
+  "style.css",
+  "main.js",
+  "favicon.svg",
 ].forEach((file) => copyFile(file, file));
 
 const projectsDir = path.join(site, "projects");

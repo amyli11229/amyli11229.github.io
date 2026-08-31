@@ -7,6 +7,8 @@
 # --- Show / hide / order ---
 published: true
 sort_order: 1
+featured: true
+featured_order: 1
 
 # --- Project page ---
 title: Procedural Poetry Funhouse
@@ -14,6 +16,16 @@ organization: EML Experimental VR Project
 tags: UE5, Figma, Perforce, Meta Quest, Blender, Substance Painter, PS
 lead: Design for immersive VR poetry experience—interaction systems, interface language, and comfort-focused navigation in Unreal Engine 5. Modeling, rigging, and animation for interactive guidance Cat.
 hero_image: images/projects/procedural-poetry.png
+hero_alt: VR poetry environment from Procedural Poetry Funhouse
+role: UX/UI Designer
+project_type: Experimental VR
+year: 2025–2026
+team: Emerging Media Lab — artists, researchers, and developers
+
+# --- Homepage featured ---
+home_title: Procedural Poetry Funhouse
+home_description: Immersive VR poetry experience exploring spatial interaction, visual storytelling, and comfort-focused navigation.
+home_categories: XR · Interaction Design · Unreal Engine 5
 
 # --- Preview card (homepage + Projects list) ---
 card_year: Work Project
@@ -58,11 +70,11 @@ slug: procedural-poetry-funhouse
 layout: layouts/project-detail.njk
 ---
 
-## Context
+## Overview
 
 Immersive VR experience inspired by Judith Copithorne’s visual poetry. As UX/UI designer, I defined interaction systems and interface language for a multi-year research project, collaborating with artists, researchers, and developers.
 
-## Platform rebuild
+## The problem
 
 The team migrated to a new development platform mid-project, so existing interactions could not carry over. I redesigned the interaction flow, information architecture, and reusable UI components to support long-term expansion—not just recreate the old prototype.
 

@@ -1,42 +1,52 @@
 ---
 layout: layouts/base.njk
 ---
-<main class="home-page">
-    <section id="bio" class="home-hero-bio figma-intro" aria-label="Amy Yiqin Li — Bio">
-        <div class="landing-bg" aria-hidden="true"></div>
-        <div class="home-hero-bio-inner figma-intro-inner">
-            <div class="home-hero-bio-text">
-                <h1 class="figma-intro-title home-hero-name bio-reveal">{{ hero_name }}</h1>
-                <p class="home-hero-subtitle bio-reveal">{{ hero_subtitle }}</p>
-                <nav class="home-hero-links bio-reveal" id="contact" aria-label="Contact">
-                    <a href="mailto:{{ site.email }}" class="contact-link">Email</a>
-                    <a href="{{ site.linkedin }}" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="{{ assetRoot }}cv.html" class="cv-view contact-sidebar-cv">View CV</a>
-                    <p class="home-hero-location">Location: {{ site.location }}</p>
-                </nav>
-            </div>
-            <a href="{{ assetRoot }}about.html" class="home-hero-portrait bio-reveal bio-reveal--portrait" aria-label="Go to About page">
-                <img src="{{ assetRoot }}images/amy-profile.png" alt="Portrait illustration of Amy Yiqin Li with a cat" class="avatar-photo" width="280" height="280">
-            </a>
-        </div>
-        <a href="#projects" class="scroll-hint bio-reveal" aria-label="Scroll to projects">
-            <span class="scroll-arrow">↓</span>
+<main id="main" class="home-page">
+    <section class="home-hero" aria-labelledby="hero-heading">
+        <p class="home-hero-kicker bio-reveal">{{ hero_kicker }}</p>
+        <h1 id="hero-heading" class="home-hero-title bio-reveal">{{ hero_title }}</h1>
+        <p class="home-hero-support bio-reveal">{{ hero_support }}</p>
+        <a href="#work" class="scroll-hint bio-reveal" aria-label="Scroll to selected work">
+            <span class="scroll-hint-label">{{ hero_scroll or "↓ Scroll to explore" }}</span>
         </a>
     </section>
-    <section id="projects" class="home-section about-page projects-home" aria-labelledby="projects-heading">
-        <div class="projects-home-inner">
-            <div class="page-header scroll-reveal">
-                <h1 id="projects-heading">Projects</h1>
-            </div>
-            <div class="projects-grid">
-                {% from "project-card.njk" import render %}
-                {% for project in collections.projects %}
-                {{ render(project, 'home', assetRoot) }}
-                {% endfor %}
-            </div>
-            <p class="home-inline-link projects-home-footnote scroll-reveal">
-                <a href="projects.html">Open this list on its own page →</a>
-            </p>
+
+    <section id="work" class="selected-work" aria-labelledby="work-heading">
+        <header class="section-header scroll-reveal">
+            <p class="section-kicker">Portfolio</p>
+            <h2 id="work-heading" class="section-title">Selected work</h2>
+        </header>
+        <div class="featured-list">
+            {% from "featured-project.njk" import render as renderFeatured %}
+            {% for project in collections.projects | featured(true) %}
+            {{ renderFeatured(project, loop.index, assetRoot) }}
+            {% endfor %}
         </div>
+    </section>
+
+    <section id="more-work" class="experiments" aria-labelledby="experiments-heading">
+        <header class="section-header scroll-reveal">
+            <p class="section-kicker">More work</p>
+            <h2 id="experiments-heading" class="section-title">Experiments &amp; studies</h2>
+        </header>
+        <div class="experiments-grid">
+            {% from "experiment-item.njk" import render as renderExperiment %}
+            {% for project in collections.projects | featured(false) %}
+            {{ renderExperiment(project, assetRoot) }}
+            {% endfor %}
+        </div>
+        <p class="home-about-link experiments-archive scroll-reveal">
+            <a href="{{ assetRoot }}projects.html">View the full list <span aria-hidden="true">→</span></a>
+        </p>
+    </section>
+
+    <section class="home-about" aria-labelledby="home-about-heading">
+        {% set bio = collections.bioContent[0] %}
+        <p class="section-kicker scroll-reveal">About</p>
+        <h2 id="home-about-heading" class="home-about-title scroll-reveal">{{ bio.data.lead | inlineMarkdown | safe }}</h2>
+        <p class="home-about-text scroll-reveal">{{ bio.data.intro | inlineMarkdown | safe }}</p>
+        <p class="home-about-link scroll-reveal">
+            <a href="{{ assetRoot }}about.html">More about me <span aria-hidden="true">→</span></a>
+        </p>
     </section>
 </main>

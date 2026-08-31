@@ -1,0 +1,38 @@
+{% macro render(project, index, assetRoot) %}
+{% set d = project.data %}
+{% set displayTitle = d.home_title or d.card_title_home or d.title %}
+{% set displayDesc = d.home_description or d.card_description_home or d.card_description %}
+{% set displayCats = d.home_categories or d.card_tags or d.tags %}
+{% set displayNum = d.featured_order or index %}
+{% set projectUrl = assetRoot ~ 'projects/' ~ d.slug ~ '.html' %}
+{% set flip = (index % 2) == 0 %}
+<article class="featured-project{% if flip %} featured-project--flip{% endif %}" data-featured>
+    <a href="{{ projectUrl }}" class="featured-project-link" data-project-origin="home">
+        <div class="featured-copy">
+            <p class="featured-num">{{ displayNum | pad2 }}</p>
+            <h3 class="featured-title">{{ displayTitle }}</h3>
+            {% if displayDesc %}
+            <p class="featured-desc">{{ displayDesc }}</p>
+            {% endif %}
+            {% if displayCats %}
+            <p class="featured-cats">{{ displayCats }}</p>
+            {% endif %}
+            <span class="featured-more">
+                View project <span class="featured-more-arrow" aria-hidden="true">→</span>
+            </span>
+        </div>
+        <div class="featured-visual">
+            <figure class="featured-figure">
+                <img
+                    class="featured-image"
+                    src="{{ assetRoot }}{{ d.hero_image }}"
+                    alt=""
+                    width="1600"
+                    height="1000"
+                    {% if index == 1 %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                    decoding="async">
+            </figure>
+        </div>
+    </a>
+</article>
+{% endmacro %}

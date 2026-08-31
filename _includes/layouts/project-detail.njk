@@ -4,23 +4,68 @@ assetRoot: "../"
 activePage: projects
 permalink: projects/{{ slug }}.html
 ---
-<main class="project-detail">
+<main id="main" class="project-detail">
     <div class="project-detail-inner">
-        <a href="../projects.html" class="project-detail-back" data-smart-back data-asset-root="../">← All projects</a>
-
-        <figure class="project-detail-figure" aria-hidden="true">
-            <img class="project-detail-hero" src="../{{ hero_image }}" alt="">
-        </figure>
+        <a href="../index.html#work" class="project-detail-back" data-smart-back data-asset-root="../">← Work</a>
 
         {% set pageOrg = organization or card_medium %}
         {% set pageTags = tags or card_tags %}
+        {% set displayTitle = home_title or title %}
         <header class="project-detail-header">
-            <h1 class="project-detail-title">{{ title }}</h1>
-            <div class="project-detail-meta-row">
-                {% if pageOrg %}<span class="project-detail-year">{{ pageOrg }}</span>{% endif %}
-                {% if pageTags %}<span class="project-detail-tags">{{ pageTags }}</span>{% endif %}
-            </div>
+            <p class="project-detail-kicker">{% if featured %}Selected work{% else %}Project{% endif %}</p>
+            <h1 class="project-detail-title">{{ displayTitle }}</h1>
+            {% if displayTitle != title %}
+            <p class="project-detail-aka">{{ title }}</p>
+            {% endif %}
+            {% if lead %}
+            <p class="project-detail-lead">{{ lead }}</p>
+            {% endif %}
+
+            <dl class="case-meta">
+                {% if role %}
+                <div class="case-meta-item">
+                    <dt>Role</dt>
+                    <dd>{{ role }}</dd>
+                </div>
+                {% endif %}
+                {% if project_type %}
+                <div class="case-meta-item">
+                    <dt>Type</dt>
+                    <dd>{{ project_type }}</dd>
+                </div>
+                {% endif %}
+                {% if pageTags %}
+                <div class="case-meta-item">
+                    <dt>Tools</dt>
+                    <dd>{{ pageTags }}</dd>
+                </div>
+                {% endif %}
+                {% if year %}
+                <div class="case-meta-item">
+                    <dt>Year</dt>
+                    <dd>{{ year }}</dd>
+                </div>
+                {% endif %}
+                {% if team %}
+                <div class="case-meta-item">
+                    <dt>Team</dt>
+                    <dd>{{ team }}</dd>
+                </div>
+                {% endif %}
+                {% if not role and not project_type and not year and not team and pageOrg %}
+                <div class="case-meta-item">
+                    <dt>Context</dt>
+                    <dd>{{ pageOrg }}</dd>
+                </div>
+                {% endif %}
+            </dl>
         </header>
+
+        {% if hero_image %}
+        <figure class="project-detail-figure project-detail-figure--hero scroll-reveal">
+            <img class="project-detail-hero" src="../{{ hero_image }}" alt="{{ hero_alt or title }}" width="1600" height="1000" fetchpriority="high" decoding="async">
+        </figure>
+        {% endif %}
 
         {% if project_award and project_award.title %}
         <section class="project-detail-award" aria-labelledby="project-award-heading">
@@ -81,15 +126,12 @@ permalink: projects/{{ slug }}.html
                 <a href="{{ project_pdf.file }}" target="_blank" rel="noopener noreferrer" class="cv-view">Open PDF in new tab</a>
             </div>
             <div class="project-detail-pdf-embed">
-                <iframe src="{{ project_pdf.file }}" title="{{ project_pdf.title or title }}"></iframe>
+                <iframe src="{{ project_pdf.file }}" title="{{ project_pdf.title or title }}" loading="lazy"></iframe>
             </div>
         </section>
         {% endif %}
 
         <div class="project-detail-body">
-            {% if lead %}
-            <p class="lead">{{ lead }}</p>
-            {% endif %}
             {% from "project-video.njk" import render as renderVideo %}
             {% if mid_video and mid_video.youtube_id and (content.indexOf("<p>MID_VIDEO_HERE</p>") != -1 or content.indexOf("MID_VIDEO_HERE") != -1) %}
             {% set midMarker = "<p>MID_VIDEO_HERE</p>" if content.indexOf("<p>MID_VIDEO_HERE</p>") != -1 else "MID_VIDEO_HERE" %}
@@ -116,7 +158,7 @@ permalink: projects/{{ slug }}.html
                 <div class="project-asset-scroll-track">
                 {% for item in wideImages %}
                 <figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel project-detail-figure--wide project-detail-figure--scroll">
-                    <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
+                    <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
                     {% if item.caption %}
                     <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
                     {% endif %}
@@ -129,7 +171,7 @@ permalink: projects/{{ slug }}.html
             <div class="project-asset-gallery project-asset-gallery--pixel">
             {% for item in gridImages %}
             <figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel{% if item.large %} project-detail-figure--large{% endif %}">
-                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
+                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
                 {% if item.caption %}
                 <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
                 {% endif %}
@@ -141,7 +183,7 @@ permalink: projects/{{ slug }}.html
             <div class="project-asset-gallery">
             {% for item in additional_images %}
             <figure class="project-detail-figure project-detail-figure--inline{% if item.wide %} project-detail-figure--wide{% endif %}{% if item.large %} project-detail-figure--large{% endif %}">
-                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}">
+                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
                 {% if item.caption %}
                 <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
                 {% endif %}
@@ -152,7 +194,7 @@ permalink: projects/{{ slug }}.html
             {% endif %}
 
             {% if contributions and contributions.length %}
-            {% set contributionsHeading = contributions_heading if contributions_heading else ("Role & Contributions" if card_year == "Work Project" else "My Approach") %}
+            {% set contributionsHeading = contributions_heading if contributions_heading else "My role" %}
             <h2 class="project-detail-h2">{{ contributionsHeading }}</h2>
             <ul class="project-detail-links">
                 {% for item in contributions %}

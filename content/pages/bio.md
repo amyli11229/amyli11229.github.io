@@ -1,9 +1,8 @@
 ---
-# Bio copy for the About page (homepage uses a short name + subtitle instead).
-# Edit lead and intro below. Use **bold** and [links](url) in Markdown.
+# Bio copy for the About page and homepage about band.
 permalink: false
-lead: Hi! I'm Amy Yiqin Li, an interdisciplinary designer, creative technologist, and researcher exploring the intersection of AI, interaction, and storytelling.
-intro: Currently designing human-centered experiences through UI/UX, XR, and emerging media at the University of British Columbia. Previously designed AI- and VR-powered interactive systems at the Emerging Media Lab. Assisting artists and creative projects at UBC ANML (AHVA New Media Lab). I create installations, websites, and digital experiences that blend technology, art, and education.
+lead: Hi, I’m Amy.
+intro: I’m a Visual Arts student at UBC exploring the space between art, technology, and human-computer interaction. I like making experiences people can enter, touch, or play with—not only look at. At the Emerging Media Lab I’ve designed VR and visualization tools with researchers and artists; at the AHVA New Media Lab I help other artists get experimental work off the ground.
 experience:
   - role: UI/UX Designer
     org: Emerging Media Lab

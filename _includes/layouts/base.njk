@@ -6,6 +6,7 @@
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 {% include "nav.njk" %}
 {{ content | safe }}
+{% include "site-footer.njk" %}
 <script src="{{ assetRoot }}main.js"></script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+{% macro render(project, assetRoot) %}
+{% set d = project.data %}
+{% set displayTitle = d.home_title or d.card_title_home or d.title %}
+{% set displayDesc = d.card_description_home or d.card_description %}
+{% set displayCats = d.card_medium or d.card_tags or d.tags %}
+{% set projectUrl = assetRoot ~ 'projects/' ~ d.slug ~ '.html' %}
+<article class="experiment-item scroll-reveal">
+    <a href="{{ projectUrl }}" class="experiment-link" data-project-origin="home">
+        <div class="experiment-copy">
+            <h3 class="experiment-title">{{ displayTitle }}</h3>
+            {% if displayDesc %}
+            <p class="experiment-desc">{{ displayDesc }}</p>
+            {% endif %}
+            {% if displayCats %}
+            <p class="experiment-cats">{{ displayCats }}</p>
+            {% endif %}
+        </div>
+    </a>
+</article>
+{% endmacro %}
