@@ -21,6 +21,7 @@ collections:
           - { label: Email address, name: email, widget: string }
           - { label: LinkedIn URL, name: linkedin, widget: string }
           - { label: GitHub URL, name: github, widget: string }
+          - { label: GitHub username, name: github_username, widget: string, required: false, hint: "Used for the About page contribution graph, e.g. amyli11229" }
           - { label: Contact form link, name: contact_form_url, widget: string, hint: "Full Google Form URL (opens in new tab)" }
           - { label: Contact form embed URL, name: contact_form_embed, widget: string, hint: "Google Form embed URL (used in iframe)" }
 

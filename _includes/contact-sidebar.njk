@@ -7,4 +7,17 @@
         <a href="{{ site.linkedin }}" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="{{ assetRoot }}cv.html" class="cv-view contact-sidebar-cv">View resume</a>
     </nav>
+    {% if showGithubGraph and site.github_username %}
+    <figure class="github-graph bio-reveal">
+        <figcaption class="github-graph-label">GitHub</figcaption>
+        <a href="{{ site.github }}" class="github-graph-link" target="_blank" rel="noopener noreferrer">
+            <div
+                class="github-graph-calendar"
+                data-github-graph="{{ site.github_username }}"
+                role="img"
+                aria-label="GitHub contribution graph for {{ site.github_username }}">
+            </div>
+        </a>
+    </figure>
+    {% endif %}
 </div>

@@ -148,4 +148,90 @@ document.addEventListener('DOMContentLoaded', function() {
             smartBack.textContent = '← Work';
         }
     }
+
+    function weekdaySundayFirst(isoDate) {
+        var day = new Date(isoDate + 'T00:00:00').getDay();
+        return day;
+    }
+
+    function renderGithubCalendar(root, days) {
+        var cell = 10;
+        var gap = 3;
+        var step = cell + gap;
+        var startPad = days.length ? weekdaySundayFirst(days[0].date) : 0;
+        var weeks = Math.ceil((startPad + days.length) / 7);
+        var width = weeks * step - gap;
+        var height = 7 * step - gap;
+        var ns = 'http://www.w3.org/2000/svg';
+        var svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+        svg.setAttribute('width', String(width));
+        svg.setAttribute('height', String(height));
+        svg.setAttribute('aria-hidden', 'true');
+        svg.setAttribute('focusable', 'false');
+
+        days.forEach(function(day, index) {
+            var slot = startPad + index;
+            var x = Math.floor(slot / 7) * step;
+            var y = (slot % 7) * step;
+            var rect = document.createElementNS(ns, 'rect');
+            rect.setAttribute('x', String(x));
+            rect.setAttribute('y', String(y));
+            rect.setAttribute('width', String(cell));
+            rect.setAttribute('height', String(cell));
+            rect.setAttribute('rx', '1.5');
+            rect.setAttribute('class', 'github-graph-day');
+            var level = Number(day.level);
+            if (!Number.isFinite(level) || level < 0) level = 0;
+            if (level > 4) level = 4;
+            rect.setAttribute('data-level', String(level));
+            var count = Number(day.count) || 0;
+            rect.setAttribute('title', count + ' contribution' + (count === 1 ? '' : 's') + ' on ' + day.date);
+            svg.appendChild(rect);
+        });
+
+        root.replaceChildren(svg);
+    }
+
+    function showGithubChartFallback(root, user) {
+        var img = document.createElement('img');
+        img.className = 'github-graph-fallback';
+        img.alt = 'GitHub contribution graph';
+        img.width = 663;
+        img.height = 104;
+        img.decoding = 'async';
+        function setSrc() {
+            var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            img.src = 'https://ghchart.rshah.org/' + (dark ? '6a8cff' : '193af6') + '/' + encodeURIComponent(user);
+        }
+        setSrc();
+        root.replaceChildren(img);
+        root._githubFallback = setSrc;
+    }
+
+    var graphRoot = document.querySelector('[data-github-graph]');
+    if (graphRoot) {
+        var githubUser = graphRoot.getAttribute('data-github-graph');
+        fetch('https://github-contributions-api.jogruber.de/v4/' + encodeURIComponent(githubUser) + '?y=last')
+            .then(function(res) {
+                if (!res.ok) throw new Error('Could not load contributions');
+                return res.json();
+            })
+            .then(function(data) {
+                var days = data.contributions || [];
+                if (!days.length) throw new Error('No contributions');
+                renderGithubCalendar(graphRoot, days);
+            })
+            .catch(function() {
+                showGithubChartFallback(graphRoot, githubUser);
+            });
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', function() {
+            if (graphRoot && typeof graphRoot._githubFallback === 'function') {
+                graphRoot._githubFallback();
+            }
+        });
+    }
 });

@@ -18,6 +18,11 @@
     --color-border: #e4e2db;
     --color-hover: #000;
     --gallery-accent: #193af6;
+    --contrib-l0: #e4e2db;
+    --contrib-l1: #b8c0f8;
+    --contrib-l2: #7a88f0;
+    --contrib-l3: #3a4de0;
+    --contrib-l4: #193af6;
     --nav-bg: rgba(247, 246, 242, 0.86);
     --hero-text: #111111;
     --landing-spot: rgba(0, 0, 0, 0.04);
@@ -47,6 +52,11 @@ html[data-theme="dark"] {
     --color-border: #2a2a2a;
     --color-hover: #fff;
     --gallery-accent: #6a8cff;
+    --contrib-l0: #2a2a2a;
+    --contrib-l1: #2c3a6e;
+    --contrib-l2: #3d54b8;
+    --contrib-l3: #5a76e8;
+    --contrib-l4: #6a8cff;
     --nav-bg: rgba(18, 18, 18, 0.88);
     --hero-text: #f4f4f4;
     --landing-spot: rgba(255, 255, 255, 0.05);
@@ -729,6 +739,50 @@ html[data-theme="dark"] .theme-toggle-sun {
     width: fit-content;
     margin-top: 0.35rem;
 }
+
+.github-graph {
+    margin: 0;
+    width: min(280px, 100%);
+}
+
+.github-graph-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 0.55rem;
+}
+
+.github-graph-link {
+    display: block;
+    line-height: 0;
+}
+
+.github-graph-link:focus-visible {
+    outline: 2px solid var(--gallery-accent);
+    outline-offset: 3px;
+}
+
+.github-graph-calendar {
+    width: 100%;
+}
+
+.github-graph-calendar svg,
+.github-graph-fallback {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.github-graph-day {
+    shape-rendering: crispEdges;
+}
+
+.github-graph-day[data-level="0"] { fill: var(--contrib-l0); }
+.github-graph-day[data-level="1"] { fill: var(--contrib-l1); }
+.github-graph-day[data-level="2"] { fill: var(--contrib-l2); }
+.github-graph-day[data-level="3"] { fill: var(--contrib-l3); }
+.github-graph-day[data-level="4"] { fill: var(--contrib-l4); }
 
 .about-experience {
     margin-top: var(--spacing-xl);
