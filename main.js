@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     observeReveals('.scroll-reveal', 60);
     observeReveals('[data-featured]', 0);
-    observeReveals('.project-detail-body > h2, .project-detail-body > .project-detail-h2, .project-detail-body > .lead', 40);
+    observeReveals('.project-detail-body > h2, .project-detail-body > .project-detail-h2, .project-detail-body > .lead, .project-detail-body > .case-label', 40);
 
     const PROJECT_RETURN_KEY = 'projectReturnTo';
 
@@ -234,4 +234,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    document.querySelectorAll('[data-cycle-scroll]').forEach(function(scroller) {
+        var wrap = scroller.closest('.case-media-cycle-wrap');
+        if (!wrap) return;
+
+        function updateHint() {
+            var max = scroller.scrollWidth - scroller.clientWidth;
+            wrap.classList.toggle('is-end', max <= 8 || scroller.scrollLeft >= max - 8);
+        }
+
+        scroller.addEventListener('scroll', updateHint, { passive: true });
+        window.addEventListener('resize', updateHint);
+        updateHint();
+    });
 });

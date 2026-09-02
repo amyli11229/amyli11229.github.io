@@ -1,0 +1,49 @@
+{% if additional_images and additional_images.length %}
+{% if additional_images_heading %}
+<h2 class="project-detail-h2">{{ additional_images_heading }}</h2>
+{% endif %}
+{% if additional_images_intro %}
+<p>{{ additional_images_intro }}</p>
+{% endif %}
+{% if additional_images_pixel %}
+{% set wideImages = additional_images | whereWide(true) %}
+{% set gridImages = additional_images | whereWide(false) %}
+{% if wideImages.length %}
+<div class="project-asset-scroll" role="region" aria-label="{{ additional_images_heading or 'Wide assets' }} — scroll horizontally">
+    <div class="project-asset-scroll-track">
+    {% for item in wideImages %}
+    <figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel project-detail-figure--wide project-detail-figure--scroll">
+        <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
+        {% if item.caption %}
+        <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
+        {% endif %}
+    </figure>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% if gridImages.length %}
+<div class="project-asset-gallery project-asset-gallery--pixel">
+{% for item in gridImages %}
+<figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel{% if item.large %} project-detail-figure--large{% endif %}">
+    <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
+    {% if item.caption %}
+    <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
+    {% endif %}
+</figure>
+{% endfor %}
+</div>
+{% endif %}
+{% else %}
+<div class="project-asset-gallery">
+{% for item in additional_images %}
+<figure class="project-detail-figure project-detail-figure--inline{% if item.wide %} project-detail-figure--wide{% endif %}{% if item.large %} project-detail-figure--large{% endif %}">
+    <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
+    {% if item.caption %}
+    <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
+    {% endif %}
+</figure>
+{% endfor %}
+</div>
+{% endif %}
+{% endif %}

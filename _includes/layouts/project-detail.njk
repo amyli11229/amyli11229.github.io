@@ -116,8 +116,48 @@ permalink: projects/{{ slug }}.html
         </div>
         {% endif %}
 
+        {% if psr and (psr.problem or psr.solution or psr.result) %}
+        <section class="case-psr" aria-label="Problem, solution, and result">
+            {% if psr.problem %}
+            <article class="case-psr-card">
+                <h2 class="case-psr-heading"><span>Problem</span> <em>{{ psr.problem.title }}</em></h2>
+                <p>{{ psr.problem.text }}</p>
+            </article>
+            {% endif %}
+            {% if psr.solution %}
+            <article class="case-psr-card">
+                <h2 class="case-psr-heading"><span>Solution</span> <em>{{ psr.solution.title }}</em></h2>
+                <p>{{ psr.solution.text }}</p>
+            </article>
+            {% endif %}
+            {% if psr.result %}
+            <article class="case-psr-card">
+                <h2 class="case-psr-heading"><span>Result</span> <em>{{ psr.result.title }}</em></h2>
+                <p>{{ psr.result.text }}</p>
+            </article>
+            {% endif %}
+        </section>
+        {% endif %}
+
+        {% if impact and impact.length %}
+        <section class="case-impact" aria-label="Impact">
+            <p class="case-label">Impact</p>
+            <div class="case-impact-grid">
+                {% for item in impact %}
+                <div class="case-impact-item">
+                    <p class="case-impact-value">{{ item.value }}</p>
+                    <p class="case-impact-title">{{ item.title }}</p>
+                    {% if item.note %}<p class="case-impact-note">{{ item.note }}</p>{% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
         {% from "project-video.njk" import render as renderVideo %}
+        {% if not project_video_at_end %}
         {{ renderVideo(project_video, title) }}
+        {% endif %}
 
         {% if project_pdf and project_pdf.file %}
         <section class="project-detail-pdf" aria-labelledby="project-pdf-heading">
@@ -133,64 +173,23 @@ permalink: projects/{{ slug }}.html
 
         <div class="project-detail-body">
             {% from "project-video.njk" import render as renderVideo %}
-            {% if mid_video and mid_video.youtube_id and (content.indexOf("<p>MID_VIDEO_HERE</p>") != -1 or content.indexOf("MID_VIDEO_HERE") != -1) %}
-            {% set midMarker = "<p>MID_VIDEO_HERE</p>" if content.indexOf("<p>MID_VIDEO_HERE</p>") != -1 else "MID_VIDEO_HERE" %}
-            {% set contentParts = content.split(midMarker) %}
-            {{ contentParts[0] | safe }}
+            {% set storyHtml = content %}
+            {% if mid_video and mid_video.youtube_id and storyHtml.indexOf("MID_VIDEO_HERE") != -1 %}
+            {% set midMarker = "<p>MID_VIDEO_HERE</p>" if storyHtml.indexOf("<p>MID_VIDEO_HERE</p>") != -1 else "MID_VIDEO_HERE" %}
+            {% set midParts = storyHtml.split(midMarker) %}
+            {{ midParts[0] | safe }}
             {{ renderVideo(mid_video, title) }}
-            {{ contentParts[1] | safe }}
+            {% set storyHtml = midParts[1] %}
+            {% endif %}
+            {% if additional_images and additional_images.length and storyHtml.indexOf("GALLERY_HERE") != -1 %}
+            {% set galleryMarker = "<p>GALLERY_HERE</p>" if storyHtml.indexOf("<p>GALLERY_HERE</p>") != -1 else "GALLERY_HERE" %}
+            {% set galleryParts = storyHtml.split(galleryMarker) %}
+            {{ galleryParts[0] | safe }}
+            {% include "project-gallery.njk" %}
+            {{ galleryParts[1] | safe }}
             {% else %}
-            {{ content | safe }}
-            {% endif %}
-
-            {% if additional_images and additional_images.length %}
-            {% if additional_images_heading %}
-            <h2 class="project-detail-h2">{{ additional_images_heading }}</h2>
-            {% endif %}
-            {% if additional_images_intro %}
-            <p>{{ additional_images_intro }}</p>
-            {% endif %}
-            {% if additional_images_pixel %}
-            {% set wideImages = additional_images | whereWide(true) %}
-            {% set gridImages = additional_images | whereWide(false) %}
-            {% if wideImages.length %}
-            <div class="project-asset-scroll" role="region" aria-label="{{ additional_images_heading or 'Wide assets' }} — scroll horizontally">
-                <div class="project-asset-scroll-track">
-                {% for item in wideImages %}
-                <figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel project-detail-figure--wide project-detail-figure--scroll">
-                    <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
-                    {% if item.caption %}
-                    <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
-                    {% endif %}
-                </figure>
-                {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-            {% if gridImages.length %}
-            <div class="project-asset-gallery project-asset-gallery--pixel">
-            {% for item in gridImages %}
-            <figure class="project-detail-figure project-detail-figure--inline project-detail-figure--pixel{% if item.large %} project-detail-figure--large{% endif %}">
-                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
-                {% if item.caption %}
-                <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
-                {% endif %}
-            </figure>
-            {% endfor %}
-            </div>
-            {% endif %}
-            {% else %}
-            <div class="project-asset-gallery">
-            {% for item in additional_images %}
-            <figure class="project-detail-figure project-detail-figure--inline{% if item.wide %} project-detail-figure--wide{% endif %}{% if item.large %} project-detail-figure--large{% endif %}">
-                <img class="project-detail-hero" src="../{{ item.image }}" alt="{{ item.caption or '' }}" loading="lazy" decoding="async">
-                {% if item.caption %}
-                <figcaption class="project-detail-caption">{{ item.caption }}</figcaption>
-                {% endif %}
-            </figure>
-            {% endfor %}
-            </div>
-            {% endif %}
+            {{ storyHtml | safe }}
+            {% include "project-gallery.njk" %}
             {% endif %}
 
             {% if contributions and contributions.length %}
@@ -204,6 +203,12 @@ permalink: projects/{{ slug }}.html
             {% endif %}
 
             {% from "project-video.njk" import render as renderVideo %}
+            {% if project_video_at_end %}
+            {{ renderVideo(project_video, title) }}
+            {% endif %}
+            {% if mid_video and mid_video.youtube_id and content.indexOf("MID_VIDEO_HERE") == -1 %}
+            {{ renderVideo(mid_video, title) }}
+            {% endif %}
             {{ renderVideo(contributions_video, title, "project-detail-video--after-contributions") }}
 
             {% if external_links and external_links.length %}

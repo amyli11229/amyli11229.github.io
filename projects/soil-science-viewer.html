@@ -6,18 +6,18 @@
 <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
 
 
-<title>Soil Science Viewer — Gaussian Splat Visualization — Amy Yiqin Li</title>
-<meta name="description" content="UI/UX design for a web viewer that makes Gaussian Splat soil scans easier to navigate for research and education.">
+<title>Soil Science Viewer — Amy Yiqin Li</title>
+<meta name="description" content="Making complex 3D soil data easier to explore">
 <link rel="canonical" href="https://amyli11229.github.io/projects/soil-science-viewer.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Amy Yiqin Li">
-<meta property="og:title" content="Soil Science Viewer — Gaussian Splat Visualization — Amy Yiqin Li">
-<meta property="og:description" content="UI/UX design for a web viewer that makes Gaussian Splat soil scans easier to navigate for research and education.">
+<meta property="og:title" content="Soil Science Viewer — Amy Yiqin Li">
+<meta property="og:description" content="Making complex 3D soil data easier to explore">
 <meta property="og:url" content="https://amyli11229.github.io/projects/soil-science-viewer.html">
 <meta property="og:image" content="https://amyli11229.github.io/images/amy-profile.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Soil Science Viewer — Gaussian Splat Visualization — Amy Yiqin Li">
-<meta name="twitter:description" content="UI/UX design for a web viewer that makes Gaussian Splat soil scans easier to navigate for research and education.">
+<meta name="twitter:title" content="Soil Science Viewer — Amy Yiqin Li">
+<meta name="twitter:description" content="Making complex 3D soil data easier to explore">
 <meta name="twitter:image" content="https://amyli11229.github.io/images/amy-profile.png">
 <meta name="theme-color" content="#f7f6f2">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="case-study">
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Primary">
     <div class="nav-container">
@@ -58,10 +58,8 @@
             <p class="project-detail-kicker">Selected work</p>
             <h1 class="project-detail-title">Soil Science Viewer</h1>
             
-            <p class="project-detail-aka">Soil Science Viewer — Gaussian Splat Visualization</p>
             
-            
-            <p class="project-detail-lead">UI/UX design for a web viewer that makes Gaussian Splat soil scans easier to navigate for research and education.</p>
+            <p class="project-detail-lead">Making complex 3D soil data easier to explore</p>
             
 
             <dl class="case-meta">
@@ -74,25 +72,25 @@
                 
                 <div class="case-meta-item">
                     <dt>Type</dt>
-                    <dd>Research / visualization</dd>
+                    <dd>Research / Data Visualization</dd>
                 </div>
                 
                 
                 <div class="case-meta-item">
                     <dt>Tools</dt>
-                    <dd>Figma, Gaussian Splatting, GitHub</dd>
+                    <dd>Figma, Gaussian Splatting, GitHub, User Testing</dd>
                 </div>
                 
                 
                 <div class="case-meta-item">
                     <dt>Year</dt>
-                    <dd>2025–2026</dd>
+                    <dd>September 2025 – April 2026</dd>
                 </div>
                 
                 
                 <div class="case-meta-item">
                     <dt>Team</dt>
-                    <dd>Emerging Media Lab</dd>
+                    <dd>Emerging Media Lab — UBC Department of Soil Science, researchers and developers.</dd>
                 </div>
                 
                 
@@ -101,25 +99,12 @@
 
         
         <figure class="project-detail-figure project-detail-figure--hero scroll-reveal">
-            <img class="project-detail-hero" src="../images/projects/soil-science-viewer.png" alt="Soil Science Viewer interface showing a 3D Gaussian Splat soil scan" width="1600" height="1000" fetchpriority="high" decoding="async">
+            <img class="project-detail-hero" src="../images/projects/soil-science-viewer.png" alt="Soil Science Viewer interface showing a 3D Gaussian Splat soil scan with location list and orbit controls" width="1600" height="1000" fetchpriority="high" decoding="async">
         </figure>
         
 
         
 
-        
-        <section class="project-detail-award" aria-labelledby="project-poster-heading">
-            <h2 id="project-poster-heading" class="project-detail-video-title">Project poster — Winter 2025–2026</h2>
-            
-            <p class="project-detail-award-text">Poster summarizing Virtual Soils: purpose, development stack, design approach, architecture, and the EML student team.</p>
-            
-            <figure class="project-detail-award-figure">
-                <img
-                    class="project-detail-award-image"
-                    src="../images/projects/virtual-soils-poster.png"
-                    alt="Virtual Soils project poster for Winter 2025–2026 from UBC Emerging Media Lab">
-            </figure>
-        </section>
         
 
         
@@ -140,40 +125,175 @@
         
 
         
+        <section class="case-psr" aria-label="Problem, solution, and result">
+            
+            <article class="case-psr-card">
+                <h2 class="case-psr-heading"><span>Problem</span> <em>A technically complex dataset</em></h2>
+                <p>A Gaussian Splat scan can hold an enormous amount of visual information. Without clear controls and orientation, rotating, zooming, and moving through 3D soil quickly becomes hard to understand—especially for people who are not 3D or visualization experts.</p>
+            </article>
+            
+            
+            <article class="case-psr-card">
+                <h2 class="case-psr-heading"><span>Solution</span> <em>An interface that gets out of the way</em></h2>
+                <p>I designed around the user&#39;s mental model, not the technical capabilities of the viewer. The work was to figure out what people needed to see, what they needed to understand, and how the interface could support exploration without competing with the data.</p>
+            </article>
+            
+            
+            <article class="case-psr-card">
+                <h2 class="case-psr-heading"><span>Result</span> <em>A more approachable viewer</em></h2>
+                <p>The live web viewer at virtualsoils.ca lets researchers and students move through high-resolution soil scans with clearer navigation, organized controls, and an interaction system shaped by testing.</p>
+            </article>
+            
+        </section>
+        
+
+        
+        <section class="case-impact" aria-label="Impact">
+            <p class="case-label">Impact</p>
+            <div class="case-impact-grid">
+                
+                <div class="case-impact-item">
+                    <p class="case-impact-value">1</p>
+                    <p class="case-impact-title">Designer</p>
+                    <p class="case-impact-note">Sole UI/UX between researchers and developers</p>
+                </div>
+                
+                <div class="case-impact-item">
+                    <p class="case-impact-value">Live</p>
+                    <p class="case-impact-title">Web viewer</p>
+                    <p class="case-impact-note">Exploring Gaussian Splat soil scans at virtualsoils.ca</p>
+                </div>
+                
+                <div class="case-impact-item">
+                    <p class="case-impact-value">UBC</p>
+                    <p class="case-impact-title">Soil Science</p>
+                    <p class="case-impact-note">Built with Emerging Media Lab and the Department of Soil Science</p>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        
+        
         
 
 
+        
 
         
 
         <div class="project-detail-body">
             
             
-            <h2>Overview</h2>
-<p>Sole UI/UX designer for the viewer. Defined layouts, navigation, and interaction patterns for complex 3D soil data, then iterated with developers to improve clarity and accessibility for non-technical users.</p>
+            
+            
+            <p class="case-label">Context</p>
+<h2>How do you make complex 3D scientific data feel approachable?</h2>
+<p><em>Soil Science Viewer</em> is a web-based visualization tool for exploring high-resolution soil scans using Gaussian Splatting. As the sole UI/UX designer, I worked between researchers and developers to turn a technically complex dataset into an interface that was easier to navigate, understand, and explore.</p>
+<p>The challenge wasn't simply to make the viewer look clean.</p>
+<p>It was to figure out <strong>what users needed to see, what they needed to understand, and how the interface could get out of their way while they explored the data.</strong></p>
+<p class="case-label">Problem</p>
+<h2>Starting with a complex dataset</h2>
+<p>The original challenge came from the nature of the data itself.</p>
+<p>A Gaussian Splat scan can contain an enormous amount of visual information. Users can rotate, zoom, and move through a three-dimensional representation of soil, but without clear controls and orientation, the viewer can quickly become difficult to understand.</p>
+<p>I began by breaking the experience down into the fundamental questions a user might have:</p>
+<div class="case-questions">
+<p>Where am I?</p>
+<p>What am I looking at?</p>
+<p>How do I move through it?</p>
+<p>What can I interact with?</p>
+<p>How do I get back if I lose my position?</p>
+</div>
+<p>These questions became the foundation for the navigation and interaction system.</p>
+<p class="case-label">Goals + North Star</p>
+<div class="case-split">
+<div class="case-split-main">
+<h2>Designing for people who aren't 3D experts</h2>
+<p>Rather than designing around the technical capabilities of the visualization, I focused on designing around the user's mental model.</p>
+<p>The goal was not to hide the complexity of the data, but to <strong>make that complexity easier to approach.</strong></p>
+</div>
+<div class="case-split-side">
+<p><strong>Organize.</strong> Could controls sit around the actions people needed most?</p>
+<p><strong>Communicate.</strong> Was navigation understandable without becoming another layer of noise?</p>
+<p><strong>Focus.</strong> Did the 3D view stay the main attraction?</p>
+<p><strong>Discover.</strong> Were important actions still easy to find?</p>
+</div>
+</div>
+<p class="case-label">Process + Key Insights</p>
+<h2>Design → build → test → identify friction → revise</h2>
+<p>Designing the interface was only one part of the problem.</p>
+<p>Because the viewer was being developed collaboratively, I worked directly with developers to understand what was technically possible and how the design would translate into the actual web experience.</p>
+<p>I created and iterated on prototypes in Figma, discussed interaction behaviour with the development team, and refined designs as implementation revealed new constraints.</p>
+<p>Instead of treating the handoff as the end of the design process, I stayed involved throughout implementation.</p>
+<p>As the viewer developed, I used feedback and observation to identify where users were having difficulty. I looked at more than whether someone could successfully operate the viewer. I paid attention to moments of hesitation, confusion, and unnecessary effort.</p>
+<div class="case-insights">
+<div class="case-insight">
+<p class="case-insight-num">01</p>
+<h3>Discovery is the first barrier</h3>
+<p>Where people looked first—and which controls they missed—mattered more than whether a feature technically existed.</p>
+</div>
+<div class="case-insight">
+<p class="case-insight-num">02</p>
+<h3>Navigation has to feel predictable</h3>
+<p>Moving through a splat is easy to get lost in. People needed to trust how orbit, fly, and reset would behave.</p>
+</div>
+<div class="case-insight">
+<p class="case-insight-num">03</p>
+<h3>The interface must explain the 3D view</h3>
+<p>Users had to understand the relationship between controls and the environment, then find their way back if they lost their position.</p>
+</div>
+</div>
+<p>Small changes to hierarchy, labeling, control placement, and navigation could make a significant difference in how confidently someone explored the visualization.</p>
+<p class="case-label">Design 1/3</p>
+<h2>Designing the interface around the data</h2>
+<p>One of the most important design decisions was balancing <strong>interface clarity with visual immersion</strong>.</p>
+<p>The 3D soil scan is the reason users are on the page in the first place. Too much UI would compete with the visualization; too little would leave users without enough guidance.</p>
+<p>I therefore treated the interface as a supporting layer rather than the main attraction.</p>
+<p>Controls were organized around the actions users needed most, while secondary information remained available without constantly competing for attention.</p>
+<p>This helped create a viewer where the interface supports exploration rather than becoming another problem users have to solve.</p>
+<p class="case-label">Design 2/3</p>
+<h2>From prototype to implementation</h2>
+<p>I explored different ways of organizing controls, communicating navigation, and presenting information without overwhelming the 3D view.</p>
+<p>Through prototyping and iteration, I simplified the interface so that the visualization remained the focus while important actions were still easy to discover.</p>
+<p>Implementation kept revealing new constraints. That made the loop essential: <strong>design, build, test, identify friction, revise, and build again.</strong></p>
+<p class="case-label">Design 3/3</p>
+<h2>Collaborating across design and research</h2>
+<p>Working as the sole designer also meant taking responsibility for translating between different perspectives.</p>
+<p>Researchers brought questions about how the soil data should be presented and explored. Developers understood the underlying visualization technology and implementation constraints. My role was to connect these requirements to the experience of the person actually using the viewer.</p>
+<p>Sometimes that meant advocating for a usability improvement. Other times, it meant adapting a design to a technical limitation or finding a simpler solution that achieved the same goal.</p>
+<p>The process taught me that good UX in research environments isn't about designing in isolation.</p>
+<p>It is about <strong>asking the right questions, communicating clearly, and finding a solution that works for both the people using the tool and the people building it.</strong></p>
+<p class="case-label">The Result</p>
+<h2>A viewer that makes the data easier to approach</h2>
+<p>The final result is a web-based viewer that allows users to explore Gaussian Splat soil scans through a more accessible interaction system.</p>
+<p>My work established:</p>
+<ul>
+<li><strong>Navigation &amp; interaction</strong> — clearer ways to move through and interact with 3D soil scans</li>
+<li><strong>Information architecture</strong> — organized controls and information around user needs</li>
+<li><strong>Usability</strong> — identified and addressed points of confusion and interaction friction</li>
+<li><strong>Accessibility</strong> — considered the needs of non-technical users interacting with scientific data</li>
+<li><strong>Design systems</strong> — developed consistent interface patterns and prototypes in Figma</li>
+<li><strong>Implementation collaboration</strong> — worked directly with developers throughout development</li>
+</ul>
+<figure class="case-media">
+<img src="../images/projects/virtual-soils-poster.png" alt="Virtual Soils project poster for Winter 2025–2026 from UBC Emerging Media Lab" width="1024" height="768" loading="lazy" decoding="async">
+<figcaption>Project poster — Winter 2025–2026. Purpose, stack, design approach, architecture, and the EML student team.</figcaption>
+</figure>
+<p class="case-label">Reflections</p>
+<h2>Build a bridge, not just a visualization</h2>
+<p>The project changed how I think about scientific visualization.</p>
+<p>The hardest part isn't necessarily visualizing the data.</p>
+<p>It is <strong>building a bridge between the complexity of the data and the simplicity users need in order to understand it.</strong></p>
 
             
 
             
 
             
-            
-            <h2 class="project-detail-h2">My role</h2>
-            <ul class="project-detail-links">
-                
-                <li>Designed interface layouts and interaction systems</li>
-                
-                <li>Optimized user flow and navigation experience</li>
-                
-                <li>Collaborated directly with developers during implementation</li>
-                
-                <li>Improved accessibility and usability of scientific visualization tools</li>
-                
-                <li>Created UI prototypes and design iterations in Figma</li>
-                
-            </ul>
-            
 
+            
+            
             
             
 
