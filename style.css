@@ -241,6 +241,23 @@ html[data-theme="dark"] .theme-toggle-sun {
     position: relative;
 }
 
+.home-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(14rem, 18rem);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    width: 100%;
+}
+
+.home-hero-copy {
+    min-width: 0;
+}
+
+.home-hero-sidebar {
+    justify-self: end;
+    max-width: 18rem;
+}
+
 .home-hero-kicker {
     font-size: 0.78rem;
     letter-spacing: 0.16em;
@@ -1845,9 +1862,15 @@ html[data-theme="dark"] .theme-toggle-sun {
         grid-template-columns: 1fr;
     }
 
+    .home-hero-inner {
+        grid-template-columns: 1fr;
+    }
+
     .home-hero-bio-sidebar,
     .about-sidebar {
         order: -1;
+        justify-self: start;
+        max-width: none;
     }
 }
 

@@ -3,9 +3,17 @@ layout: layouts/base.njk
 ---
 <main id="main" class="home-page">
     <section class="home-hero" aria-labelledby="hero-heading">
-        <p class="home-hero-kicker bio-reveal">{{ hero_kicker }}</p>
-        <h1 id="hero-heading" class="home-hero-title bio-reveal">{{ hero_title }}</h1>
-        <p class="home-hero-support bio-reveal">{{ hero_support }}</p>
+        <div class="home-hero-inner">
+            <div class="home-hero-copy">
+                <p class="home-hero-kicker bio-reveal">{{ hero_kicker }}</p>
+                <h1 id="hero-heading" class="home-hero-title bio-reveal">{{ hero_title }}</h1>
+                <p class="home-hero-support bio-reveal">{{ hero_support }}</p>
+            </div>
+            {% set sidebarClass = "home-hero-sidebar" %}
+            {% set portraitClass = "about-hero-portrait" %}
+            {% set showGithubGraph = true %}
+            {% include "contact-sidebar.njk" %}
+        </div>
         <a href="#work" class="scroll-hint bio-reveal" aria-label="Scroll to selected work">
             <span class="scroll-hint-label">{{ hero_scroll or "↓ Scroll to explore" }}</span>
         </a>
